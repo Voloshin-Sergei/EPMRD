@@ -1,0 +1,16 @@
+{
+  "name": "epmrd",
+  "version": "1.0.0",
+  "description": "**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Voloshin-Sergei@bitbucket.org/Voloshin-Sergei/epmrd.git"
+  },
+  "author": "Voloshin-Sergei",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Voloshin-Sergei/epmrd#readme"
+}
