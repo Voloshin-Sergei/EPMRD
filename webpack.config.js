@@ -1,37 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-const TerserWebpackPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
-const isDev = process.env.NODE_ENV === 'development';
-const isProd = !isDev;
-
-const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`);
-
-const optimization = () => {
-  const configObj = {
-    splitChunks: {
-      chunks: 'all',
-    },
-  };
-
-  if (isProd) {
-    configObj.minimizer = [new OptimizeCssAssetsWebpackPlugin(), new TerserWebpackPlugin()];
-  }
-
-  return configObj;
-};
-
-module.exports = {
+module.exports = ({ develop }) => ({
   context: path.resolve(__dirname, 'src'),
-  mode: 'development',
+  mode: develop ? 'development' : 'production',
   entry: './index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: `${filename('js')}`,
+    filename: '[name].[contenthash].js',
+    assetModuleFilename: 'assets/[name].[contenthash].[ext]',
   },
   module: {
     rules: [
@@ -47,15 +27,8 @@ module.exports = {
         },
       },
       {
-        test: /\.(?:ico|png|jpg|jpeg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: `${filename('[ext]')}`,
-            },
-          },
-        ],
+        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+        type: 'asset/resource',
       },
       {
         test: /\.css$/i,
@@ -63,7 +36,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: isDev,
+              hmr: develop,
             },
           },
           'css-loader',
@@ -83,18 +56,16 @@ module.exports = {
     hot: true,
     port: 3000,
   },
-  devtool: isProd ? false : 'source-map',
-  optimization: optimization(),
+  devtool: develop ? 'source-map' : false,
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
       filename: 'index.html',
-      minify: {
-        collapseWhitespace: isProd,
-      },
     }),
     new CleanWebpackPlugin(),
-    new ESLintPlugin(),
-    new MiniCssExtractPlugin({ filename: `${filename('css')}` }),
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+    new CopyPlugin({
+      patterns: [{ from: '../public' }],
+    }),
   ],
-};
+});
