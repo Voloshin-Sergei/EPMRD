@@ -15,6 +15,9 @@ module.exports = ({ mode }) => {
       filename: '[name].[contenthash].js',
       assetModuleFilename: 'assets/[name].[contenthash].[ext]',
     },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+    },
     module: {
       rules: [
         { test: /\.html$/, loader: 'html-loader' },
