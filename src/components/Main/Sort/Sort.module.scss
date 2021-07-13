@@ -1,0 +1,33 @@
+.sort {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  background-color: #edf1f8;
+}
+
+.text {
+  font-size: 18px;
+  color: #000000;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttons .text {
+  margin-right: 10px;
+}
+
+.button {
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  &:focus {
+    color: #d12f26;
+    font-size: 18px;
+  }
+}
