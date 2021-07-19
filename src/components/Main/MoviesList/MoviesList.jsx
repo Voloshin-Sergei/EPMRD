@@ -57,7 +57,13 @@ const movies = [
 const MoviesList = () => (
   <section className={style.movies}>
     {movies.map((movie) => (
-      <MovieCard key={movie.id} year={movie.year} title={movie.title} poster={movie.cover} />
+      <MovieCard
+        key={movie.id}
+        year={movie.year}
+        title={movie.title}
+        poster={movie.cover}
+        genres={movie.genres}
+      />
     ))}
   </section>
 );
