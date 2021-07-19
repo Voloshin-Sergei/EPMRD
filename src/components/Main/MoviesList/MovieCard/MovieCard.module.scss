@@ -1,0 +1,49 @@
+.movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 320px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  font-weight: 300;
+  background-color: #ffffff;
+  color: #adaeb9;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+.movie img {
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.year {
+  padding: 3px;
+  border: 1px solid #adaeb9;
+  border-radius: 3px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 300;
+  color: #2c2c2c;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px 10px;
+  list-style: none;
+}
+
+.genres li {
+  margin-right: 10px;
+  font-size: 14px;
+}

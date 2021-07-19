@@ -6,7 +6,7 @@ const Search = () => (
     <p className={style.title}>find your movie</p>
     <form className={style.form}>
       <input className={style.field} type="text" placeholder="search move" />
-      <div className={style.block}>
+      <div className={style.buttons}>
         <span className={style.text}>search by</span>
         <ul>
           <li>
