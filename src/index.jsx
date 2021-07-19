@@ -4,12 +4,15 @@ import './style.scss';
 import Header from './components/Header/Header.jsx';
 import Main from './components/Main/Main.jsx';
 import Footer from './components/Footer/Footer.jsx';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.jsx';
 
 ReactDOM.render(
   <>
-    <Header />
-    <Main />
-    <Footer />
+    <ErrorBoundary>
+      <Header />
+      <Main />
+      <Footer />
+    </ErrorBoundary>
   </>,
   document.getElementById('root'),
 );
