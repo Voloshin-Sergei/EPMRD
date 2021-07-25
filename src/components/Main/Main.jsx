@@ -1,6 +1,6 @@
 import React from 'react';
 import Sort from './Sort/Sort.jsx';
-import MoviesList from './MoviesList/MoviesList.jsx';
+import MoviesList from './MoviesList/MoviesList';
 
 const Main = () => (
   <>
