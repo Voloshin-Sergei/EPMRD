@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Header } from './components/Header';
-import { Main } from './components/Main';
-import { Footer } from './components/Footer';
-import { ErrorBoundary } from './components/ErrorBoundary';
+import { Header } from 'Components/Header';
+import { Main } from 'Components/Main';
+import { Footer } from 'Components/Footer';
+import { ErrorBoundary } from 'Components/ErrorBoundary';
 
 import './style.scss';
 

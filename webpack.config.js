@@ -17,6 +17,10 @@ module.exports = ({ mode }) => {
     },
     resolve: {
       extensions: ['.js', '.jsx'],
+      alias: {
+        Components: path.join(__dirname, 'src/components'),
+        Styles: path.join(__dirname, 'src/scss'),
+      },
     },
     module: {
       rules: [
