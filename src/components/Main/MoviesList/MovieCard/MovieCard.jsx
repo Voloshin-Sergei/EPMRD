@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './MovieCard.module.scss';
 
-const MovieCard = ({ year, title, poster, genres }) => (
+export const MovieCard = ({ year, title, poster, genres }) => (
   <div className={style.movie}>
     <img className={style.poster} src={poster} alt={title} />
     <div className={style.info}>
@@ -19,5 +19,3 @@ const MovieCard = ({ year, title, poster, genres }) => (
     </ul>
   </div>
 );
-
-export default MovieCard;

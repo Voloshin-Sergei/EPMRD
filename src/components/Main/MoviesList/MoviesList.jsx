@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieCard from './MovieCard/MovieCard';
+import { MovieCard } from './MovieCard';
 import style from './MoviesList.module.scss';
 
 const movies = [
@@ -54,7 +54,7 @@ const movies = [
   },
 ];
 
-const MoviesList = () => (
+export const MoviesList = () => (
   <section className={style.movies}>
     {movies.map((movie) => (
       <MovieCard
@@ -67,5 +67,3 @@ const MoviesList = () => (
     ))}
   </section>
 );
-
-export default MoviesList;

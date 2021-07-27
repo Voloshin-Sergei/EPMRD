@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './ErrorBoundary.module.scss';
 
-class ErrorBoundary extends React.Component {
+export class ErrorBoundary extends React.Component {
   state = {
     hasError: false,
   };
@@ -22,5 +22,3 @@ class ErrorBoundary extends React.Component {
     }
   }
 }
-
-export default ErrorBoundary;

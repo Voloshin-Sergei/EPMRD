@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Sort.module.scss';
 
-const Sort = () => (
+export const Sort = () => (
   <div className={style.sort}>
     <div>
       <p className={style.result}>7 movies found</p>
@@ -19,7 +19,7 @@ const Sort = () => (
             date
           </button>
         </li>
-        <li  className={style.item}>
+        <li className={style.item}>
           <button className={style.button} type="button">
             rating
           </button>
@@ -28,5 +28,3 @@ const Sort = () => (
     </div>
   </div>
 );
-
-export default Sort;

@@ -1,12 +1,10 @@
 import React from 'react';
-import Sort from './Sort/Sort.jsx';
-import MoviesList from './MoviesList/MoviesList';
+import { Sort } from './Sort';
+import { MoviesList } from './MoviesList';
 
-const Main = () => (
+export const Main = () => (
   <>
     <Sort />
     <MoviesList />
   </>
 );
-
-export default Main;
