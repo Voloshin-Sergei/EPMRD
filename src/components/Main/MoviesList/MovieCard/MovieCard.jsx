@@ -3,7 +3,7 @@ import style from './MovieCard.module.scss';
 
 const MovieCard = ({ year, title, poster, genres }) => (
   <div className={style.movie}>
-    <img src={poster} alt={title} />
+    <img className={style.poster} src={poster} alt={title} />
     <div className={style.info}>
       <h3 className={style.title}>{title}</h3>
       <span className={style.year}>{year}</span>

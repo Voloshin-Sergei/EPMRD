@@ -1,20 +1,22 @@
+@import '../../../scss/variables/colors';
+
 .title {
   margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 2.4rem;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $color-primary;
 }
 
 .field {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
-  font-size: 18px;
+  font-size: 1.8rem;
   border: none;
-  background-color: #191b1f;
-  color: #ffffff;
+  background-color: lighten($color-primary--dark, 25%);
+  color: $color-primary;
   &::placeholder {
-    font-size: 18px;
+    font-size: 1.8rem;
   }
 }
 
@@ -25,35 +27,36 @@
 
 .text {
   margin-right: 10px;
-  font-size: 12px;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $color-primary;
 }
 
-ul {
+.list {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
 }
 
-li {
+.item {
   margin-right: 10px;
 }
 
 .button {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  color: #ffffff;
-  background-color: #4a4a58;
+  color: $color-primary;
+  background-color: lighten($color-primary--dark, 40%);
   border: none;
   cursor: pointer;
   &:focus {
-    background-color: #d12f26;
+    background-color: $color-secondary;
   }
 }
 
 .search {
   margin-left: auto;
-  font-size: 18px;
-  background-color: #d12f26;
+  font-size: 1.8rem;
+  background-color: $color-secondary;
 }

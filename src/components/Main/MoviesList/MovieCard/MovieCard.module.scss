@@ -1,19 +1,20 @@
+@import '../../../../scss/variables/colors';
+@import '../../../../scss/variables/fonts';
+
 .movie {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   max-width: 320px;
-  margin-bottom: 30px;
-  margin-right: 20px;
-  font-weight: 300;
-  background-color: #ffffff;
-  color: #adaeb9;
+  font-weight: $font-weight--light;
+  background-color: $color-primary;
+  color: $color-primary--darken;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
 }
 
-.movie img {
+.poster {
   width: 100%;
 }
 
@@ -26,14 +27,14 @@
 
 .year {
   padding: 3px;
-  border: 1px solid #adaeb9;
+  border: 1px solid $color-primary--darken;
   border-radius: 3px;
 }
 
 .title {
-  font-size: 24px;
-  font-weight: 300;
-  color: #2c2c2c;
+  font-size: 2.4rem;
+  font-weight: $font-weight--light;
+  color: lighten($color-primary--dark, 20%);
 }
 
 .genres {
@@ -43,7 +44,7 @@
   list-style: none;
 }
 
-.genres li {
+.genre {
   margin-right: 10px;
-  font-size: 14px;
+  font-size: 1.4rem;
 }

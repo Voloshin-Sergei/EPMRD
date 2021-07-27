@@ -1,13 +1,16 @@
+@import '../../scss/variables/colors';
+@import '../../scss/variables/fonts';
+
 .header {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url('../../assets/header_bg.jpg') no-repeat center / cover;
-  padding: 20px 150px;
+  padding: 20px 5%;
 }
 
 .title {
   margin-bottom: 80px;
-  font-size: 36px;
-  font-weight: 500;
+  font-size: 3.6rem;
+  font-weight: $font-weight--medium;
   text-transform: uppercase;
-  color: #d12f26;
+  color: $color-secondary;
 }

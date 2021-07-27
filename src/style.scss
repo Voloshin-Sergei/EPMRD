@@ -9,3 +9,10 @@
   max-width: 1400px;
   margin: 0 auto;
 }
+
+html {
+  font-size: 10px;
+  @media (max-width: 350px) {
+    font-size: 9px;
+  }
+}

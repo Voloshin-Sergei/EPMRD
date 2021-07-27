@@ -4,23 +4,22 @@ import style from './Sort.module.scss';
 const Sort = () => (
   <div className={style.sort}>
     <div>
-      <p className={style.text}>7 movies found</p>
+      <p className={style.result}>7 movies found</p>
     </div>
     <div className={style.buttons}>
       <p className={style.text}>Sort by</p>
-      <ul>
-        <li>
-          {' '}
+      <ul className={style.list}>
+        <li className={style.item}>
           <button className={style.button} type="button">
             release
           </button>
         </li>
-        <li>
+        <li className={style.item}>
           <button className={style.button} type="button">
             date
           </button>
         </li>
-        <li>
+        <li  className={style.item}>
           <button className={style.button} type="button">
             rating
           </button>

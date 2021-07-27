@@ -8,19 +8,18 @@ const Search = () => (
       <input className={style.field} type="text" placeholder="search move" />
       <div className={style.buttons}>
         <span className={style.text}>search by</span>
-        <ul>
-          <li>
+        <ul className={style.list}>
+          <li className={style.item}>
             <button className={`${style.button} ${style.tag}`} type="button">
               title
             </button>
           </li>
-          <li>
+          <li className={style.item}>
             <button className={`${style.button} ${style.tag}`} type="button">
               genre
             </button>
           </li>
         </ul>
-
         <button className={`${style.button} ${style.search}`} type="submit">
           search
         </button>

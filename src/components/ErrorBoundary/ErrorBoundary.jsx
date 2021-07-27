@@ -13,8 +13,8 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className={style.error}>
-          <p>Something wrong :(</p>
+        <div className={style.container}>
+          <p className={style.text}>Something wrong :(</p>
         </div>
       );
     } else {

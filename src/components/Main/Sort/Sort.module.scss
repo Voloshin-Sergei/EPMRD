@@ -1,14 +1,19 @@
+@import '../../../scss/variables/colors';
+
 .sort {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 50px;
-  background-color: #edf1f8;
+  background-color: darken($color-primary, 10%);
+  @media (max-width: 470px) {
+    flex-direction: column;
+  }
 }
 
-.text {
-  font-size: 18px;
-  color: #000000;
+.result {
+  font-size: 1.8rem;
+  color: $color-primary--dark;
 }
 
 .buttons {
@@ -17,17 +22,28 @@
   justify-content: space-between;
 }
 
-.buttons .text {
+.text {
+  font-size: 1.8rem;
+  margin-right: 10px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.item {
   margin-right: 10px;
 }
 
 .button {
-  font-size: 15px;
+  font-size: 1.5rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
   &:focus {
-    color: #d12f26;
-    font-size: 18px;
+    color: $color-secondary;
+    font-size: 1.8rem;
   }
 }

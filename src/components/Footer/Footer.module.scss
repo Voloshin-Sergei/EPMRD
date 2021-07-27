@@ -1,12 +1,15 @@
+@import '../../scss/variables/colors';
+@import '../../scss/variables/fonts';
+
 .footer {
   height: 100%;
-  background-color: #4a4a58;
+  background-color: lighten($color-primary--dark, 30%);
 }
 
 .title {
   padding: 30px;
-  font-size: 24px;
-  font-weight: 300;
+  font-size: 2.4rem;
+  font-weight: $font-weight--medium;
   text-transform: uppercase;
-  color: #d12f26;
+  color: $color-secondary;
 }
