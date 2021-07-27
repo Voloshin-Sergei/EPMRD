@@ -1,10 +1,10 @@
 import React from 'react';
-import { Sort } from './Sort';
+import { MoviesFilter } from './MoviesFilter';
 import { MoviesList } from './MoviesList';
 
 export const Main = () => (
   <>
-    <Sort />
+    <MoviesFilter />
     <MoviesList />
   </>
 );

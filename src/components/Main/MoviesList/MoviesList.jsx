@@ -1,5 +1,6 @@
 import React from 'react';
 import { MovieCard } from './MovieCard';
+
 import style from './MoviesList.module.scss';
 
 const movies = [

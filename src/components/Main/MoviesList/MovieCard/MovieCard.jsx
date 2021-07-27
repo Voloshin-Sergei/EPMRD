@@ -11,7 +11,7 @@ export const MovieCard = ({ year, title, poster, genres }) => (
     <ul className={style.genres}>
       {genres.map((genre, index) => {
         return (
-          <li key={index} className={style.genre}>
+          <li key={`${index}_${genre}`} className={style.genre}>
             {genre}
           </li>
         );

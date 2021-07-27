@@ -17,8 +17,7 @@ export class ErrorBoundary extends React.Component {
           <p className={style.text}>Something wrong :(</p>
         </div>
       );
-    } else {
-      return this.props.children;
     }
+    return this.props.children;
   }
 }

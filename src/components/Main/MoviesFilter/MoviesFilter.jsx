@@ -1,7 +1,7 @@
 import React from 'react';
-import style from './Sort.module.scss';
+import style from './MoviesFilter.module.scss';
 
-export const Sort = () => (
+export const MoviesFilter = () => (
   <div className={style.sort}>
     <div>
       <p className={style.result}>7 movies found</p>
