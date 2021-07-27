@@ -42,14 +42,8 @@
   margin-right: 10px;
 }
 
-.button {
-  padding: 5px 10px;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  color: $color-primary;
+.tag {
   background-color: lighten($color-primary--dark, 40%);
-  border: none;
-  cursor: pointer;
   &:focus {
     background-color: $color-secondary;
   }
@@ -57,6 +51,7 @@
 
 .search {
   margin-left: auto;
+
   font-size: 1.8rem;
   background-color: $color-secondary;
 }

@@ -1,5 +1,9 @@
 import React from 'react';
+import { Button } from '../Button';
+
 import style from './Search.module.scss';
+
+const searchTags = ['title', 'genre'];
 
 export const Search = () => (
   <>
@@ -9,20 +13,13 @@ export const Search = () => (
       <div className={style.buttons}>
         <span className={style.text}>search by</span>
         <ul className={style.list}>
-          <li className={style.item}>
-            <button className={`${style.button} ${style.tag}`} type="button">
-              title
-            </button>
-          </li>
-          <li className={style.item}>
-            <button className={`${style.button} ${style.tag}`} type="button">
-              genre
-            </button>
-          </li>
+          {searchTags.map((tag, index) => (
+            <li key={`${index}_${tag}`} className={style.item}>
+              <Button className={style.tag} filled text={tag} />
+            </li>
+          ))}
         </ul>
-        <button className={`${style.button} ${style.search}`} type="submit">
-          search
-        </button>
+        <Button className={style.search} text="search" filled />
       </div>
     </form>
   </>

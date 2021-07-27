@@ -37,11 +37,9 @@
   margin-right: 10px;
 }
 
-.button {
+.tag {
   font-size: 1.5rem;
   background-color: transparent;
-  border: none;
-  cursor: pointer;
   &:focus {
     color: $color-secondary;
     font-size: 1.8rem;

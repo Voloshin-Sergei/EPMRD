@@ -1,5 +1,9 @@
 import React from 'react';
+import { Button } from '../../Button';
+
 import style from './MoviesFilter.module.scss';
+
+const filterTags = ['release', 'date', 'rating'];
 
 export const MoviesFilter = () => (
   <div className={style.sort}>
@@ -9,21 +13,11 @@ export const MoviesFilter = () => (
     <div className={style.buttons}>
       <p className={style.text}>Sort by</p>
       <ul className={style.list}>
-        <li className={style.item}>
-          <button className={style.button} type="button">
-            release
-          </button>
-        </li>
-        <li className={style.item}>
-          <button className={style.button} type="button">
-            date
-          </button>
-        </li>
-        <li className={style.item}>
-          <button className={style.button} type="button">
-            rating
-          </button>
-        </li>
+        {filterTags.map((tag, index) => (
+          <li key={`${index}_${tag}`} className={style.item}>
+            <Button className={style.tag} text={tag} />
+          </li>
+        ))}
       </ul>
     </div>
   </div>
