@@ -1,11 +1,12 @@
-@import '../../../../scss/variables/colors';
-@import '../../../../scss/variables/fonts';
+@import 'Styles/variables/colors';
+@import 'Styles/variables/fonts';
+@import 'Styles/variables/responsive';
 
 .movie {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 320px;
+  max-width: $mobile--xs;
   font-weight: $font-weight--light;
   background-color: $color-primary;
   color: $color-primary--darken;
@@ -22,11 +23,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 1rem;
 }
 
 .year {
-  padding: 3px;
+  padding: 0.3rem;
   border: 1px solid $color-primary--darken;
   border-radius: 3px;
 }
@@ -40,11 +41,11 @@
 .genres {
   display: flex;
   flex-wrap: wrap;
-  padding: 5px 10px;
+  padding: 0.5rem 1rem;
   list-style: none;
 }
 
 .genre {
-  margin-right: 10px;
+  margin-right: 1rem;
   font-size: 1.4rem;
 }

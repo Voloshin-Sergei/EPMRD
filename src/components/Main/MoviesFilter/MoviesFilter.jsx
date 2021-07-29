@@ -6,7 +6,7 @@ import style from './MoviesFilter.module.scss';
 const filterTags = ['release', 'date', 'rating'];
 
 export const MoviesFilter = () => (
-  <div className={style.sort}>
+  <div className={style.filter}>
     <div>
       <p className={style.result}>7 movies found</p>
     </div>

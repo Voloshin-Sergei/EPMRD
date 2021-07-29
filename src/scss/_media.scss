@@ -1,0 +1,11 @@
+@import 'Styles/variables/responsive';
+
+@media screen and (max-width: $mobile--sm) {
+  html {
+    font-size: 9px !important;
+  }
+
+  .filter {
+    flex-direction: column;
+  }
+}

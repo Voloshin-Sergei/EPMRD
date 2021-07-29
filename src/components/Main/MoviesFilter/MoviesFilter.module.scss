@@ -1,14 +1,11 @@
 @import 'Styles/variables/colors';
 
-.sort {
+.filter {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 50px;
+  padding: 1rem 5rem;
   background-color: darken($color-primary, 10%);
-  @media (max-width: 470px) {
-    flex-direction: column;
-  }
 }
 
 .result {
@@ -24,7 +21,7 @@
 
 .text {
   font-size: 1.8rem;
-  margin-right: 10px;
+  margin-right: 1rem;
 }
 
 .list {
@@ -34,7 +31,7 @@
 }
 
 .item {
-  margin-right: 10px;
+  margin-right: 1rem;
 }
 
 .tag {

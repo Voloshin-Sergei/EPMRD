@@ -1,3 +1,5 @@
+@import 'Styles/media';
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +14,4 @@
 
 html {
   font-size: 10px;
-  @media (max-width: 350px) {
-    font-size: 9px;
-  }
 }
