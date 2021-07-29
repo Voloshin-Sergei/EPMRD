@@ -1,8 +1,22 @@
+@import 'Styles/variables/responsive';
+
 .movies {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-columns: repeat(auto-fit, $primary-size);
   grid-gap: 2rem;
   justify-content: center;
   align-content: flex-start;
   padding: 2rem;
+
+  @media screen and (max-width: $tablet) {
+    grid-template-columns: repeat(auto-fit, $primary-size--md);
+  }
+
+  @media screen and (max-width: $mobile) {
+    grid-template-columns: repeat(auto-fit, $primary-size--sm);
+  }
+
+  @media screen and (max-width: $mobile--sm) {
+    grid-template-columns: repeat(auto-fit, $primary-size--xs);
+  }
 }

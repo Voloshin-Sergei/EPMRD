@@ -1,4 +1,5 @@
 @import 'Styles/variables/colors';
+@import 'Styles/variables/responsive';
 
 .filter {
   display: flex;
@@ -6,6 +7,10 @@
   justify-content: space-between;
   padding: 1rem 5rem;
   background-color: darken($color-primary, 10%);
+
+  @media screen and (max-width: $mobile--sm) {
+    flex-direction: column;
+  }
 }
 
 .result {

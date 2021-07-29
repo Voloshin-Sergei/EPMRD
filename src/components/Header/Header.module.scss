@@ -1,10 +1,15 @@
 @import 'Styles/variables/colors';
 @import 'Styles/variables/fonts';
+@import 'Styles/variables/responsive';
 
 .header {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url('../../assets/header_bg.jpg') no-repeat center / cover;
   padding: 2rem 5rem;
+
+  @media screen and (max-width: $mobile--sm) {
+    padding: 2rem 2rem;
+  }
 }
 
 .title {
@@ -13,4 +18,12 @@
   font-weight: $font-weight--medium;
   text-transform: uppercase;
   color: $color-secondary;
+
+  @media screen and (max-width: $mobile) {
+    margin-bottom: 4rem;
+  }
+
+  @media screen and (max-width: $mobile--sm) {
+    margin-bottom: 2rem;
+  }
 }
