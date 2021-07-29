@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'Components/Button';
+import { Button } from 'Components/common/Button';
 
 import style from './MoviesFilter.module.scss';
 
