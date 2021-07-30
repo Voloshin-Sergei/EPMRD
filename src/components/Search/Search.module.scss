@@ -44,6 +44,11 @@
 
 .tag {
   background-color: lighten($color-primary--dark, 40%);
+
+  &:hover {
+    background-color: lighten($color-primary--dark, 45%);
+  }
+
   &:focus {
     background-color: $color-secondary;
   }
@@ -53,4 +58,12 @@
   margin-left: auto;
   font-size: 1.8rem;
   background-color: $color-secondary;
+
+  &:hover {
+    background-color: lighten($color-secondary, 5%);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
 }

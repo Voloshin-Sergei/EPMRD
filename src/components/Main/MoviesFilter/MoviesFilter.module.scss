@@ -40,8 +40,14 @@
 }
 
 .tag {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   background-color: transparent;
+  transform: scale(0.9);
+
+  &:hover {
+    transform: scale(1);
+  }
+
   &:focus {
     color: $color-secondary;
     font-size: 1.8rem;
