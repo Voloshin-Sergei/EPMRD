@@ -1,5 +1,11 @@
 @import 'Styles/variables/responsive';
 
+// sizes
+$primary-size: 320px;
+$primary-size--md: 300px;
+$primary-size--sm: 280px;
+$primary-size--xs: 210px;
+
 .movies {
   display: grid;
   grid-template-columns: repeat(auto-fit, $primary-size);
