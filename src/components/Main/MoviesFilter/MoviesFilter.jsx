@@ -15,7 +15,7 @@ export const MoviesFilter = () => (
       <ul className={style.list}>
         {filterTags.map((tag, index) => (
           <li key={`${index}_${tag}`} className={style.item}>
-            <Button className={style.tag} text={tag} />
+            <Button className={style.tag} type="button" text={tag} />
           </li>
         ))}
       </ul>

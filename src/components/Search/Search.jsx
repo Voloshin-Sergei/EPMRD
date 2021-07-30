@@ -15,11 +15,11 @@ export const Search = () => (
         <ul className={style.list}>
           {searchTags.map((tag, index) => (
             <li key={`${index}_${tag}`} className={style.item}>
-              <Button className={style.tag} classVariant="primary" text={tag} />
+              <Button className={style.tag} variant="primary" type="button" text={tag} />
             </li>
           ))}
         </ul>
-        <Button className={style.search} text="search" classVariant="primary" />
+        <Button className={style.search} text="search" variant="primary" type="button" />
       </div>
     </form>
   </>
