@@ -1,0 +1,28 @@
+@import 'Styles/variables/responsive';
+
+// sizes
+$primary-size: 320px;
+$primary-size--md: 300px;
+$primary-size--sm: 280px;
+$primary-size--xs: 210px;
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, $primary-size);
+  grid-gap: 2rem;
+  justify-content: center;
+  align-content: flex-start;
+  padding: 2rem;
+
+  @media screen and (max-width: $tablet) {
+    grid-template-columns: repeat(auto-fit, $primary-size--md);
+  }
+
+  @media screen and (max-width: $mobile) {
+    grid-template-columns: repeat(auto-fit, $primary-size--sm);
+  }
+
+  @media screen and (max-width: $mobile--sm) {
+    grid-template-columns: repeat(auto-fit, $primary-size--xs);
+  }
+}

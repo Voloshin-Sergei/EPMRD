@@ -1,0 +1,13 @@
+@import 'Styles/variables/colors';
+
+.button {
+  border: none;
+  cursor: pointer;
+}
+
+.primary {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: $color-primary;
+}

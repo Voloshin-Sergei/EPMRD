@@ -1,0 +1,69 @@
+@import 'Styles/variables/colors';
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  color: $color-primary;
+}
+
+.field {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: 1.8rem;
+  border: none;
+  background-color: lighten($color-primary--dark, 25%);
+  color: $color-primary;
+  &::placeholder {
+    font-size: 1.8rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: $color-primary;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.item {
+  margin-right: 1rem;
+}
+
+.tag {
+  background-color: lighten($color-primary--dark, 40%);
+
+  &:hover {
+    background-color: lighten($color-primary--dark, 45%);
+  }
+
+  &:focus {
+    background-color: $color-secondary;
+  }
+}
+
+.search {
+  margin-left: auto;
+  font-size: 1.8rem;
+  background-color: $color-secondary;
+
+  &:hover {
+    background-color: lighten($color-secondary, 5%);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

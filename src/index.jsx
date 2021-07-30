@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { Header } from 'Components/Header';
+import { Main } from 'Components/Main';
+import { Footer } from 'Components/Footer';
+import { ErrorBoundary } from 'Components/ErrorBoundary';
+
 import './style.scss';
 
-const img = require('./assets/test.jpg');
-
 ReactDOM.render(
-  <div>
-    <h1>Hello World!!!</h1>
-
-    <img src={img} width={200} height={200} alt="" />
-  </div>,
+  <>
+    <ErrorBoundary>
+      <Header />
+      <Main />
+      <Footer />
+    </ErrorBoundary>
+  </>,
   document.getElementById('root'),
 );

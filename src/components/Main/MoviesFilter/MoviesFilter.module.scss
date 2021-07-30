@@ -1,0 +1,55 @@
+@import 'Styles/variables/colors';
+@import 'Styles/variables/responsive';
+
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 5rem;
+  background-color: darken($color-primary, 10%);
+
+  @media screen and (max-width: $mobile--sm) {
+    flex-direction: column;
+  }
+}
+
+.result {
+  font-size: 1.8rem;
+  color: $color-primary--dark;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  font-size: 1.8rem;
+  margin-right: 1rem;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.item {
+  margin-right: 1rem;
+}
+
+.tag {
+  font-size: 1.6rem;
+  background-color: transparent;
+  transform: scale(0.9);
+
+  &:hover {
+    transform: scale(1);
+  }
+
+  &:focus {
+    color: $color-secondary;
+    font-size: 1.8rem;
+  }
+}

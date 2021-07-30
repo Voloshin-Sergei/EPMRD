@@ -1,0 +1,55 @@
+@import 'Styles/variables/colors';
+@import 'Styles/variables/fonts';
+@import 'Styles/variables/responsive';
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-weight: $font-weight--light;
+  background-color: $color-primary;
+  color: $color-primary--darken;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-0.8rem);
+  }
+}
+
+.poster {
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.year {
+  padding: 0.3rem;
+  border: 1px solid $color-primary--darken;
+  border-radius: 3px;
+}
+
+.title {
+  font-size: 2.4rem;
+  font-weight: $font-weight--light;
+  color: lighten($color-primary--dark, 20%);
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+  list-style: none;
+}
+
+.genre {
+  margin-right: 1rem;
+  font-size: 1.4rem;
+}

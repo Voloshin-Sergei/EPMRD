@@ -1,0 +1,15 @@
+@import 'Styles/variables/colors';
+@import 'Styles/variables/fonts';
+
+.footer {
+  height: 100%;
+  background-color: lighten($color-primary--dark, 30%);
+}
+
+.title {
+  padding: 3rem;
+  font-size: 2.4rem;
+  font-weight: $font-weight--medium;
+  text-transform: uppercase;
+  color: $color-secondary;
+}
