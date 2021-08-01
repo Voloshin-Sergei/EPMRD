@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = ({ mode }) => {
   const isProduction = mode === 'production';
@@ -18,8 +19,8 @@ module.exports = ({ mode }) => {
     resolve: {
       extensions: ['.js', '.jsx'],
       alias: {
-        Components: path.join(__dirname, 'src/components'),
-        Styles: path.join(__dirname, 'src/scss'),
+        Components: path.resolve(__dirname, 'src/components'),
+        Styles: path.resolve(__dirname, 'src/scss'),
       },
     },
     module: {
@@ -76,6 +77,7 @@ module.exports = ({ mode }) => {
       new CopyPlugin({
         patterns: [{ from: '../public' }],
       }),
+      new ESLintPlugin({ extensions: ['jsx', 'js'] }),
     ],
   };
 };

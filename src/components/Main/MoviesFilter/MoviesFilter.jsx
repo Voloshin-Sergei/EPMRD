@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'Components/common/Button';
+import Button from 'Components/common/Button';
 
 import style from './MoviesFilter.module.scss';
 
@@ -13,8 +13,8 @@ export const MoviesFilter = () => (
     <div className={style.buttons}>
       <p className={style.text}>Sort by</p>
       <ul className={style.list}>
-        {filterTags.map((tag, index) => (
-          <li key={`${index}_${tag}`} className={style.item}>
+        {filterTags.map((tag) => (
+          <li key={tag} className={style.item}>
             <Button className={style.tag} type="button" text={tag} />
           </li>
         ))}

@@ -1,23 +1,34 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import style from './ErrorBoundary.module.scss';
 
 export class ErrorBoundary extends React.Component {
-  state = {
-    hasError: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false,
+    };
+  }
 
   componentDidCatch() {
     this.setState({ hasError: true });
   }
 
   render() {
-    if (this.state.hasError) {
+    const { hasError } = this.state;
+    const { children } = this.props;
+
+    if (hasError) {
       return (
         <div className={style.container}>
           <p className={style.text}>Something wrong :(</p>
         </div>
       );
     }
-    return this.props.children;
+    return children;
   }
 }
+
+ErrorBoundary.propTypes = {
+  children: propTypes.string.isRequired,
+};

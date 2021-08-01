@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'Components/common/Button';
+import Button from 'Components/common/Button';
 
 import style from './Search.module.scss';
 
@@ -13,8 +13,8 @@ export const Search = () => (
       <div className={style.buttons}>
         <span className={style.text}>search by</span>
         <ul className={style.list}>
-          {searchTags.map((tag, index) => (
-            <li key={`${index}_${tag}`} className={style.item}>
+          {searchTags.map((tag) => (
+            <li key={tag} className={style.item}>
               <Button className={style.tag} variant="primary" type="button" text={tag} />
             </li>
           ))}
