@@ -1,10 +1,12 @@
 import React from 'react';
-import MoviesFilter from './MoviesFilter';
-import MoviesList from './MoviesList';
+import { MoviesFilter } from './MoviesFilter';
+import { MoviesList } from './MoviesList';
 
-export const Main = () => (
+const Main = () => (
   <>
     <MoviesFilter />
     <MoviesList />
   </>
 );
+
+export default Main;

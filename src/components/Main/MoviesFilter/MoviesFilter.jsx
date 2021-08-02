@@ -1,11 +1,11 @@
 import React from 'react';
-import Button from 'Components/common/Button';
+import { Button } from 'Components/common/Button';
 
 import style from './MoviesFilter.module.scss';
 
 const filterTags = ['release', 'date', 'rating'];
 
-export const MoviesFilter = () => (
+const MoviesFilter = () => (
   <div className={style.filter}>
     <div>
       <p className={style.result}>7 movies found</p>
@@ -22,3 +22,5 @@ export const MoviesFilter = () => (
     </div>
   </div>
 );
+
+export default MoviesFilter;

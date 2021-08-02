@@ -1,11 +1,11 @@
 import React from 'react';
-import Button from 'Components/common/Button';
+import { Button } from 'Components/common/Button';
 
 import style from './Search.module.scss';
 
 const searchTags = ['title', 'genre'];
 
-export const Search = () => (
+const Search = () => (
   <>
     <p className={style.title}>find your movie</p>
     <form className={style.form}>
@@ -24,3 +24,5 @@ export const Search = () => (
     </form>
   </>
 );
+
+export default Search;

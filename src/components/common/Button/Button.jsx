@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import style from './Button.module.scss';
 
-export const Button = (
+const Button = (
   {
     className, variant, text, type,
   },
@@ -18,3 +18,5 @@ Button.propTypes = {
   text: propTypes.string.isRequired,
   type: propTypes.string.isRequired,
 };
+
+export default Button;
