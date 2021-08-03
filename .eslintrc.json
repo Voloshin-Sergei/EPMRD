@@ -18,7 +18,8 @@
     "no-console": "warn",
     "linebreak-style": 0,
     "import/no-unresolved": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
   },
   "settings": {
     "import/extensions": [".jsx", ".js"],

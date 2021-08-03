@@ -21,7 +21,7 @@ MovieCard.propTypes = {
   year: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
   poster: propTypes.string.isRequired,
-  genres: propTypes.string.isRequired,
+  genres: propTypes.arrayOf(propTypes.string).isRequired,
 };
 
 export default MovieCard;
