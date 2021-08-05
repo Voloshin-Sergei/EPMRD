@@ -2,12 +2,9 @@ import React from 'react';
 import propTypes from 'prop-types';
 import style from './Button.module.scss';
 
-const Button = (
-  {
-    className, variant, text, type = 'button',
-  },
-) => (
-  // eslint-disable-next-line react/button-has-type
+export const Button = ({
+  className, variant = 'primary', text, type = 'button',
+}) => (
   <button className={`${style.button} ${className} ${style[variant]}`} type={type}>
     {text}
   </button>
@@ -15,13 +12,9 @@ const Button = (
 
 Button.propTypes = {
   className: propTypes.string.isRequired,
-  variant: propTypes.oneOf(['primary', 'secondary']),
+  variant: propTypes.oneOf(['primary', 'secondary']).isRequired,
   text: propTypes.string.isRequired,
   type: propTypes.oneOf(['button', 'submit']).isRequired,
-};
-
-Button.defaultProps = {
-  variant: '',
 };
 
 export default Button;
