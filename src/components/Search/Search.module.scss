@@ -15,6 +15,7 @@
   border: none;
   background-color: lighten($color-primary--dark, 25%);
   color: $color-primary;
+
   &::placeholder {
     font-size: 1.8rem;
   }
