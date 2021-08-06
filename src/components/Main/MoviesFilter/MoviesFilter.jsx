@@ -5,7 +5,7 @@ import style from './MoviesFilter.module.scss';
 
 const filterTags = ['release', 'date', 'rating'];
 
-const MoviesFilter = () => (
+export const MoviesFilter = () => (
   <div className={style.filter}>
     <div>
       <p className={style.result}>7 movies found</p>
@@ -22,5 +22,3 @@ const MoviesFilter = () => (
     </div>
   </div>
 );
-
-export default MoviesFilter;

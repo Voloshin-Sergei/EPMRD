@@ -16,5 +16,3 @@ Button.propTypes = {
   text: propTypes.string.isRequired,
   type: propTypes.oneOf(['button', 'submit']).isRequired,
 };
-
-export default Button;

@@ -1,1 +1,1 @@
-export { default as MoviesFilter } from './MoviesFilter';
+export { MoviesFilter } from './MoviesFilter';

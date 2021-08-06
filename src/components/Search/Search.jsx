@@ -5,7 +5,7 @@ import style from './Search.module.scss';
 
 const searchTags = ['title', 'genre'];
 
-const Search = () => (
+export const Search = () => (
   <>
     <p className={style.title}>find your movie</p>
     <form className={style.form}>
@@ -24,5 +24,3 @@ const Search = () => (
     </form>
   </>
 );
-
-export default Search;

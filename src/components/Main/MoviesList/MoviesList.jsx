@@ -55,7 +55,7 @@ const movies = [
   },
 ];
 
-const MoviesList = () => (
+export const MoviesList = () => (
   <section className={style.movies}>
     {movies.map((movie) => (
       <MovieCard
@@ -68,5 +68,3 @@ const MoviesList = () => (
     ))}
   </section>
 );
-
-export default MoviesList;

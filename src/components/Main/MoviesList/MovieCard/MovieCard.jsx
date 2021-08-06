@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import style from './MovieCard.module.scss';
 
-const MovieCard = ({
+export const MovieCard = ({
   year, title, poster, genres,
 }) => (
   <div className={style.movie}>
@@ -23,5 +23,3 @@ MovieCard.propTypes = {
   poster: propTypes.string.isRequired,
   genres: propTypes.arrayOf(propTypes.string).isRequired,
 };
-
-export default MovieCard;
