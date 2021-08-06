@@ -6,11 +6,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+  color: $color-primary--darken;
   font-weight: $font-weight--light;
   background-color: $color-primary;
-  color: $color-primary--darken;
   border-radius: 5px;
-  overflow: hidden;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 
@@ -25,8 +25,8 @@
 
 .info {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 1rem;
 }
 
@@ -37,9 +37,9 @@
 }
 
 .title {
-  font-size: 2.4rem;
-  font-weight: $font-weight--light;
   color: lighten($color-primary--dark, 20%);
+  font-weight: $font-weight--light;
+  font-size: 2.4rem;
 }
 
 .genres {

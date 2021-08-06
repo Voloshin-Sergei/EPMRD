@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack serve --env mode=production",
     "dev": "webpack serve --env mode=development",
-    "lint": "eslint src"
+    "eslint": "eslint src --ext .js,.jsx",
+    "stylelint": "stylelint src/**/*.scss",
+    "linters": "npm run eslint & npm run stylelint"
   },
   "repository": {
     "type": "git",
