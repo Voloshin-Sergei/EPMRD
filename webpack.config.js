@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
+// const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = ({ mode }) => {
@@ -18,7 +18,7 @@ module.exports = ({ mode }) => {
       assetModuleFilename: 'assets/[name].[contenthash].[ext]',
     },
     resolve: {
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
       alias: {
         Components: path.resolve(__dirname, 'src/components'),
         Styles: path.resolve(__dirname, 'src/scss'),
@@ -57,6 +57,11 @@ module.exports = ({ mode }) => {
           test: /\.s[ac]ss$/i,
           use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         },
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
+        }
       ],
     },
     devServer: {
@@ -78,7 +83,7 @@ module.exports = ({ mode }) => {
       new CopyPlugin({
         patterns: [{ from: '../public' }],
       }),
-      new ESLintPlugin({ extensions: ['jsx', 'js'] }),
+      // new ESLintPlugin({ extensions: ['jsx', 'js'] }),
       new StylelintPlugin({ extensions: ['scss'] }),
     ],
   };
