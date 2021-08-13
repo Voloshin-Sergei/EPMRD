@@ -20,10 +20,11 @@
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-    "react/button-has-type": 0
+    "react/button-has-type": 0,
+    "import/extensions": 0
   },
   "settings": {
-    "import/extensions": [".jsx", ".js"],
+    "import/extensions": [".jsx", ".js", ".tsx", "ts"],
     "import/resolver": {
       "node": {
         "paths": ["src"]

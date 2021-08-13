@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-// const ESLintPlugin = require('eslint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = ({ mode }) => {
@@ -83,7 +83,7 @@ module.exports = ({ mode }) => {
       new CopyPlugin({
         patterns: [{ from: '../public' }],
       }),
-      // new ESLintPlugin({ extensions: ['jsx', 'js'] }),
+      new ESLintPlugin({ extensions: ['jsx', 'js'] }),
       new StylelintPlugin({ extensions: ['scss'] }),
     ],
   };
