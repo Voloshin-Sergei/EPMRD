@@ -6,7 +6,6 @@ interface ButtonProps {
   variant: 'primary' | 'secondary',
   text: string,
   type: 'button' | 'submit'
-
 }
 
 export const Button: React.FC<ButtonProps> = ({
