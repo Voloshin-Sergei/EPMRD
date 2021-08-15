@@ -2,7 +2,7 @@ import React from 'react';
 import style from './ErrorBoundary.module.scss';
 
 export class ErrorBoundary extends React.Component <{children: React.ReactNode}, {hasError: boolean}> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       hasError: false,
