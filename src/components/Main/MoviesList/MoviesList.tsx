@@ -63,7 +63,7 @@ const movies: Array<Movies> = [
   },
 ];
 
-export const MoviesList = () => (
+export const MoviesList: React.FunctionComponent = () => (
   <section className={style.movies}>
     {movies.map((movie: Movies) => (
       <MovieCard

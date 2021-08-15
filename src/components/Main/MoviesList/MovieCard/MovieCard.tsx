@@ -1,8 +1,14 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import style from './MovieCard.module.scss';
 
-export const MovieCard = ({
+interface MovieCardProps {
+  year: string,
+  title: string,
+  poster: string,
+  genres: string[]
+}
+
+export const MovieCard: React.FC<MovieCardProps> = ({
   year, title, poster, genres,
 }) => (
   <div className={style.movie}>
@@ -12,14 +18,7 @@ export const MovieCard = ({
       <span className={style.year}>{year}</span>
     </div>
     <ul className={style.genres}>
-      {genres.map((genre) => <li key={genre} className={style.genre}>{genre}</li>)}
+      {genres.map((genre: string) => <li key={genre} className={style.genre}>{genre}</li>)}
     </ul>
   </div>
 );
-
-MovieCard.propTypes = {
-  year: propTypes.string.isRequired,
-  title: propTypes.string.isRequired,
-  poster: propTypes.string.isRequired,
-  genres: propTypes.arrayOf(propTypes.string).isRequired,
-};
