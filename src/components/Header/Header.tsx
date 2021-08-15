@@ -3,7 +3,7 @@ import { Search } from 'Components/Search';
 
 import style from './Header.module.scss';
 
-export const Header = () => (
+export const Header: React.FunctionComponent = () => (
   <header className={style.header}>
     <p className={style.title}>Movieroulette</p>
     <Search />
