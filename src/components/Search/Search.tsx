@@ -3,9 +3,9 @@ import { Button } from 'Components/common/Button';
 
 import style from './Search.module.scss';
 
-const searchTags = ['title', 'genre'];
+const searchTags: string[] = ['title', 'genre'];
 
-export const Search = () => (
+export const Search: React.FunctionComponent = () => (
   <>
     <p className={style.title}>find your movie</p>
     <form className={style.form}>
@@ -13,7 +13,7 @@ export const Search = () => (
       <div className={style.buttons}>
         <span className={style.text}>search by</span>
         <ul className={style.list}>
-          {searchTags.map((tag) => (
+          {searchTags.map((tag: string) => (
             <li key={tag} className={style.item}>
               <Button className={style.tag} variant="primary" type="button" text={tag} />
             </li>
