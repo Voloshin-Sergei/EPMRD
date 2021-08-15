@@ -11,7 +11,7 @@ module.exports = ({ mode }) => {
   return {
     context: path.resolve(__dirname, 'src'),
     mode,
-    entry: './index.jsx',
+    entry: './index.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[contenthash].js',
