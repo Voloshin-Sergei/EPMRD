@@ -5,7 +5,7 @@ import style from './Search.module.scss';
 
 const searchTags: string[] = ['title', 'genre'];
 
-export const Search: React.FunctionComponent = () => (
+export const Search: React.FC = () => (
   <>
     <p className={style.title}>find your movie</p>
     <form className={style.form}>
