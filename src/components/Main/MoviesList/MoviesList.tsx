@@ -3,7 +3,7 @@ import { MovieCard } from './MovieCard';
 
 import style from './MoviesList.module.scss';
 
-interface Movies {
+export interface Movie {
   genres: string[],
   id: number,
   cover: string,
@@ -11,7 +11,7 @@ interface Movies {
   title: string
 }
 
-const movies: Array<Movies> = [
+const movies: Array<Movie> = [
   {
     genres: ['Action', 'Adventure', 'Thriller', 'Science Fiction'],
     id: 497698,
@@ -65,7 +65,7 @@ const movies: Array<Movies> = [
 
 export const MoviesList: React.FunctionComponent = () => (
   <section className={style.movies}>
-    {movies.map((movie: Movies) => (
+    {movies.map((movie: Movie) => (
       <MovieCard
         key={movie.id}
         year={movie.year}
