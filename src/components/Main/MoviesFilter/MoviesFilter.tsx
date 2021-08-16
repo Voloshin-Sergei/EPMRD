@@ -3,9 +3,15 @@ import { Button } from 'Components/common/Button';
 
 import style from './MoviesFilter.module.scss';
 
-const filterTags: string[] = ['release', 'date', 'rating'];
+export enum FilterTags {
+  release = 'release',
+  date = 'date',
+  rating = 'rating'
+}
 
-export const MoviesFilter = () => (
+const filterTags = [FilterTags.release, FilterTags.date, FilterTags.rating];
+
+export const MoviesFilter: React.FC = () => (
   <div className={style.filter}>
     <div>
       <p className={style.result}>7 movies found</p>
