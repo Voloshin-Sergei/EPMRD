@@ -18,7 +18,7 @@ module.exports = ({ mode }) => {
       assetModuleFilename: 'assets/[name].[contenthash].[ext]',
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss'],
       alias: {
         Components: path.resolve(__dirname, 'src/components'),
         Styles: path.resolve(__dirname, 'src/scss'),
