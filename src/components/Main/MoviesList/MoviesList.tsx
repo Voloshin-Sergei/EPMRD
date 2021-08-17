@@ -11,7 +11,7 @@ export interface Movie {
   title: string
 }
 
-const movies: Array<Movie> = [
+const movies: Movie[] = [
   {
     genres: ['Action', 'Adventure', 'Thriller', 'Science Fiction'],
     id: 497698,
