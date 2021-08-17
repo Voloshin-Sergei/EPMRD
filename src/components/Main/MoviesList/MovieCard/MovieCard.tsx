@@ -18,7 +18,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
       <span className={style.year}>{year}</span>
     </div>
     <ul className={style.genres}>
-      {genres.map((genre: string) => <li key={genre} className={style.genre}>{genre}</li>)}
+      {genres.map((genre: string, index) => <li key={`${genre}_${index}`} className={style.genre}>{genre}</li>)}
     </ul>
   </div>
 );

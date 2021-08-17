@@ -21,7 +21,8 @@
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "react/button-has-type": 0,
-    "import/extensions": 0
+    "import/extensions": 0,
+    "react/no-array-index-key": "off"
   },
   "settings": {
     "import/extensions": [".jsx", ".js", ".tsx", "ts"],
