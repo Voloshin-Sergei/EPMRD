@@ -1,2 +1,1 @@
-export { MoviesList } from './MoviesList';
-export { Movie } from './MoviesList';
+export { MoviesList, Movie } from './MoviesList';
