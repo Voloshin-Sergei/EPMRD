@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --env mode=production",
     "dev": "webpack serve --env mode=development",
-    "eslint": "eslint src --ext .js,.jsx",
+    "eslint": "eslint src --ext .js,.jsx,.ts,tsx",
     "stylelint": "stylelint src/**/*.scss",
     "linters": "npm run eslint & npm run stylelint"
   },
@@ -30,6 +30,8 @@
     "@babel/preset-react": "7.14.5",
     "@types/react": "17.0.18",
     "@types/react-dom": "17.0.9",
+    "@typescript-eslint/eslint-plugin": "4.29.2",
+    "@typescript-eslint/parser": "4.29.2",
     "babel-eslint": "10.1.0",
     "babel-loader": "8.2.2",
     "clean-webpack-plugin": "4.0.0-alpha.0",
@@ -38,6 +40,7 @@
     "css-loader": "5.2.6",
     "eslint": "7.30.0",
     "eslint-config-airbnb": "18.2.1",
+    "eslint-config-airbnb-typescript": "12.3.1",
     "eslint-import-resolver-webpack": "0.13.1",
     "eslint-plugin-import": "2.23.4",
     "eslint-plugin-jsx-a11y": "6.4.1",

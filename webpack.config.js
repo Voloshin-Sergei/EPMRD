@@ -83,7 +83,7 @@ module.exports = ({ mode }) => {
       new CopyPlugin({
         patterns: [{ from: '../public' }],
       }),
-      new ESLintPlugin({ extensions: ['jsx', 'js'] }),
+      new ESLintPlugin({ extensions: ['jsx', 'js', 'ts', 'tsx'] }),
       new StylelintPlugin({ extensions: ['scss'] }),
     ],
   };
