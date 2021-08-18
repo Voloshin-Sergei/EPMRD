@@ -27,6 +27,9 @@
     "react/prop-types": 0
   },
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/extensions": [".jsx", ".js", ".tsx", "ts"],
     "import/resolver": {
       "node": {

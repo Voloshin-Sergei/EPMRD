@@ -6,7 +6,7 @@ import style from './MoviesFilter.module.scss';
 export enum FilterTags {
   Release = 'release',
   Date = 'date',
-  Rating = 'rating'
+  Rating = 'rating',
 }
 
 const filterTags = [FilterTags.Release, FilterTags.Date, FilterTags.Rating];
