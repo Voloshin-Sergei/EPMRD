@@ -3,9 +3,9 @@ import style from './Button.module.scss';
 
 export interface ButtonProps {
   className: string,
-  variant: 'primary' | 'secondary',
+  variant?: 'primary' | 'secondary',
   text: string,
-  type: 'button' | 'submit'
+  type?: 'button' | 'submit'
 }
 
 export const Button: React.FC<ButtonProps> = ({

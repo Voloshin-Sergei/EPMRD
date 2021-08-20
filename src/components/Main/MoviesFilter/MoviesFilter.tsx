@@ -21,7 +21,7 @@ export const MoviesFilter: React.FC = () => (
       <ul className={style.list}>
         {filterTags.map((tag: string) => (
           <li key={tag} className={style.item}>
-            <Button className={style.tag} type="button" variant="secondary" text={tag} />
+            <Button className={style.tag} variant="secondary" text={tag} />
           </li>
         ))}
       </ul>
