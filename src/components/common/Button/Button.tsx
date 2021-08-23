@@ -4,14 +4,14 @@ import style from './Button.module.scss';
 export interface ButtonProps {
   className: string,
   variant?: 'primary' | 'secondary',
-  text: string,
+  children: React.ReactNode,
   type?: 'button' | 'submit'
 }
 
 export const Button: React.FC<ButtonProps> = ({
-  className, variant = 'primary', text, type = 'button',
+  className, variant = 'primary', children, type = 'button',
 }) => (
   <button className={`${style.button} ${className} ${style[variant]}`} type={type}>
-    {text}
+    {children}
   </button>
 );

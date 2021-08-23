@@ -15,11 +15,11 @@ export const Search: React.FC = () => (
         <ul className={style.list}>
           {searchTags.map((tag: string, index) => (
             <li key={`${tag}_${index}`} className={style.item}>
-              <Button className={style.tag} text={tag} />
+              <Button className={style.tag}>{tag}</Button>
             </li>
           ))}
         </ul>
-        <Button className={style.search} text="search" />
+        <Button className={style.search}>{'search'}</Button>
       </div>
     </form>
   </>
