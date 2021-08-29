@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for common/Button/Button.tsx</title>
+    <title>Code coverage report for Search/Search.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">common/Button</a> Button.tsx</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">Search</a> Search.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -74,7 +74,22 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -83,30 +98,42 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import style from './Button.module.scss';
+import { Button } from 'Components/common/Button';
 &nbsp;
-export interface ButtonProps {
-  className: string,
-  variant?: 'primary' | 'secondary',
-  children: React.ReactNode,
-  type?: 'button' | 'submit'
-}
+import style from './Search.module.scss';
 &nbsp;
-export const Button: React.FC&lt;ButtonProps&gt; = ({
-  className, variant = 'primary'<span class="branch-1 cbranch-no" title="branch not covered" >, c</span>hildren, type = 'button'<span class="branch-1 cbranch-no" title="branch not covered" >,</span>
-}) =&gt; (
-  &lt;button className={`${style.button} ${className} ${style[variant]}`} type={type}&gt;
-    {children}
-  &lt;/button&gt;
+const searchTags: string[] = ['title', 'genre'];
+&nbsp;
+export const Search: React.FC = () =&gt; (
+  &lt;&gt;
+    &lt;p className={style.title}&gt;find your movie&lt;/p&gt;
+    &lt;form className={style.form}&gt;
+      &lt;input className={style.field} type="text" placeholder="search movie" /&gt;
+      &lt;div className={style.buttons}&gt;
+        &lt;span className={style.text}&gt;search by&lt;/span&gt;
+        &lt;ul className={style.list}&gt;
+          {searchTags.map((tag: string, index) =&gt; (
+            &lt;li key={`${tag}_${index}`} className={style.item}&gt;
+              &lt;Button className={style.tag}&gt;{tag}&lt;/Button&gt;
+            &lt;/li&gt;
+          ))}
+        &lt;/ul&gt;
+        &lt;Button className={style.search}&gt;{'search'}&lt;/Button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/&gt;
 );
 &nbsp;</pre></td></tr></table></pre>
 
@@ -118,14 +145,14 @@ export const Button: React.FC&lt;ButtonProps&gt; = ({
                 at Mon Aug 30 2021 01:02:50 GMT+0300 (Москва, стандартное время)
             </div>
         </div>
-        <script src="../../prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     
