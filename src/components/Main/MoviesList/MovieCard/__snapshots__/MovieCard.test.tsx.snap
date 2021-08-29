@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCard component should render MovieCard component 1`] = `
+<div
+  className="movie"
+>
+  <img
+    alt="test title"
+    className="poster"
+    src="test cover"
+  />
+  <div
+    className="info"
+  >
+    <h3
+      className="title"
+    >
+      test title
+    </h3>
+    <span
+      className="year"
+    >
+      2021
+    </span>
+  </div>
+  <ul
+    className="genres"
+  >
+    <li
+      className="genre"
+      key="test genre_1_0"
+    >
+      test genre_1
+    </li>
+    <li
+      className="genre"
+      key="test genres_2_1"
+    >
+      test genres_2
+    </li>
+  </ul>
+</div>
+`;
