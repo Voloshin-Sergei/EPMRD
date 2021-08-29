@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1630243410818" clover="3.2.0">
-  <project timestamp="1630243410819" name="All files">
-    <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1" elements="10" coveredelements="10" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
-    <file name="Button.tsx" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\common\Button\Button.tsx">
-      <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="2" count="1" type="stmt"/>
-      <line num="11" count="1" type="stmt"/>
-      <line num="12" count="2" type="cond" truecount="4" falsecount="0"/>
-      <line num="13" count="2" type="stmt"/>
-    </file>
+<coverage generated="1630273863238" clover="3.2.0">
+  <project timestamp="1630273863239" name="All files">
+    <metrics statements="16" coveredstatements="16" conditionals="6" coveredconditionals="4" methods="5" coveredmethods="5" elements="27" coveredelements="25" complexity="0" loc="16" ncloc="16" packages="2" files="3" classes="3"/>
+    <package name="Main.MoviesFilter">
+      <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <file name="MoviesFilter.tsx" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\Main\MoviesFilter\MoviesFilter.tsx">
+        <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="common.Button">
+      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="Button.tsx" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\common\Button\Button.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="3" type="cond" truecount="2" falsecount="2"/>
+        <line num="13" count="3" type="stmt"/>
+      </file>
+      <file name="index.ts" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\common\Button\index.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

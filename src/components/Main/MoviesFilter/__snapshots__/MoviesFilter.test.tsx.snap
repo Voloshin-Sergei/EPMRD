@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesFilter component should render MoviesFilter component 1`] = `
+<div
+  class="filter"
+>
+  <div>
+    <p
+      class="result"
+    >
+      7 movies found
+    </p>
+  </div>
+  <div
+    class="buttons"
+  >
+    <p
+      class="text"
+    >
+      Sort by
+    </p>
+    <ul
+      class="list"
+    >
+      <li
+        class="item"
+      >
+        <button
+          class="button tag secondary"
+          type="button"
+        >
+          release
+        </button>
+      </li>
+      <li
+        class="item"
+      >
+        <button
+          class="button tag secondary"
+          type="button"
+        >
+          date
+        </button>
+      </li>
+      <li
+        class="item"
+      >
+        <button
+          class="button tag secondary"
+          type="button"
+        >
+          rating
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
