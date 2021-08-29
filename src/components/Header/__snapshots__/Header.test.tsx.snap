@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should render Header component 1`] = `
+<header
+  class="header"
+>
+  <p
+    class="title"
+  >
+    Movieroulette
+  </p>
+  <p
+    class="title"
+  >
+    find your movie
+  </p>
+  <form
+    class="form"
+  >
+    <input
+      class="field"
+      placeholder="search movie"
+      type="text"
+    />
+    <div
+      class="buttons"
+    >
+      <span
+        class="text"
+      >
+        search by
+      </span>
+      <ul
+        class="list"
+      >
+        <li
+          class="item"
+        >
+          <button
+            class="button tag primary"
+            type="button"
+          >
+            title
+          </button>
+        </li>
+        <li
+          class="item"
+        >
+          <button
+            class="button tag primary"
+            type="button"
+          >
+            genre
+          </button>
+        </li>
+      </ul>
+      <button
+        class="button search primary"
+        type="button"
+      >
+        search
+      </button>
+    </div>
+  </form>
+</header>
+`;
