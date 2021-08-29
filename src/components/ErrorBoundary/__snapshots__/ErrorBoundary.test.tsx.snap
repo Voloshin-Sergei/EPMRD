@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary component should render ErrorBoundary component 1`] = `
+<div
+  className="container"
+>
+  <p
+    className="text"
+  >
+    Something wrong :(
+  </p>
+</div>
+`;

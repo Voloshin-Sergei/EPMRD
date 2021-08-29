@@ -1,83 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1630275049944" clover="3.2.0">
-  <project timestamp="1630275049944" name="All files">
-    <metrics statements="35" coveredstatements="35" conditionals="6" coveredconditionals="4" methods="13" coveredmethods="13" elements="54" coveredelements="52" complexity="0" loc="35" ncloc="35" packages="5" files="9" classes="9"/>
-    <package name="Main">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Main.tsx" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\Main\Main.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="Main.MoviesFilter">
-      <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
-      <file name="MoviesFilter.tsx" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\Main\MoviesFilter\MoviesFilter.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="6" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="22" count="6" type="stmt"/>
-      </file>
-      <file name="index.ts" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\Main\MoviesFilter\index.ts">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-      </file>
-    </package>
-    <package name="Main.MoviesList">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="MoviesList.tsx" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\Main\MoviesList\MoviesList.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="66" count="2" type="stmt"/>
-        <line num="68" count="14" type="stmt"/>
-      </file>
-      <file name="index.ts" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\Main\MoviesList\index.ts">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-      </file>
-    </package>
-    <package name="Main.MoviesList.MovieCard">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="MovieCard.tsx" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\Main\MoviesList\MovieCard\MovieCard.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="15" type="stmt"/>
-        <line num="13" count="15" type="stmt"/>
-        <line num="21" count="56" type="stmt"/>
-      </file>
-      <file name="index.ts" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\Main\MoviesList\MovieCard\index.ts">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="16" type="stmt"/>
-      </file>
-    </package>
-    <package name="common.Button">
-      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <file name="Button.tsx" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\common\Button\Button.tsx">
-        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="6" type="cond" truecount="2" falsecount="2"/>
-        <line num="13" count="6" type="stmt"/>
-      </file>
-      <file name="index.ts" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\common\Button\index.ts">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="8" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1630277409668" clover="3.2.0">
+  <project timestamp="1630277409669" name="All files">
+    <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4" elements="22" coveredelements="22" complexity="0" loc="14" ncloc="14" packages="1" files="1" classes="1"/>
+    <file name="ErrorBoundary.tsx" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\ErrorBoundary\ErrorBoundary.tsx">
+      <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="13" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="2" type="stmt"/>
+      <line num="25" count="2" type="stmt"/>
+      <line num="27" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="34" count="1" type="stmt"/>
+      <line num="36" count="1" type="stmt"/>
+    </file>
   </project>
 </coverage>
