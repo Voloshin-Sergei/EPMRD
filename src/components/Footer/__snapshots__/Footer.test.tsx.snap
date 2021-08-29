@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component should render Footer component 1`] = `
+<footer
+  className="footer"
+>
+  <p
+    className="title"
+  >
+    Movieroulette
+  </p>
+</footer>
+`;
