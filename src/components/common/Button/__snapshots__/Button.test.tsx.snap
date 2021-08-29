@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should render Button component with out props 1`] = `
+<button
+  className="button test class primary"
+  type="button"
+>
+  test button
+</button>
+`;
+
+exports[`Button component should render Button component with props 1`] = `
+<button
+  className="button test class secondary"
+  type="submit"
+>
+  test button
+</button>
+`;
