@@ -9,7 +9,8 @@
     "eslint": "eslint src --ext .js,.jsx,.ts,tsx",
     "stylelint": "stylelint src/**/*.scss",
     "linters": "npm run eslint & npm run stylelint",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "cypress": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,9 @@
       "^root(.*)$": "<rootDir>/src$1",
       "^Components(.*)$": "<rootDir>/src/components$1"
     },
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "devDependencies": {
     "@babel/core": "7.14.6",
@@ -83,6 +86,7 @@
     "react-test-renderer": "17.0.2",
     "sass": "1.35.1",
     "sass-loader": "12.1.0",
+    "start-server-and-test": "^1.13.1",
     "style-loader": "3.0.0",
     "stylelint": "13.13.1",
     "stylelint-config-rational-order": "0.1.2",

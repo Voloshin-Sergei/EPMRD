@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1630277409668" clover="3.2.0">
-  <project timestamp="1630277409669" name="All files">
-    <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4" elements="22" coveredelements="22" complexity="0" loc="14" ncloc="14" packages="1" files="1" classes="1"/>
-    <file name="ErrorBoundary.tsx" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\ErrorBoundary\ErrorBoundary.tsx">
-      <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+<coverage generated="1630350370839" clover="3.2.0">
+  <project timestamp="1630350370839" name="All files">
+    <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1" elements="10" coveredelements="10" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
+    <file name="Button.tsx" path="E:\Frontend\Epam\EPMRD\epmrd\src\components\common\Button\Button.tsx">
+      <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="11" count="1" type="stmt"/>
-      <line num="13" count="1" type="cond" truecount="2" falsecount="0"/>
-      <line num="14" count="1" type="stmt"/>
-      <line num="19" count="1" type="stmt"/>
-      <line num="20" count="1" type="stmt"/>
-      <line num="23" count="1" type="stmt"/>
-      <line num="24" count="2" type="stmt"/>
-      <line num="25" count="2" type="stmt"/>
-      <line num="27" count="2" type="cond" truecount="2" falsecount="0"/>
-      <line num="28" count="1" type="stmt"/>
-      <line num="34" count="1" type="stmt"/>
-      <line num="36" count="1" type="stmt"/>
+      <line num="12" count="2" type="cond" truecount="4" falsecount="0"/>
+      <line num="13" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>
