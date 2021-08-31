@@ -1,8 +1,6 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { shallow } from 'enzyme';
 import { MovieCard } from './MovieCard';
-Enzyme.configure({ adapter: new Adapter() });
 
 const props = {
   year: "2021",

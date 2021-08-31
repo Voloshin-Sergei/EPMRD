@@ -1,8 +1,6 @@
 import React from 'react';
-import Enzyme, { render } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { render } from 'enzyme';
 import { MoviesFilter}  from './MoviesFilter';
-Enzyme.configure({ adapter: new Adapter() });
 
 const component = render(<MoviesFilter/>);
 

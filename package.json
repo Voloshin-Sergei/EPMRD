@@ -26,20 +26,6 @@
     "react-router-dom": "5.2.0",
     "redux": "4.1.0"
   },
-  "jest": {
-    "verbose": true,
-    "transform": {
-      "^.+\\.(ts|tsx|js|jsx)$": "ts-jest"
-    },
-    "moduleNameMapper": {
-      "\\.scss$": "identity-obj-proxy",
-      "^root(.*)$": "<rootDir>/src$1",
-      "^Components(.*)$": "<rootDir>/src/components$1"
-    },
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
-  },
   "devDependencies": {
     "@babel/core": "7.14.6",
     "@babel/plugin-proposal-decorators": "7.14.5",

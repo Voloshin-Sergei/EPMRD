@@ -1,8 +1,6 @@
 import React from 'react';
-import Enzyme, { render } from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { render } from 'enzyme';
 import { Search }  from './Search';
-Enzyme.configure({ adapter: new Adapter() });
 
 const component = render(<Search/>);
 
