@@ -31,9 +31,10 @@ Array [
         >
           <button
             class="button tag primary"
+            data-test-id="search-tag-btn"
             type="button"
           >
-            title
+            one
           </button>
         </li>
         <li
@@ -41,14 +42,27 @@ Array [
         >
           <button
             class="button tag primary"
+            data-test-id="search-tag-btn"
             type="button"
           >
-            genre
+            two
+          </button>
+        </li>
+        <li
+          class="item"
+        >
+          <button
+            class="button tag primary"
+            data-test-id="search-tag-btn"
+            type="button"
+          >
+            three
           </button>
         </li>
       </ul>
       <button
         class="button search primary"
+        data-test-id="search-btn"
         type="button"
       >
         search

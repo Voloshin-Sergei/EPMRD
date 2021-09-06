@@ -5,26 +5,20 @@ import { Button } from 'Components/common/Button';
 
 
 describe('Search component', () => {
-  const component = render(<Search />);
+  const tagsList = ['one', 'two', 'three'];
+
+  const component = render(<Search searchTags={tagsList}/>);
 
   it('should render Search component', () => {
     expect(component).toMatchSnapshot();
   });
 
   it('should contain search button', () => {
-    expect(component.find('button').text().includes('search')).toBe(true);
+    expect(component.find('[data-test-id="search-btn"]')).toHaveLength(1);
   });
 
   it('should render search tag buttons on given array', () => {
-    const tagsList = ['one', 'two'];
-    const renderList = [];
 
-    tagsList
-      .map((listItem) => <Button className="tag">{listItem}</Button>)
-      .forEach((item) => renderList.push(item));
-
-    expect(renderList.length).toEqual(tagsList.length);
-
-    expect(component.find('ul').children()).toHaveLength(renderList.length);
+    expect(component.find('[data-test-id="search-tag-btn"]').length).toEqual(tagsList.length);
   });
 });
