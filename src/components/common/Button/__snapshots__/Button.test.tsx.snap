@@ -2,6 +2,15 @@
 
 exports[`Button component should render Button component 1`] = `
 <button
+  className="button  primary"
+  type="button"
+>
+  test button
+</button>
+`;
+
+exports[`Button component should render Button component with className props 1`] = `
+<button
   className="button test_class primary"
   type="button"
 >
@@ -9,19 +18,19 @@ exports[`Button component should render Button component 1`] = `
 </button>
 `;
 
-exports[`Button component should render Button component with out props 1`] = `
+exports[`Button component should render Button component with type props 1`] = `
 <button
-  className="button test class primary"
-  type="button"
+  className="button  primary"
+  type="submit"
 >
   test button
 </button>
 `;
 
-exports[`Button component should render Button component with props 1`] = `
+exports[`Button component should render Button component with variant props 1`] = `
 <button
-  className="button test class secondary"
-  type="submit"
+  className="button  secondary"
+  type="button"
 >
   test button
 </button>
