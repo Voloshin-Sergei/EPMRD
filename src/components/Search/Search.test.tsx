@@ -1,12 +1,9 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { Search } from './Search';
-import { Button } from 'Components/common/Button';
-
 
 describe('Search component', () => {
   const tagsList = ['one', 'two', 'three'];
-
   const component = render(<Search searchTags={tagsList}/>);
 
   it('should render Search component', () => {
@@ -18,7 +15,6 @@ describe('Search component', () => {
   });
 
   it('should render search tag buttons on given array', () => {
-
     expect(component.find('[data-test-id="search-tag-btn"]').length).toEqual(tagsList.length);
   });
 });
