@@ -1,9 +1,7 @@
 module.exports = {
-  extends: ["stylelint-config-standard",
-            "stylelint-config-rational-order",
-            ],
-  plugins: ["stylelint-order", "stylelint-scss"],
+  extends: ['stylelint-config-standard', 'stylelint-config-rational-order'],
+  plugins: ['stylelint-order', 'stylelint-scss'],
   rules: {
-    "no-empty-source": null
-  }
+    'no-empty-source': null,
+  },
 };

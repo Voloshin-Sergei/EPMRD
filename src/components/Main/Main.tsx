@@ -12,7 +12,7 @@ const filterTags = [FilterTags.Release, FilterTags.Date, FilterTags.Rating];
 
 export const Main: React.FC = () => (
   <>
-    <MoviesFilter filterTags={filterTags}/>
+    <MoviesFilter filterTags={filterTags} />
     <MoviesList />
   </>
 );

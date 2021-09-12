@@ -4,7 +4,7 @@ import { Button } from 'Components/common/Button';
 import style from './MoviesFilter.module.scss';
 
 export interface MoviesFilterProps {
-  filterTags: string[],
+  filterTags: string[];
 }
 
 export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => (
@@ -17,7 +17,9 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => (
       <ul className={style.list}>
         {filterTags.map((tag: string) => (
           <li key={tag} className={style.item}>
-            <Button className={style.tag} variant="secondary" dataTestId="filter-tag-btn">{tag}</Button>
+            <Button className={style.tag} variant="secondary" dataTestId="filter-tag-btn">
+              {tag}
+            </Button>
           </li>
         ))}
       </ul>

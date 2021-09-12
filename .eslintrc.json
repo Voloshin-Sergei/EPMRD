@@ -4,7 +4,13 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["airbnb-typescript/base", "eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "airbnb-typescript/base",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
   "parserOptions": {
     "project": "./tsconfig.json",
     "ecmaFeatures": {
@@ -20,7 +26,7 @@
     "linebreak-style": 0,
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "react/button-has-type": 0,
     "import/extensions": 0,
     "react/no-array-index-key": "off",
@@ -36,5 +42,5 @@
         "paths": ["src"]
       }
     }
-  } 
+  }
 }
