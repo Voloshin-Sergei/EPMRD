@@ -1,0 +1,32 @@
+
+> node-sass@6.0.1 install E:\Frontend\Epam\EPMRD\epmrd\node_modules\node-sass
+> node scripts/install.js
+
+Cached binary found at C:\Users\Bazovsky\AppData\Roaming\npm-cache\node-sass\6.0.1\win32-x64-83_binding.node
+
+> core-js-pure@3.15.2 postinstall E:\Frontend\Epam\EPMRD\epmrd\node_modules\core-js-pure
+> node -e "try{require('./postinstall')}catch(e){}"
+
+[96mThank you for using core-js ([94m https://github.com/zloirock/core-js [96m) for polyfilling JavaScript standard library![0m
+
+[96mThe project needs your help! Please consider supporting of core-js on Open Collective or Patreon: [0m
+[96m>[94m https://opencollective.com/core-js [0m
+[96m>[94m https://www.patreon.com/zloirock [0m
+
+[96mAlso, the author of core-js ([94m https://github.com/zloirock [96m) is looking for a good job -)[0m
+
+
+> node-sass@6.0.1 postinstall E:\Frontend\Epam\EPMRD\epmrd\node_modules\node-sass
+> node scripts/build.js
+
+Binary found at E:\Frontend\Epam\EPMRD\epmrd\node_modules\node-sass\vendor\win32-x64-83\binding.node
+Testing binary
+Binary is fine
++ lint-staged@11.1.2
+added 301 packages from 164 contributors, removed 269 packages, updated 204 packages and audited 1747 packages in 116.932s
+
+176 packages are looking for funding
+  run `npm fund` for details
+
+found 12 vulnerabilities (1 low, 4 moderate, 7 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
