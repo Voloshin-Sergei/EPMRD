@@ -4,8 +4,7 @@
 
 .header {
   padding: 2rem 5rem;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url('../../assets/header_bg.jpg') no-repeat center / cover;
 
   @media screen and (max-width: $mobile--sm) {

@@ -61,7 +61,7 @@ module.exports = ({ mode }) => {
           test: /\.tsx?$/,
           use: 'ts-loader',
           exclude: /node_modules/,
-        }
+        },
       ],
     },
     devServer: {

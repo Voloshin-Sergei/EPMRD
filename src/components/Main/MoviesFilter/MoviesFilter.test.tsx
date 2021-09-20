@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from 'enzyme';
-import { MoviesFilter}  from './MoviesFilter';
+import { MoviesFilter } from './MoviesFilter';
 
-describe("MoviesFilter component", () => {
+describe('MoviesFilter component', () => {
   const tagsList = ['one', 'two'];
-  const component = render(<MoviesFilter filterTags={tagsList}/>);
+  const component = render(<MoviesFilter filterTags={tagsList} />);
 
-    it('should render MoviesFilter component', () => {
+  it('should render MoviesFilter component', () => {
     expect(component).toMatchSnapshot();
   });
 

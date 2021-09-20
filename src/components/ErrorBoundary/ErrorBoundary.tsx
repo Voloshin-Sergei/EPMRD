@@ -2,13 +2,13 @@ import React from 'react';
 import style from './ErrorBoundary.module.scss';
 
 export interface ErrorBoundaryProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export interface ErrorBoundaryState {
-  hasError: boolean
+  hasError: boolean;
 }
-export class ErrorBoundary extends React.Component <ErrorBoundaryProps, ErrorBoundaryState> {
+export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = {

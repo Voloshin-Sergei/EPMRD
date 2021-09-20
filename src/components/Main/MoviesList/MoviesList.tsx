@@ -4,11 +4,11 @@ import { MovieCard } from './MovieCard';
 import style from './MoviesList.module.scss';
 
 export interface Movie {
-  genres: string[],
-  id: number,
-  cover: string,
-  year: string,
-  title: string
+  genres: string[];
+  id: number;
+  cover: string;
+  year: string;
+  title: string;
 }
 
 const movies: Movie[] = [

@@ -4,7 +4,7 @@ import { Search } from './Search';
 
 describe('Search component', () => {
   const tagsList = ['one', 'two', 'three'];
-  const component = render(<Search searchTags={tagsList}/>);
+  const component = render(<Search searchTags={tagsList} />);
 
   it('should render Search component', () => {
     expect(component).toMatchSnapshot();
