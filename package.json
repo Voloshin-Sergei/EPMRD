@@ -22,11 +22,13 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/Voloshin-Sergei/epmrd#readme",
   "dependencies": {
+    "axios": "0.21.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-redux": "7.2.4",
     "react-router-dom": "5.2.0",
-    "redux": "4.1.0"
+    "redux": "4.1.0",
+    "redux-thunk": "2.3.0"
   },
   "devDependencies": {
     "@babel/core": "7.14.6",
@@ -41,7 +43,10 @@
     "@types/jest": "27.0.1",
     "@types/react": "17.0.18",
     "@types/react-dom": "17.0.9",
+    "@types/react-redux": "7.1.18",
     "@types/react-test-renderer": "17.0.1",
+    "@types/redux": "^3.6.0",
+    "@types/redux-thunk": "^2.1.0",
     "@typescript-eslint/eslint-plugin": "4.29.2",
     "@typescript-eslint/parser": "4.29.2",
     "@wojtekmaj/enzyme-adapter-react-17": "0.6.3",

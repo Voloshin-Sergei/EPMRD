@@ -1,6 +1,5 @@
 import React from 'react';
 import { MovieCard } from './MovieCard';
-
 import style from './MoviesList.module.scss';
 
 export interface Movie {
@@ -63,16 +62,18 @@ const movies: Movie[] = [
   },
 ];
 
-export const MoviesList: React.FC = () => (
-  <section className={style.movies}>
-    {movies.map((movie: Movie) => (
-      <MovieCard
-        key={movie.id}
-        year={movie.year}
-        title={movie.title}
-        poster={movie.cover}
-        genres={movie.genres}
-      />
-    ))}
-  </section>
-);
+export const MoviesList: React.FC = () => {
+  return (
+    <section className={style.movies}>
+      {movies.map((movie: Movie) => (
+        <MovieCard
+          key={movie.id}
+          year={movie.year}
+          title={movie.title}
+          poster={movie.cover}
+          genres={movie.genres}
+        />
+      ))}
+    </section>
+  );
+};

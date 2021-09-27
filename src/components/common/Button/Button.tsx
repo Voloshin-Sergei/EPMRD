@@ -6,7 +6,7 @@ export interface ButtonProps {
   variant?: 'primary' | 'secondary';
   children: React.ReactNode;
   type?: 'button' | 'submit';
-  dataTestId: string;
+  dataTestId?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
