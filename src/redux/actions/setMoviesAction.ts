@@ -9,7 +9,7 @@ export interface SetMoviesAction {
   payload: Movie[];
 }
 
-const url = 'https://reactjs-cdp.herokuapp.com/movies';
+const url = 'https://reactjs-cdp.herokuapp.com/movies?sortBy=release_date&sortOrder=desc';
 
 export const setMovies = () => {
   return async (dispatch: Dispatch): Promise<void> => {

@@ -2,13 +2,15 @@ import React from 'react';
 import { MoviesFilter } from './MoviesFilter';
 import { MoviesList } from './MoviesList';
 
-export enum FilterTags {
-  Release = 'release',
-  Date = 'date',
-  Rating = 'rating',
+export interface FilterTag {
+  text: string;
+  type: string;
 }
 
-const filterTags = [FilterTags.Release, FilterTags.Date, FilterTags.Rating];
+const filterTags: Array<FilterTag> = [
+  { text: 'release date', type: 'release_date' },
+  { text: 'rating', type: 'vote_count' },
+];
 
 export const Main: React.FC = () => (
   <>

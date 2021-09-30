@@ -3,7 +3,10 @@ import { render } from 'enzyme';
 import { MoviesFilter } from './MoviesFilter';
 
 describe('MoviesFilter component', () => {
-  const tagsList = ['one', 'two'];
+  const tagsList = [
+    { text: 'one', type: 'one' },
+    { text: 'two', type: 'two' },
+  ];
   const component = render(<MoviesFilter filterTags={tagsList} />);
 
   it('should render MoviesFilter component', () => {

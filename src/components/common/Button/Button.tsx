@@ -7,6 +7,9 @@ export interface ButtonProps {
   children: React.ReactNode;
   type?: 'button' | 'submit';
   dataTestId?: string;
+  callback?: any;
+  typeCategory?: string;
+  activeCategory?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -15,12 +18,20 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   type = 'button',
   dataTestId,
-}) => (
-  <button
-    className={`${style.button} ${className} ${style[variant]}`}
-    type={type}
-    data-test-id={dataTestId}
-  >
-    {children}
-  </button>
-);
+  callback,
+  typeCategory,
+  activeCategory,
+}) => {
+  return (
+    <button
+      className={`${activeCategory === typeCategory ? style.active : ''} ${
+        style.button
+      } ${className} ${style[variant]} `}
+      type={type}
+      data-test-id={dataTestId}
+      onClick={() => callback(typeCategory)}
+    >
+      {children}
+    </button>
+  );
+};
