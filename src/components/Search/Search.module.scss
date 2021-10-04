@@ -47,11 +47,7 @@
   background-color: lighten($color-primary--dark, 40%);
 
   &:hover {
-    background-color: lighten($color-primary--dark, 45%);
-  }
-
-  &:focus {
-    background-color: $color-secondary;
+    transform: scale(1);
   }
 }
 
@@ -67,4 +63,8 @@
   &:active {
     transform: scale(0.9);
   }
+}
+
+.active {
+  background-color: $color-secondary;
 }

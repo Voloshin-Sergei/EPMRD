@@ -3,7 +3,10 @@ import { render } from 'enzyme';
 import { Search } from './Search';
 
 describe('Search component', () => {
-  const tagsList = ['one', 'two', 'three'];
+  const tagsList = [
+    { text: 'one', type: 'one' },
+    { text: 'two', type: 'two' },
+  ];
   const component = render(<Search searchTags={tagsList} />);
 
   it('should render Search component', () => {

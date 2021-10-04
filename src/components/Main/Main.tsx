@@ -9,7 +9,7 @@ export interface FilterTag {
 
 const filterTags: Array<FilterTag> = [
   { text: 'release date', type: 'release_date' },
-  { text: 'rating', type: 'vote_count' },
+  { text: 'rating', type: 'vote_average' },
 ];
 
 export const Main: React.FC = () => (

@@ -3,7 +3,15 @@ import { Search } from 'Components/Search';
 
 import style from './Header.module.scss';
 
-const searchTags = ['title', 'genre'];
+export interface SearchTag {
+  text: string;
+  type: string;
+}
+
+const searchTags: Array<SearchTag> = [
+  { text: 'title', type: 'title' },
+  { text: 'genre', type: 'genres' },
+];
 
 export const Header: React.FC = () => (
   <header className={style.header}>

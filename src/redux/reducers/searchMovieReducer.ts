@@ -1,0 +1,53 @@
+import { Movie } from 'Components/Main/MoviesList';
+import { SET_MOVIES, SEARCH_MOVIE_VALUE, SET_SEARCH_CATEGORY, SET_FILTER_CATEGORY } from '../types';
+import { SearchMoviesActionTypes } from '../actions/searchMovieAction';
+
+interface InitialState {
+  movies: Movie[];
+  searchCategory: string;
+  sortCategory: string;
+  searchValue: string;
+}
+
+const initialState: InitialState = {
+  movies: [],
+  searchCategory: 'title',
+  sortCategory: 'release_date',
+  searchValue: '',
+};
+
+const searchMovieReducer = (
+  state = initialState,
+  action: SearchMoviesActionTypes,
+): InitialState => {
+  switch (action.type) {
+    case SEARCH_MOVIE_VALUE:
+      return {
+        ...state,
+        searchValue: action.payload,
+      };
+
+    case SET_SEARCH_CATEGORY:
+      return {
+        ...state,
+        searchCategory: action.payload,
+      };
+
+    case SET_FILTER_CATEGORY:
+      return {
+        ...state,
+        sortCategory: action.payload,
+      };
+
+    case SET_MOVIES:
+      return {
+        ...state,
+        movies: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default searchMovieReducer;

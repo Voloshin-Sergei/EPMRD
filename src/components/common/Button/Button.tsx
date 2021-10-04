@@ -7,9 +7,10 @@ export interface ButtonProps {
   children: React.ReactNode;
   type?: 'button' | 'submit';
   dataTestId?: string;
-  callback?: any;
+  callback?: any; // TODO i don't understand how to fix it
   typeCategory?: string;
   activeCategory?: string;
+  activeClassName?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -20,13 +21,11 @@ export const Button: React.FC<ButtonProps> = ({
   dataTestId,
   callback,
   typeCategory,
-  activeCategory,
+  activeClassName,
 }) => {
   return (
     <button
-      className={`${activeCategory === typeCategory ? style.active : ''} ${
-        style.button
-      } ${className} ${style[variant]} `}
+      className={` ${style.button} ${className} ${style[variant]} ${activeClassName}`}
       type={type}
       data-test-id={dataTestId}
       onClick={() => callback(typeCategory)}
