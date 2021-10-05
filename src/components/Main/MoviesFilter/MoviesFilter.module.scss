@@ -51,4 +51,8 @@
 .active {
   color: $color-secondary;
   font-size: 1.8rem;
+
+  &:hover {
+    transform: scale(0.9);
+  }
 }

@@ -47,7 +47,7 @@
   background-color: lighten($color-primary--dark, 40%);
 
   &:hover {
-    transform: scale(1);
+    background-color: lighten($color-primary--dark, 30%);
   }
 }
 
@@ -65,6 +65,6 @@
   }
 }
 
-.active {
+.tag.active {
   background-color: $color-secondary;
 }

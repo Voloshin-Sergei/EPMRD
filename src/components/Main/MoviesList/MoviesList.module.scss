@@ -1,5 +1,5 @@
 @import 'Styles/variables/responsive';
-
+@import 'Styles/variables/fonts';
 // sizes
 $primary-size: 320px;
 $primary-size--md: 300px;
@@ -25,4 +25,10 @@ $primary-size--xs: 210px;
   @media screen and (max-width: $mobile--sm) {
     grid-template-columns: repeat(auto-fit, $primary-size--xs);
   }
+}
+
+.title {
+  font-weight: $font-weight--medium;
+  font-size: 6rem;
+  text-align: center;
 }

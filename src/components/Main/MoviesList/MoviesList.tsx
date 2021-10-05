@@ -28,17 +28,19 @@ export const MoviesList: React.FC = () => {
   }, []);
 
   return (
-    <section className={style.movies}>
-      {!movieList.length && <h2>No films found</h2>}
-      {movieList.map((movie: Movie) => (
-        <MovieCard
-          key={movie.id}
-          year={movie.release_date}
-          title={movie.title}
-          poster={movie.poster_path}
-          genres={movie.genres}
-        />
-      ))}
-    </section>
+    <>
+      {!movieList.length && <h2 className={style.title}>No films found</h2>}
+      <section className={style.movies}>
+        {movieList.map((movie: Movie) => (
+          <MovieCard
+            key={movie.id}
+            year={movie.release_date}
+            title={movie.title}
+            poster={movie.poster_path}
+            genres={movie.genres}
+          />
+        ))}
+      </section>
+    </>
   );
 };
