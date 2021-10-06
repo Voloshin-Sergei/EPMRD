@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setMovies } from '../../../redux/actions/searchMovieAction';
+import React from 'react';
 import { MovieCard } from './MovieCard';
-import { RootState } from '../../../redux/reducers';
 import style from './MoviesList.module.scss';
 
 export interface Movie {
@@ -20,13 +17,11 @@ export interface Movie {
   genres: string[];
 }
 
-export const MoviesList: React.FC = () => {
-  const dispatch = useDispatch();
-  const movieList: Movie[] = useSelector((state: RootState) => state.searchMovieReducer.movies);
-  useEffect(() => {
-    dispatch(setMovies());
-  }, []);
+export interface MovieListProps {
+  movieList: Movie[];
+}
 
+export const MoviesList: React.FC<MovieListProps> = ({ movieList }) => {
   return (
     <>
       {!movieList.length && <h2 className={style.title}>No films found</h2>}

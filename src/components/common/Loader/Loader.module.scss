@@ -1,0 +1,29 @@
+@import 'Styles/variables/colors';
+
+.loader {
+  width: 8rem;
+  height: 8rem;
+  margin: auto;
+}
+
+.loader::after {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  margin: 0.8rem;
+  border: 1rem solid $color-secondary;
+  border-color: $color-secondary transparent $color-secondary transparent;
+  border-radius: 50%;
+  animation: loader 1.2s linear infinite;
+  content: ' ';
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

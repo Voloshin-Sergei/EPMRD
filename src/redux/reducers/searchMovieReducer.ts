@@ -1,5 +1,12 @@
 import { Movie } from 'Components/Main/MoviesList';
-import { SET_MOVIES, SEARCH_MOVIE_VALUE, SET_SEARCH_CATEGORY, SET_FILTER_CATEGORY } from '../types';
+import {
+  SET_MOVIES,
+  SEARCH_MOVIE_VALUE,
+  SET_SEARCH_CATEGORY,
+  SET_FILTER_CATEGORY,
+  LOADER_DISPLAY_ON,
+  LOADER_DISPLAY_OFF,
+} from '../types';
 import { SearchMoviesActionTypes } from '../actions/searchMovieAction';
 
 interface InitialState {
@@ -7,6 +14,7 @@ interface InitialState {
   searchCategory: string;
   sortCategory: string;
   searchValue: string;
+  loading: boolean;
 }
 
 const initialState: InitialState = {
@@ -14,6 +22,7 @@ const initialState: InitialState = {
   searchCategory: 'title',
   sortCategory: 'release_date',
   searchValue: '',
+  loading: false,
 };
 
 const searchMovieReducer = (
@@ -43,6 +52,17 @@ const searchMovieReducer = (
       return {
         ...state,
         movies: action.payload,
+      };
+    case LOADER_DISPLAY_ON:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case LOADER_DISPLAY_OFF:
+      return {
+        ...state,
+        loading: false,
       };
 
     default:

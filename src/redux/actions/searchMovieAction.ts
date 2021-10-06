@@ -1,7 +1,14 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 import { Movie } from 'Components/Main/MoviesList';
-import { SET_MOVIES, SEARCH_MOVIE_VALUE, SET_SEARCH_CATEGORY, SET_FILTER_CATEGORY } from '../types';
+import {
+  SET_MOVIES,
+  SEARCH_MOVIE_VALUE,
+  SET_SEARCH_CATEGORY,
+  SET_FILTER_CATEGORY,
+  LOADER_DISPLAY_ON,
+  LOADER_DISPLAY_OFF,
+} from '../types';
 
 interface SearchMovieValue {
   type: typeof SEARCH_MOVIE_VALUE;
@@ -23,6 +30,14 @@ interface SetMovies {
   payload: Movie[];
 }
 
+interface LoaderOn {
+  type: typeof LOADER_DISPLAY_ON;
+}
+
+interface LoaderOff {
+  type: typeof LOADER_DISPLAY_OFF;
+}
+
 export const searchMovieValue = (searchValue: string): SearchMovieValue => ({
   type: SEARCH_MOVIE_VALUE,
   payload: searchValue,
@@ -38,10 +53,19 @@ export const setFilterCategory = (category: string): SetFilterCategory => ({
   payload: category,
 });
 
+export const loaderOn = (): LoaderOn => ({
+  type: LOADER_DISPLAY_ON,
+});
+
+export const loaderOff = (): LoaderOff => ({
+  type: LOADER_DISPLAY_OFF,
+});
+
 const url = 'https://reactjs-cdp.herokuapp.com/movies';
 
 export const searchMovie = (searchValue: string, searchCategory: string) => {
   return async (dispatch: Dispatch): Promise<void> => {
+    dispatch<LoaderOn>(loaderOn());
     const response = await axios.get(
       `${url}?sortBy=release_date&sortOrder=desc&search=${searchValue}&searchBy=${searchCategory}`,
     );
@@ -50,11 +74,13 @@ export const searchMovie = (searchValue: string, searchCategory: string) => {
       type: SET_MOVIES,
       payload: response.data.data,
     });
+    dispatch<LoaderOff>(loaderOff());
   };
 };
 
 export const setSortMovies = (category: string, searchValue: string, searchCategory: string) => {
   return async (dispatch: Dispatch): Promise<void> => {
+    dispatch<LoaderOn>(loaderOn());
     const response = await axios.get(
       `${url}?sortBy=${category}&sortOrder=desc&search=${searchValue}&searchBy=${searchCategory}`,
     );
@@ -63,17 +89,20 @@ export const setSortMovies = (category: string, searchValue: string, searchCateg
       type: SET_MOVIES,
       payload: response.data.data,
     });
+    dispatch<LoaderOff>(loaderOff());
   };
 };
 
 export const setMovies = () => {
   return async (dispatch: Dispatch): Promise<void> => {
+    dispatch<LoaderOn>(loaderOn());
     const response = await axios.get(`${url}?sortBy=release_date&sortOrder=desc`);
 
     dispatch<SetMovies>({
       type: SET_MOVIES,
       payload: response.data.data,
     });
+    dispatch<LoaderOff>(loaderOff());
   };
 };
 
@@ -81,4 +110,6 @@ export type SearchMoviesActionTypes =
   | SearchMovieValue
   | SetSearchCategory
   | SetFilterCategory
-  | SetMovies;
+  | SetMovies
+  | LoaderOn
+  | LoaderOff;

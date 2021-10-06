@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Loader } from 'Components/common/Loader';
 import { MoviesFilter } from './MoviesFilter';
 import { MoviesList } from './MoviesList';
-
+import { setMovies } from '../../redux/actions/searchMovieAction';
+import { RootState } from '../../redux/reducers';
 import style from './Main.module.scss';
 
 export interface FilterTag {
@@ -9,14 +12,39 @@ export interface FilterTag {
   type: string;
 }
 
+export interface Movie {
+  id: number;
+  title: string;
+  tagline: string;
+  vote_average: number;
+  vote_count: number;
+  release_date: string;
+  poster_path: string;
+  overview: string;
+  budget: number;
+  revenue: number;
+  runtime: number;
+  genres: string[];
+}
+
 const filterTags: Array<FilterTag> = [
   { text: 'release date', type: 'release_date' },
   { text: 'rating', type: 'vote_average' },
 ];
 
-export const Main: React.FC = () => (
-  <main className={style.main}>
-    <MoviesFilter filterTags={filterTags} />
-    <MoviesList />
-  </main>
-);
+export const Main: React.FC = () => {
+  const dispatch = useDispatch();
+  const movieList: Movie[] = useSelector((state: RootState) => state.searchMovieReducer.movies);
+  const loading: boolean = useSelector((state: RootState) => state.searchMovieReducer.loading);
+
+  useEffect(() => {
+    dispatch(setMovies());
+  }, []);
+
+  return (
+    <main className={style.main}>
+      <MoviesFilter filterTags={filterTags} />
+      {loading ? <Loader /> : <MoviesList movieList={movieList} />}
+    </main>
+  );
+};
