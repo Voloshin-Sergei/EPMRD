@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { setMovies } from 'Redux/actions/searchMovieAction';
+import { RootState } from 'Redux/reducers';
 import { Loader } from 'Components/common/Loader';
 import { MoviesFilter } from './MoviesFilter';
 import { MoviesList } from './MoviesList';
-import { setMovies } from '../../redux/actions/searchMovieAction';
-import { RootState } from '../../redux/reducers';
+
 import style from './Main.module.scss';
 
 export interface FilterTag {
@@ -34,9 +35,7 @@ const filterTags: Array<FilterTag> = [
 
 export const Main: React.FC = () => {
   const dispatch = useDispatch();
-  const movieList: Movie[] = useSelector((state: RootState) => state.searchMovieReducer.movies);
-  const loading: boolean = useSelector((state: RootState) => state.searchMovieReducer.loading);
-  const error: string | null = useSelector((state: RootState) => state.searchMovieReducer.error);
+  const { loading, error, movies } = useSelector((state: RootState) => state.searchMovieReducer);
 
   useEffect(() => {
     dispatch(setMovies());
@@ -50,7 +49,7 @@ export const Main: React.FC = () => {
       ) : loading ? (
         <Loader />
       ) : (
-        <MoviesList movieList={movieList} />
+        <MoviesList movieList={movies} />
       )}
     </main>
   );

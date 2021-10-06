@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'Components/common/Button';
-import { RootState } from '../../../redux/reducers';
-import { Movie } from '../MoviesList';
-import { setFilterCategory, setSortMovies } from '../../../redux/actions/searchMovieAction';
+import { setFilterCategory, searchMovie } from 'Redux/actions/searchMovieAction';
+import { RootState } from 'Redux/reducers';
 import { FilterTag } from '../Main';
 
 import style from './MoviesFilter.module.scss';
@@ -13,16 +12,14 @@ export interface MoviesFilterProps {
 }
 
 export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
-  const movieList: Movie[] = useSelector((state: RootState) => state.searchMovieReducer.movies);
-  const searchValue = useSelector((state: RootState) => state.searchMovieReducer.searchValue);
-  const searchCategory = useSelector((state: RootState) => state.searchMovieReducer.searchCategory);
-  const sortCategory: string = useSelector(
-    (state: RootState) => state.searchMovieReducer.sortCategory,
+  const { movies, searchValue, searchCategory, sortCategory } = useSelector(
+    (state: RootState) => state.searchMovieReducer,
   );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setSortMovies(sortCategory, searchValue, searchCategory));
+    dispatch(searchMovie(sortCategory, searchValue, searchCategory));
   }, [sortCategory]);
 
   const moviesSortBy = (category: string): void => {
@@ -32,7 +29,7 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
   return (
     <div className={style.filter}>
       <div>
-        <p className={style.result}>{movieList.length} movies found</p>
+        <p className={style.result}>{movies.length} movies found</p>
       </div>
       <div className={style.buttons}>
         <p className={style.text}>Sort by</p>

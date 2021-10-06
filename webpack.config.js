@@ -22,6 +22,7 @@ module.exports = ({ mode }) => {
       alias: {
         Components: path.resolve(__dirname, 'src/components'),
         Styles: path.resolve(__dirname, 'src/scss'),
+        Redux: path.resolve(__dirname, 'src/redux'),
       },
     },
     module: {

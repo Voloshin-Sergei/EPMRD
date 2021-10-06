@@ -2,12 +2,8 @@ import React from 'react';
 import { Button } from 'Components/common/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchTag } from 'Components/Header/Header';
-import { RootState } from '../../redux/reducers';
-import {
-  setSearchCategory,
-  searchMovieValue,
-  searchMovie,
-} from '../../redux/actions/searchMovieAction';
+import { RootState } from 'Redux/reducers';
+import { setSearchCategory, searchMovieValue, searchMovie } from 'Redux/actions/searchMovieAction';
 
 import style from './Search.module.scss';
 
@@ -15,32 +11,34 @@ export interface SearchProps {
   searchTags: Array<SearchTag>;
 }
 
-type InputEvent = React.ChangeEvent<HTMLInputElement>;
-
 export const Search: React.FC<SearchProps> = ({ searchTags }) => {
-  const searchValue = useSelector((state: RootState) => state.searchMovieReducer.searchValue);
-
-  const searchCategory: string = useSelector(
-    (state: RootState) => state.searchMovieReducer.searchCategory,
+  const { sortCategory, searchValue, searchCategory } = useSelector(
+    (state: RootState) => state.searchMovieReducer,
   );
+
   const dispatch = useDispatch();
 
   const moviesSearchCategory = (category: string): void => {
     dispatch(setSearchCategory(category));
   };
 
-  const setSearchValue = (event: InputEvent): void => {
+  const setSearchValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch(searchMovieValue(event.target.value));
   };
 
   const handleSearch = () => {
-    dispatch(searchMovie(searchValue, searchCategory));
+    dispatch(searchMovie(sortCategory, searchValue, searchCategory));
+  };
+
+  const handleFormSubmit = (event: React.FormEvent): void => {
+    event.preventDefault();
+    handleSearch();
   };
 
   return (
     <>
       <p className={style.title}>find your movie</p>
-      <form className={style.form} onSubmit={handleSearch}>
+      <form className={style.form} onSubmit={handleFormSubmit}>
         <input
           className={style.field}
           type="text"

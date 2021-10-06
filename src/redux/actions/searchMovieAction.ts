@@ -74,34 +74,16 @@ export const loadError = (error: string): LoadError => ({
 
 const url = 'https://reactjs-cdp.herokuapp.com/movies';
 
-export const searchMovie = (searchValue: string, searchCategory: string) => {
+export const searchMovie = (
+  sortCategory = 'release_date',
+  searchValue: string,
+  searchCategory: string,
+) => {
   return async (dispatch: Dispatch): Promise<void> => {
     try {
       dispatch<LoaderOn>(loaderOn());
       const response = await axios.get(
-        `${url}?sortBy=release_date&sortOrder=desc&search=${searchValue}&searchBy=${searchCategory}`,
-      );
-
-      dispatch<SetMovies>({
-        type: SET_MOVIES,
-        payload: response.data.data,
-      });
-      dispatch<LoaderOff>(loaderOff());
-    } catch (error) {
-      dispatch<LoadError>({
-        type: LOAD_ERROR,
-        payload: 'Server error',
-      });
-    }
-  };
-};
-
-export const setSortMovies = (category: string, searchValue: string, searchCategory: string) => {
-  return async (dispatch: Dispatch): Promise<void> => {
-    try {
-      dispatch<LoaderOn>(loaderOn());
-      const response = await axios.get(
-        `${url}?sortBy=${category}&sortOrder=desc&search=${searchValue}&searchBy=${searchCategory}`,
+        `${url}?sortBy=${sortCategory}&sortOrder=desc&search=${searchValue}&searchBy=${searchCategory}`,
       );
 
       dispatch<SetMovies>({

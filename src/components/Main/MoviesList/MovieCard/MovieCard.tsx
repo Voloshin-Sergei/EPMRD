@@ -9,6 +9,8 @@ export interface MovieCardProps {
 }
 
 export const MovieCard: React.FC<MovieCardProps> = ({ year, title, poster, genres }) => {
+  const shortYear = year.split('-')[0];
+
   return (
     <div className={style.movie}>
       <img
@@ -23,7 +25,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({ year, title, poster, genre
       />
       <div className={style.info}>
         <h3 className={style.title}>{title}</h3>
-        <span className={style.year}>{year}</span>
+        <span className={style.year}>{shortYear}</span>
       </div>
       <ul className={style.genres}>
         {genres.map((genre: string, index) => (
