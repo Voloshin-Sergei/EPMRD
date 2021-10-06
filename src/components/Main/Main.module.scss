@@ -1,3 +1,13 @@
+@import 'Styles/variables/colors';
+@import 'Styles/variables/fonts';
+
 .main {
   flex: 1 1 auto;
+}
+
+.error {
+  color: $color-secondary;
+  font-weight: $font-weight--medium;
+  font-size: 6rem;
+  text-align: center;
 }

@@ -36,6 +36,7 @@ export const Main: React.FC = () => {
   const dispatch = useDispatch();
   const movieList: Movie[] = useSelector((state: RootState) => state.searchMovieReducer.movies);
   const loading: boolean = useSelector((state: RootState) => state.searchMovieReducer.loading);
+  const error: string | null = useSelector((state: RootState) => state.searchMovieReducer.error);
 
   useEffect(() => {
     dispatch(setMovies());
@@ -44,7 +45,13 @@ export const Main: React.FC = () => {
   return (
     <main className={style.main}>
       <MoviesFilter filterTags={filterTags} />
-      {loading ? <Loader /> : <MoviesList movieList={movieList} />}
+      {error ? (
+        <h2 className={style.error}>{error}</h2>
+      ) : loading ? (
+        <Loader />
+      ) : (
+        <MoviesList movieList={movieList} />
+      )}
     </main>
   );
 };

@@ -31,7 +31,8 @@
     "import/extensions": 0,
     "react/no-array-index-key": "off",
     "react/prop-types": 0,
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "no-nested-ternary": "off"
   },
   "settings": {
     "react": {

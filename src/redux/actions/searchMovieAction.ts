@@ -8,6 +8,7 @@ import {
   SET_FILTER_CATEGORY,
   LOADER_DISPLAY_ON,
   LOADER_DISPLAY_OFF,
+  LOAD_ERROR,
 } from '../types';
 
 interface SearchMovieValue {
@@ -38,6 +39,11 @@ interface LoaderOff {
   type: typeof LOADER_DISPLAY_OFF;
 }
 
+interface LoadError {
+  type: typeof LOAD_ERROR;
+  payload: string;
+}
+
 export const searchMovieValue = (searchValue: string): SearchMovieValue => ({
   type: SEARCH_MOVIE_VALUE,
   payload: searchValue,
@@ -61,48 +67,75 @@ export const loaderOff = (): LoaderOff => ({
   type: LOADER_DISPLAY_OFF,
 });
 
+export const loadError = (error: string): LoadError => ({
+  type: LOAD_ERROR,
+  payload: error,
+});
+
 const url = 'https://reactjs-cdp.herokuapp.com/movies';
 
 export const searchMovie = (searchValue: string, searchCategory: string) => {
   return async (dispatch: Dispatch): Promise<void> => {
-    dispatch<LoaderOn>(loaderOn());
-    const response = await axios.get(
-      `${url}?sortBy=release_date&sortOrder=desc&search=${searchValue}&searchBy=${searchCategory}`,
-    );
+    try {
+      dispatch<LoaderOn>(loaderOn());
+      const response = await axios.get(
+        `${url}?sortBy=release_date&sortOrder=desc&search=${searchValue}&searchBy=${searchCategory}`,
+      );
 
-    dispatch<SetMovies>({
-      type: SET_MOVIES,
-      payload: response.data.data,
-    });
-    dispatch<LoaderOff>(loaderOff());
+      dispatch<SetMovies>({
+        type: SET_MOVIES,
+        payload: response.data.data,
+      });
+      dispatch<LoaderOff>(loaderOff());
+    } catch (error) {
+      dispatch<LoadError>({
+        type: LOAD_ERROR,
+        payload: 'Server error',
+      });
+    }
   };
 };
 
 export const setSortMovies = (category: string, searchValue: string, searchCategory: string) => {
   return async (dispatch: Dispatch): Promise<void> => {
-    dispatch<LoaderOn>(loaderOn());
-    const response = await axios.get(
-      `${url}?sortBy=${category}&sortOrder=desc&search=${searchValue}&searchBy=${searchCategory}`,
-    );
+    try {
+      dispatch<LoaderOn>(loaderOn());
+      const response = await axios.get(
+        `${url}?sortBy=${category}&sortOrder=desc&search=${searchValue}&searchBy=${searchCategory}`,
+      );
 
-    dispatch<SetMovies>({
-      type: SET_MOVIES,
-      payload: response.data.data,
-    });
-    dispatch<LoaderOff>(loaderOff());
+      dispatch<SetMovies>({
+        type: SET_MOVIES,
+        payload: response.data.data,
+      });
+      dispatch<LoaderOff>(loaderOff());
+    } catch (error) {
+      dispatch<LoadError>({
+        type: LOAD_ERROR,
+        payload: 'Server error',
+      });
+    }
   };
 };
 
 export const setMovies = () => {
   return async (dispatch: Dispatch): Promise<void> => {
-    dispatch<LoaderOn>(loaderOn());
-    const response = await axios.get(`${url}?sortBy=release_date&sortOrder=desc`);
+    try {
+      dispatch<LoaderOn>(loaderOn());
+      const response = await axios.get(`${url}?sortBy=release_date&sortOrder=desc`);
 
-    dispatch<SetMovies>({
-      type: SET_MOVIES,
-      payload: response.data.data,
-    });
-    dispatch<LoaderOff>(loaderOff());
+      dispatch<SetMovies>({
+        type: SET_MOVIES,
+        payload: response.data.data,
+      });
+      dispatch<LoaderOff>(loaderOff());
+    } catch (error) {
+      dispatch<LoaderOff>(loaderOff());
+      dispatch<LoadError>({
+        type: LOAD_ERROR,
+        payload: 'Server error',
+      });
+    }
   };
 };
 
@@ -112,4 +145,5 @@ export type SearchMoviesActionTypes =
   | SetFilterCategory
   | SetMovies
   | LoaderOn
-  | LoaderOff;
+  | LoaderOff
+  | LoadError;

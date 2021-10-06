@@ -6,6 +6,7 @@ import {
   SET_FILTER_CATEGORY,
   LOADER_DISPLAY_ON,
   LOADER_DISPLAY_OFF,
+  LOAD_ERROR,
 } from '../types';
 import { SearchMoviesActionTypes } from '../actions/searchMovieAction';
 
@@ -15,6 +16,7 @@ interface InitialState {
   sortCategory: string;
   searchValue: string;
   loading: boolean;
+  error: string | null;
 }
 
 const initialState: InitialState = {
@@ -23,6 +25,7 @@ const initialState: InitialState = {
   sortCategory: 'release_date',
   searchValue: '',
   loading: false,
+  error: null,
 };
 
 const searchMovieReducer = (
@@ -52,6 +55,7 @@ const searchMovieReducer = (
       return {
         ...state,
         movies: action.payload,
+        error: null,
       };
     case LOADER_DISPLAY_ON:
       return {
@@ -63,6 +67,12 @@ const searchMovieReducer = (
       return {
         ...state,
         loading: false,
+      };
+
+    case LOAD_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
 
     default:
