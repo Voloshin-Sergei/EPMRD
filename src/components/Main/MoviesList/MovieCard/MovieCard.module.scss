@@ -3,6 +3,7 @@
 @import 'Styles/variables/responsive';
 
 .movie {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -23,6 +24,29 @@
   width: 100%;
 }
 
+.vote {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  font-weight: $font-weight--medium;
+  font-size: 2rem;
+  background-color: $color-primary--darken;
+  border-radius: 3px;
+}
+
+.vote.red {
+  color: red;
+}
+
+.vote.orange {
+  color: orange;
+}
+
+.vote.green {
+  color: green;
+}
+
 .info {
   display: flex;
   align-items: center;
@@ -32,12 +56,13 @@
 
 .year {
   padding: 0.3rem;
-  white-space: nowrap;
+  font-size: 1.5rem;
   border: 1px solid $color-primary--darken;
   border-radius: 3px;
 }
 
 .title {
+  margin-right: 2rem;
   color: lighten($color-primary--dark, 20%);
   font-weight: $font-weight--light;
   font-size: 2.4rem;

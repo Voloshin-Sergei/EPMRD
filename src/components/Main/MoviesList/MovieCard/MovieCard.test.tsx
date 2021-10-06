@@ -8,6 +8,7 @@ describe('MovieCard component', () => {
     title: 'test title',
     poster: 'test cover',
     genres: ['test genre_1', 'test genres_2'],
+    vote: 2,
   };
 
   it('should render MovieCard component', () => {

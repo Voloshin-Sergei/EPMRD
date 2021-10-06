@@ -33,6 +33,7 @@ export const MoviesList: React.FC<MovieListProps> = ({ movieList }) => {
             title={movie.title}
             poster={movie.poster_path}
             genres={movie.genres}
+            vote={movie.vote_average}
           />
         ))}
       </section>
