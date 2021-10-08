@@ -2,8 +2,8 @@ import React from 'react';
 import { Button } from 'Components/common/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchTag } from 'Components/Header/Header';
-import { RootState } from 'Redux/reducers';
-import { setSearchCategory, searchMovieValue, searchMovie } from 'Redux/actions/searchMovieAction';
+import { RootState } from 'Store/reducers';
+import { setSearchCategory, searchMovieValue, searchMovie } from 'Store/actions/searchMovieAction';
 
 import style from './Search.module.scss';
 

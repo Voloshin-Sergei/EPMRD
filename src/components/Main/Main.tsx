@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setMovies } from 'Redux/actions/searchMovieAction';
-import { RootState } from 'Redux/reducers';
+import { setMovies } from 'Store/actions/searchMovieAction';
+import { RootState } from 'Store/reducers';
 import { Loader } from 'Components/common/Loader';
 import { MoviesFilter } from './MoviesFilter';
 import { MoviesList } from './MoviesList';

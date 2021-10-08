@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'Components/common/Button';
-import { setFilterCategory, searchMovie } from 'Redux/actions/searchMovieAction';
-import { RootState } from 'Redux/reducers';
+import { setFilterCategory, searchMovie } from 'Store/actions/searchMovieAction';
+import { RootState } from 'Store/reducers';
 import { FilterTag } from '../Main';
 
 import style from './MoviesFilter.module.scss';
