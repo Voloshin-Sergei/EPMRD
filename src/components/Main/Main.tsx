@@ -9,7 +9,7 @@ import { MoviesList } from './MoviesList';
 import style from './Main.module.scss';
 
 export interface FilterTag {
-  text: string;
+  label: string;
   type: string;
 }
 
@@ -28,9 +28,9 @@ export interface Movie {
   genres: string[];
 }
 
-const filterTags: Array<FilterTag> = [
-  { text: 'release date', type: 'release_date' },
-  { text: 'rating', type: 'vote_average' },
+const filterTags: FilterTag[] = [
+  { label: 'release date', type: 'release_date' },
+  { label: 'rating', type: 'vote_average' },
 ];
 
 export const Main: React.FC = () => {

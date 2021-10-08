@@ -9,12 +9,10 @@ import './style.scss';
 
 export const App: React.FC = () => {
   return (
-    <>
-      <ErrorBoundary>
-        <Header />
-        <Main />
-        <Footer />
-      </ErrorBoundary>
-    </>
+    <ErrorBoundary>
+      <Header />
+      <Main />
+      <Footer />
+    </ErrorBoundary>
   );
 };

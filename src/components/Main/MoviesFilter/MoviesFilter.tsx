@@ -35,7 +35,7 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
         <p className={style.text}>Sort by</p>
         <ul className={style.list}>
           {filterTags.map((tag: FilterTag) => (
-            <li key={tag.text} className={style.item}>
+            <li key={tag.label} className={style.item}>
               <Button
                 callback={moviesSortBy}
                 className={style.tag}
@@ -44,7 +44,7 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
                 typeCategory={tag.type}
                 activeClassName={tag.type === sortCategory ? style.active : ''}
               >
-                {tag.text}
+                {tag.label}
               </Button>
             </li>
           ))}

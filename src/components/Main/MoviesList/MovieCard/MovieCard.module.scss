@@ -12,7 +12,7 @@
   font-weight: $font-weight--light;
   background-color: $color-primary;
   border-radius: 5px;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 5px $color-secondary--shade;
   cursor: pointer;
 
   &:hover {

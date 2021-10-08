@@ -4,8 +4,8 @@ import { MoviesFilter } from './MoviesFilter';
 
 describe('MoviesFilter component', () => {
   const tagsList = [
-    { text: 'one', type: 'one' },
-    { text: 'two', type: 'two' },
+    { label: 'one', type: 'one' },
+    { label: 'two', type: 'two' },
   ];
   const component = render(<MoviesFilter filterTags={tagsList} />);
 

@@ -49,7 +49,7 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
           <span className={style.text}>search by</span>
           <ul className={style.list}>
             {searchTags.map((tag: SearchTag, index: number) => (
-              <li key={`${tag.text}_${index}`} className={style.item}>
+              <li key={`${tag.label}_${index}`} className={style.item}>
                 <Button
                   callback={moviesSearchCategory}
                   className={style.tag}
@@ -57,7 +57,7 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
                   typeCategory={tag.type}
                   activeClassName={tag.type === searchCategory ? style.active : ''}
                 >
-                  {tag.text}
+                  {tag.label}
                 </Button>
               </li>
             ))}

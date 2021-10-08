@@ -4,13 +4,13 @@ import { Search } from 'Components/Search';
 import style from './Header.module.scss';
 
 export interface SearchTag {
-  text: string;
+  label: string;
   type: string;
 }
 
-const searchTags: Array<SearchTag> = [
-  { text: 'title', type: 'title' },
-  { text: 'genre', type: 'genres' },
+const searchTags: SearchTag[] = [
+  { label: 'title', type: 'title' },
+  { label: 'genre', type: 'genres' },
 ];
 
 export const Header: React.FC = () => (
