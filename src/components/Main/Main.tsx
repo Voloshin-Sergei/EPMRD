@@ -38,7 +38,7 @@ export const Main: React.FC = () => {
   const { loading, error, movies } = useSelector((state: RootState) => state.searchMovieReducer);
   const componentShow = () => {
     if (error) {
-      return <h2 className={style.error}>{error}</h2>;
+      return <h2 className={style.error}>{error.message}</h2>;
     }
     if (loading) {
       return <Loader />;

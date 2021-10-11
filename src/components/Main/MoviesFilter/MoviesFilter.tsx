@@ -18,9 +18,9 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(searchMovie(sortCategory, searchValue, searchCategory));
-  }, [sortCategory]);
+  // useEffect(() => {
+  //   dispatch(searchMovie(sortCategory, searchValue, searchCategory));
+  // }, [sortCategory]);
 
   const moviesSortBy = (category: string): void => {
     dispatch(setFilterCategory(category));

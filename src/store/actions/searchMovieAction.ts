@@ -1,74 +1,36 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
-import { Movie } from 'Components/Main/MoviesList';
 import {
-  SET_MOVIES,
-  SEARCH_MOVIE_VALUE,
-  SET_SEARCH_CATEGORY,
-  SET_FILTER_CATEGORY,
-  LOADER_DISPLAY_ON,
-  LOADER_DISPLAY_OFF,
-  LOAD_ERROR,
+  Actions,
+  SearchMovieValue,
+  SetSearchCategory,
+  SetFilterCategory,
+  GetMoviesStarted,
+  GetMoviesFailure,
+  GetMoviesSuccess,
 } from '../types';
 
-interface SearchMovieValue {
-  type: typeof SEARCH_MOVIE_VALUE;
-  payload: string;
-}
-
-interface SetSearchCategory {
-  type: typeof SET_SEARCH_CATEGORY;
-  payload: string;
-}
-
-interface SetFilterCategory {
-  type: typeof SET_FILTER_CATEGORY;
-  payload: string;
-}
-
-interface SetMovies {
-  type: typeof SET_MOVIES;
-  payload: Movie[];
-}
-
-interface LoaderOn {
-  type: typeof LOADER_DISPLAY_ON;
-}
-
-interface LoaderOff {
-  type: typeof LOADER_DISPLAY_OFF;
-}
-
-interface LoadError {
-  type: typeof LOAD_ERROR;
-  payload: string;
-}
-
 export const searchMovieValue = (searchValue: string): SearchMovieValue => ({
-  type: SEARCH_MOVIE_VALUE,
+  type: Actions.SEARCH_MOVIE_VALUE,
   payload: searchValue,
 });
 
 export const setSearchCategory = (searchCategory: string): SetSearchCategory => ({
-  type: SET_SEARCH_CATEGORY,
+  type: Actions.SET_SEARCH_CATEGORY,
   payload: searchCategory,
 });
 
 export const setFilterCategory = (category: string): SetFilterCategory => ({
-  type: SET_FILTER_CATEGORY,
+  type: Actions.SET_FILTER_CATEGORY,
   payload: category,
 });
 
-export const loaderOn = (): LoaderOn => ({
-  type: LOADER_DISPLAY_ON,
+export const getMoviesStarted = (): GetMoviesStarted => ({
+  type: Actions.GET_MOVIES_STARTED,
 });
 
-export const loaderOff = (): LoaderOff => ({
-  type: LOADER_DISPLAY_OFF,
-});
-
-export const loadError = (error: string): LoadError => ({
-  type: LOAD_ERROR,
+export const getMoviesFailure = (error: any): GetMoviesFailure => ({
+  type: Actions.GET_MOVIES_FAILURE,
   payload: error,
 });
 
@@ -81,20 +43,19 @@ export const searchMovie = (
 ) => {
   return async (dispatch: Dispatch): Promise<void> => {
     try {
-      dispatch<LoaderOn>(loaderOn());
+      dispatch<GetMoviesStarted>(getMoviesStarted());
       const response = await axios.get(
         `${url}?sortBy=${sortCategory}&sortOrder=desc&search=${searchValue}&searchBy=${searchCategory}`,
       );
 
-      dispatch<SetMovies>({
-        type: SET_MOVIES,
+      dispatch<GetMoviesSuccess>({
+        type: Actions.GET_MOVIES_SUCCESS,
         payload: response.data.data,
       });
-      dispatch<LoaderOff>(loaderOff());
     } catch (error) {
-      dispatch<LoadError>({
-        type: LOAD_ERROR,
-        payload: 'Server error',
+      dispatch<GetMoviesFailure>({
+        type: Actions.GET_MOVIES_FAILURE,
+        payload: error,
       });
     }
   };
@@ -103,29 +64,18 @@ export const searchMovie = (
 export const setMovies = () => {
   return async (dispatch: Dispatch): Promise<void> => {
     try {
-      dispatch<LoaderOn>(loaderOn());
+      dispatch<GetMoviesStarted>(getMoviesStarted());
       const response = await axios.get(`${url}?sortBy=release_date&sortOrder=desc`);
 
-      dispatch<SetMovies>({
-        type: SET_MOVIES,
+      dispatch<GetMoviesSuccess>({
+        type: Actions.GET_MOVIES_SUCCESS,
         payload: response.data.data,
       });
-      dispatch<LoaderOff>(loaderOff());
     } catch (error) {
-      dispatch<LoaderOff>(loaderOff());
-      dispatch<LoadError>({
-        type: LOAD_ERROR,
-        payload: 'Server error',
+      dispatch<GetMoviesFailure>({
+        type: Actions.GET_MOVIES_FAILURE,
+        payload: error,
       });
     }
   };
 };
-
-export type SearchMoviesActionTypes =
-  | SearchMovieValue
-  | SetSearchCategory
-  | SetFilterCategory
-  | SetMovies
-  | LoaderOn
-  | LoaderOff
-  | LoadError;

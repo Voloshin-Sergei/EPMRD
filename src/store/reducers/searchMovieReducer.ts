@@ -1,14 +1,5 @@
 import { Movie } from 'Components/Main/MoviesList';
-import {
-  SET_MOVIES,
-  SEARCH_MOVIE_VALUE,
-  SET_SEARCH_CATEGORY,
-  SET_FILTER_CATEGORY,
-  LOADER_DISPLAY_ON,
-  LOADER_DISPLAY_OFF,
-  LOAD_ERROR,
-} from '../types';
-import { SearchMoviesActionTypes } from '../actions/searchMovieAction';
+import { Actions, SearchMoviesActionTypes } from '../types';
 
 interface InitialState {
   movies: Movie[];
@@ -16,7 +7,7 @@ interface InitialState {
   sortCategory: string;
   searchValue: string;
   loading: boolean;
-  error: string | null;
+  error: any; // TODO type!
 }
 
 const initialState: InitialState = {
@@ -33,48 +24,42 @@ const searchMovieReducer = (
   action: SearchMoviesActionTypes,
 ): InitialState => {
   switch (action.type) {
-    case SEARCH_MOVIE_VALUE:
+    case Actions.SEARCH_MOVIE_VALUE:
       return {
         ...state,
         searchValue: action.payload,
       };
 
-    case SET_SEARCH_CATEGORY:
+    case Actions.SET_SEARCH_CATEGORY:
       return {
         ...state,
         searchCategory: action.payload,
       };
 
-    case SET_FILTER_CATEGORY:
+    case Actions.SET_FILTER_CATEGORY:
       return {
         ...state,
         sortCategory: action.payload,
       };
 
-    case SET_MOVIES:
-      return {
-        ...state,
-        movies: action.payload,
-        error: null,
-      };
-    case LOADER_DISPLAY_ON:
+    case Actions.GET_MOVIES_STARTED:
       return {
         ...state,
         loading: true,
+        error: null,
       };
-
-    case LOADER_DISPLAY_OFF:
+    case Actions.GET_MOVIES_SUCCESS:
       return {
         ...state,
+        movies: action.payload,
         loading: false,
       };
-
-    case LOAD_ERROR:
+    case Actions.GET_MOVIES_FAILURE:
       return {
         ...state,
         error: action.payload,
+        loading: false,
       };
-
     default:
       return state;
   }
