@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
+import { api } from '../../api/api';
+
 import {
   Actions,
   SearchMovieValue,
@@ -66,7 +68,6 @@ export const setMovies = () => {
     try {
       dispatch<GetMoviesStarted>(getMoviesStarted());
       const response = await axios.get(`${url}?sortBy=release_date&sortOrder=desc`);
-
       dispatch<GetMoviesSuccess>({
         type: Actions.GET_MOVIES_SUCCESS,
         payload: response.data.data,
