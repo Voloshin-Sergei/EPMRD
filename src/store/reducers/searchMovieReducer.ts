@@ -7,7 +7,7 @@ interface InitialState {
   sortCategory: string;
   searchValue: string;
   loading: boolean;
-  error: any; // TODO type!
+  error: unknown | null;
 }
 
 const initialState: InitialState = {

@@ -34,7 +34,7 @@ export interface GetMoviesSuccess {
 
 export interface GetMoviesFailure {
   type: typeof Actions.GET_MOVIES_FAILURE;
-  payload: any; // TODO type!
+  payload: unknown;
 }
 
 export type SearchMoviesActionTypes =

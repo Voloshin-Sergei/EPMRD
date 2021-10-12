@@ -29,7 +29,7 @@ export const getMoviesStarted = (): GetMoviesStarted => ({
   type: Actions.GET_MOVIES_STARTED,
 });
 
-export const getMoviesFailure = (error: any): GetMoviesFailure => ({
+export const getMoviesFailure = (error: unknown): GetMoviesFailure => ({
   type: Actions.GET_MOVIES_FAILURE,
   payload: error,
 });

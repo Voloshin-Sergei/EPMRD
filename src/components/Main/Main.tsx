@@ -37,7 +37,7 @@ export const Main: React.FC = () => {
   const dispatch = useDispatch();
   const { loading, error, movies } = useSelector((state: RootState) => state.searchMovieReducer);
   const componentShow = () => {
-    if (error) {
+    if (error && error instanceof Error) {
       return <h2 className={style.error}>{error.message}</h2>;
     }
     if (loading) {
