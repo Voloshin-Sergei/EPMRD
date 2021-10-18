@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { Dispatch } from 'redux';
+import { RootState } from 'Store/reducers';
 import { api } from '../../api/api';
 
 import {
@@ -36,41 +36,22 @@ export const getMoviesFailure = (error: unknown): GetMoviesFailure => ({
   payload: error,
 });
 
-const url = 'https://reactjs-cdp.herokuapp.com/movies';
-
-export const searchMovie = (
-  sortCategory = 'release_date',
-  searchValue: string,
-  searchCategory: string,
-) => {
-  return async (dispatch: Dispatch): Promise<void> => {
+export const fetchMovies = () => {
+  return async (dispatch: Dispatch, getState: () => RootState): Promise<void> => {
     try {
       dispatch<GetMoviesStarted>(getMoviesStarted());
-      const response = await axios.get(
-        `${url}?sortBy=${sortCategory}&sortOrder=desc&search=${searchValue}&searchBy=${searchCategory}`,
-      );
 
+      const {
+        sortCategory: sortBy,
+        searchCategory: searchBy,
+        searchValue: search,
+        sortOrder,
+      } = getState().searchMovieReducer;
+
+      const { data } = await api.getMovies({ sortBy, searchBy, search, sortOrder });
       dispatch<GetMoviesSuccess>({
         type: Actions.GET_MOVIES_SUCCESS,
-        payload: response.data.data,
-      });
-    } catch (error) {
-      dispatch<GetMoviesFailure>({
-        type: Actions.GET_MOVIES_FAILURE,
-        payload: error,
-      });
-    }
-  };
-};
-
-export const setMovies = () => {
-  return async (dispatch: Dispatch): Promise<void> => {
-    try {
-      dispatch<GetMoviesStarted>(getMoviesStarted());
-      const response = await axios.get(`${url}?sortBy=release_date&sortOrder=desc`);
-      dispatch<GetMoviesSuccess>({
-        type: Actions.GET_MOVIES_SUCCESS,
-        payload: response.data.data,
+        payload: data,
       });
     } catch (error) {
       dispatch<GetMoviesFailure>({

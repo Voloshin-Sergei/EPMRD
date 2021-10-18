@@ -7,7 +7,7 @@ export interface ButtonProps {
   children: React.ReactNode;
   type?: 'button' | 'submit';
   dataTestId?: string;
-  callback?: any; // TODO i don't understand how to fix it
+  onClick?(data?: string): void;
   typeCategory?: string;
   activeCategory?: string;
   activeClassName?: string;
@@ -19,16 +19,20 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   type = 'button',
   dataTestId,
-  callback,
-  typeCategory,
+  onClick,
   activeClassName,
 }) => {
+  const handelClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
   return (
     <button
       className={` ${style.button} ${className} ${style[variant]} ${activeClassName}`}
       type={type}
       data-test-id={dataTestId}
-      onClick={() => callback(typeCategory)}
+      onClick={handelClick}
     >
       {children}
     </button>

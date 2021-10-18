@@ -3,7 +3,7 @@ import { Button } from 'Components/common/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchTag } from 'Components/Header/Header';
 import { RootState } from 'Store/reducers';
-import { setSearchCategory, searchMovieValue, searchMovie } from 'Store/actions/searchMovieAction';
+import { setSearchCategory, searchMovieValue, fetchMovies } from 'Store/actions/searchMovieAction';
 
 import style from './Search.module.scss';
 
@@ -12,13 +12,11 @@ export interface SearchProps {
 }
 
 export const Search: React.FC<SearchProps> = ({ searchTags }) => {
-  const { sortCategory, searchValue, searchCategory } = useSelector(
-    (state: RootState) => state.searchMovieReducer,
-  );
+  const { searchCategory } = useSelector((state: RootState) => state.searchMovieReducer);
 
   const dispatch = useDispatch();
 
-  const moviesSearchCategory = (category: string): void => {
+  const moviesSearchCategory = (category: string) => () => {
     dispatch(setSearchCategory(category));
   };
 
@@ -27,7 +25,7 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
   };
 
   const handleSearch = () => {
-    dispatch(searchMovie(sortCategory, searchValue, searchCategory));
+    dispatch(fetchMovies());
   };
 
   const handleFormSubmit = (event: React.FormEvent): void => {
@@ -51,10 +49,9 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
             {searchTags.map((tag: SearchTag, index: number) => (
               <li key={`${tag.label}_${index}`} className={style.item}>
                 <Button
-                  callback={moviesSearchCategory}
+                  onClick={moviesSearchCategory(tag.type)}
                   className={style.tag}
                   dataTestId="search-tag-btn"
-                  typeCategory={tag.type}
                   activeClassName={tag.type === searchCategory ? style.active : ''}
                 >
                   {tag.label}
@@ -62,7 +59,7 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
               </li>
             ))}
           </ul>
-          <Button className={style.search} dataTestId="search-btn" callback={handleSearch}>
+          <Button className={style.search} dataTestId="search-btn" onClick={handleSearch}>
             {'search'}
           </Button>
         </div>

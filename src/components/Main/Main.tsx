@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setMovies } from 'Store/actions/searchMovieAction';
+import { fetchMovies } from 'Store/actions/searchMovieAction';
 import { RootState } from 'Store/reducers';
 import { Loader } from 'Components/common/Loader';
 import { MoviesFilter } from './MoviesFilter';
@@ -46,7 +46,7 @@ export const Main: React.FC = () => {
     return <MoviesList movieList={movies} />;
   };
   useEffect(() => {
-    dispatch(setMovies());
+    dispatch(fetchMovies());
   }, []);
 
   return (

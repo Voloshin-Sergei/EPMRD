@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'Components/common/Button';
-import { setFilterCategory, searchMovie } from 'Store/actions/searchMovieAction';
+import { setFilterCategory, fetchMovies } from 'Store/actions/searchMovieAction';
 import { RootState } from 'Store/reducers';
 import { FilterTag } from '../Main';
 
@@ -12,18 +12,13 @@ export interface MoviesFilterProps {
 }
 
 export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
-  const { movies, searchValue, searchCategory, sortCategory } = useSelector(
-    (state: RootState) => state.searchMovieReducer,
-  );
+  const { movies, sortCategory } = useSelector((state: RootState) => state.searchMovieReducer);
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(searchMovie(sortCategory, searchValue, searchCategory));
-  // }, [sortCategory]);
-
-  const moviesSortBy = (category: string): void => {
+  const moviesSortBy = (category: string) => () => {
     dispatch(setFilterCategory(category));
+    dispatch(fetchMovies());
   };
 
   return (
@@ -37,11 +32,10 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
           {filterTags.map((tag: FilterTag) => (
             <li key={tag.label} className={style.item}>
               <Button
-                callback={moviesSortBy}
+                onClick={moviesSortBy(tag.type)}
                 className={style.tag}
                 variant="secondary"
                 dataTestId="filter-tag-btn"
-                typeCategory={tag.type}
                 activeClassName={tag.type === sortCategory ? style.active : ''}
               >
                 {tag.label}

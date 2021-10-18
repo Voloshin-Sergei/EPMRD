@@ -6,6 +6,7 @@ interface InitialState {
   searchCategory: string;
   sortCategory: string;
   searchValue: string;
+  sortOrder: string;
   loading: boolean;
   error: unknown | null;
 }
@@ -15,6 +16,7 @@ const initialState: InitialState = {
   searchCategory: 'title',
   sortCategory: 'release_date',
   searchValue: '',
+  sortOrder: 'desc',
   loading: false,
   error: null,
 };
