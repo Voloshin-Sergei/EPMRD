@@ -35,12 +35,12 @@ const filterTags: FilterTag[] = [
 
 export const Main: React.FC = () => {
   const dispatch = useDispatch();
-  const { loading, error, movies } = useSelector((state: RootState) => state.searchMovieReducer);
+  const { isLoading, error, movies } = useSelector((state: RootState) => state.searchMovieReducer);
   const renderMovieList = () => {
     if (error && error instanceof Error) {
       return <h2 className={style.error}>{error.message}</h2>;
     }
-    if (loading) {
+    if (isLoading) {
       return <Loader />;
     }
     return <MoviesList movieList={movies} />;

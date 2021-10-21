@@ -25,16 +25,17 @@ export interface SetFilterCategory {
 }
 export interface GetMoviesStarted {
   type: typeof Actions.GET_MOVIES_STARTED;
+  payload: boolean;
 }
 
 export interface GetMoviesSuccess {
   type: typeof Actions.GET_MOVIES_SUCCESS;
-  payload: Movie[];
+  payload: { movies: Movie[]; isLoading: boolean };
 }
 
 export interface GetMoviesFailure {
   type: typeof Actions.GET_MOVIES_FAILURE;
-  payload: unknown;
+  payload: { error: unknown; isLoading: boolean };
 }
 
 export type SearchMoviesActionTypes =

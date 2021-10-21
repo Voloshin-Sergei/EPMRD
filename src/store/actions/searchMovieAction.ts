@@ -27,19 +27,13 @@ export const setFilterCategory = (category: string): SetFilterCategory => ({
   payload: category,
 });
 
-export const getMoviesStarted = (): GetMoviesStarted => ({
-  type: Actions.GET_MOVIES_STARTED,
-});
-
-export const getMoviesFailure = (error: unknown): GetMoviesFailure => ({
-  type: Actions.GET_MOVIES_FAILURE,
-  payload: error,
-});
-
 export const fetchMovies = () => {
   return async (dispatch: Dispatch, getState: () => RootState): Promise<void> => {
     try {
-      dispatch<GetMoviesStarted>(getMoviesStarted());
+      dispatch<GetMoviesStarted>({
+        type: Actions.GET_MOVIES_STARTED,
+        payload: true,
+      });
 
       const {
         sortCategory: sortBy,
@@ -51,12 +45,12 @@ export const fetchMovies = () => {
       const { data } = await api.getMovies({ sortBy, searchBy, search, sortOrder });
       dispatch<GetMoviesSuccess>({
         type: Actions.GET_MOVIES_SUCCESS,
-        payload: data,
+        payload: { movies: data, isLoading: false },
       });
     } catch (error) {
       dispatch<GetMoviesFailure>({
         type: Actions.GET_MOVIES_FAILURE,
-        payload: error,
+        payload: { error, isLoading: false },
       });
     }
   };

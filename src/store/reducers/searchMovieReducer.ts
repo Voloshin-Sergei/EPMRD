@@ -7,7 +7,7 @@ interface InitialState {
   sortCategory: string;
   searchValue: string;
   sortOrder: string;
-  loading: boolean;
+  isLoading: boolean;
   error: unknown | null;
 }
 
@@ -17,7 +17,7 @@ const initialState: InitialState = {
   sortCategory: 'release_date',
   searchValue: '',
   sortOrder: 'desc',
-  loading: false,
+  isLoading: false,
   error: null,
 };
 
@@ -47,20 +47,20 @@ const searchMovieReducer = (
     case Actions.GET_MOVIES_STARTED:
       return {
         ...state,
-        loading: true,
+        isLoading: action.payload,
         error: null,
       };
     case Actions.GET_MOVIES_SUCCESS:
       return {
         ...state,
-        movies: action.payload,
-        loading: false,
+        movies: action.payload.movies,
+        isLoading: action.payload.isLoading,
       };
     case Actions.GET_MOVIES_FAILURE:
       return {
         ...state,
-        error: action.payload,
-        loading: false,
+        error: action.payload.error,
+        isLoading: action.payload.isLoading,
       };
     default:
       return state;
