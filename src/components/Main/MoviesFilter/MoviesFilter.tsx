@@ -23,9 +23,7 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
 
   return (
     <div className={style.filter}>
-      <div>
-        <p className={style.result}>{movies.length} movies found</p>
-      </div>
+      <p className={style.result}>{movies.length} movies found</p>
       <div className={style.buttons}>
         <p className={style.text}>Sort by</p>
         <ul className={style.list}>
