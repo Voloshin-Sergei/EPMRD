@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import style from './Button.module.scss';
 
 export interface ButtonProps {
@@ -22,11 +22,12 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   activeClassName,
 }) => {
-  const handelClick = () => {
+  const handelClick = useCallback(() => {
     if (onClick) {
       onClick();
     }
-  };
+  }, [onClick]);
+
   return (
     <button
       className={` ${style.button} ${className} ${style[variant]} ${activeClassName}`}
