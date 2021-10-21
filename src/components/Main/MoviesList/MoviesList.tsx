@@ -22,9 +22,11 @@ export interface MovieListProps {
 }
 
 export const MoviesList: React.FC<MovieListProps> = ({ movieList }) => {
-  return (
-    <>
-      {!movieList.length && <h2 className={style.title}>No films found</h2>}
+  const renderMovieCards = () => {
+    if (!movieList.length) {
+      return <h2 className={style.title}>No films found</h2>;
+    }
+    return (
       <section className={style.movies}>
         {movieList.map((movie: Movie) => (
           <MovieCard
@@ -33,10 +35,12 @@ export const MoviesList: React.FC<MovieListProps> = ({ movieList }) => {
             title={movie.title}
             poster={movie.poster_path}
             genres={movie.genres}
-            vote={movie.vote_average}
+            rating={movie.vote_average}
           />
         ))}
       </section>
-    </>
-  );
+    );
+  };
+
+  return <>{renderMovieCards()}</>;
 };

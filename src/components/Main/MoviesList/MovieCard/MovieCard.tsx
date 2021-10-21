@@ -6,16 +6,16 @@ export interface MovieCardProps {
   title: string;
   poster: string;
   genres: string[];
-  vote: number;
+  rating: number;
 }
 
-export const MovieCard: React.FC<MovieCardProps> = ({ year, title, poster, genres, vote }) => {
+export const MovieCard: React.FC<MovieCardProps> = ({ year, title, poster, genres, rating }) => {
   const shortYear = year.split('-')[0];
   const setColorStyle = (): void => {
-    if (vote > 8) {
+    if (rating > 8) {
       return style.green;
     }
-    if (vote >= 5) {
+    if (rating >= 5) {
       return style.orange;
     }
     return style.red;
@@ -32,7 +32,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({ year, title, poster, genre
             'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80';
         }}
       />
-      <span className={`${style.vote}  ${setColorStyle()}`}>{vote}</span>
+      <span className={`${style.vote}  ${setColorStyle()}`}>{rating}</span>
       <div className={style.info}>
         <h3 className={style.title}>{title}</h3>
         <span className={style.year}>{shortYear}</span>
