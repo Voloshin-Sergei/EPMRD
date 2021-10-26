@@ -1,31 +1,16 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchMovies } from 'Store/actions/searchMovieAction';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { RootState } from 'Store/reducers';
 import { Loader } from 'Components/common/Loader';
 import { MoviesFilter } from './MoviesFilter';
 import { MoviesList } from './MoviesList';
+import { Movie } from 'src/App';
 
 import style from './Main.module.scss';
 
 export interface FilterTag {
   label: string;
   type: string;
-}
-
-export interface Movie {
-  id: number;
-  title: string;
-  tagline: string;
-  vote_average: number;
-  vote_count: number;
-  release_date: string;
-  poster_path: string;
-  overview: string;
-  budget: number;
-  revenue: number;
-  runtime: number;
-  genres: string[];
 }
 
 const filterTags: FilterTag[] = [
@@ -36,11 +21,11 @@ const filterTags: FilterTag[] = [
 export interface MainProps {
   onClick?(data?: string): void;
   activeFilter: string;
+  movies: Movie[];
 }
 
-export const Main: React.FC<MainProps> = ({ onClick, activeFilter }) => {
-  const dispatch = useDispatch();
-  const { isLoading, error, movies } = useSelector((state: RootState) => state.searchMovieReducer);
+export const Main: React.FC<MainProps> = ({ onClick, activeFilter, movies }) => {
+  const { isLoading, error } = useSelector((state: RootState) => state.searchMovieReducer);
   const renderMovieList = () => {
     if (error && error instanceof Error) {
       return <h2 className={style.error}>{error.message}</h2>;
@@ -50,13 +35,15 @@ export const Main: React.FC<MainProps> = ({ onClick, activeFilter }) => {
     }
     return <MoviesList movieList={movies} />;
   };
-  useEffect(() => {
-    dispatch(fetchMovies());
-  }, [fetchMovies]);
 
   return (
     <main className={style.main}>
-      <MoviesFilter filterTags={filterTags} onClick={onClick} activeFilter={activeFilter} />
+      <MoviesFilter
+        filterTags={filterTags}
+        onClick={onClick}
+        activeFilter={activeFilter}
+        movies={movies}
+      />
       {renderMovieList()}
     </main>
   );

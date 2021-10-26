@@ -13,7 +13,14 @@ const searchTags: SearchTag[] = [
   { label: 'genre', type: 'genres' },
 ];
 
-export const Header: React.FC = ({ onChange, onClick, activeCategory, handleSubmit }) => (
+export interface HeaderProps {
+  onChange: () =>;
+  onClick?(data?: string): void;
+  activeCategory: string;
+  handleSubmit: () =>;
+}
+
+export const Header: React.FC<HeaderProps> = ({ onChange, onClick, activeCategory, handleSubmit }) => (
   <header className={style.header}>
     <p className={style.title}>Movieroulette</p>
     <Search

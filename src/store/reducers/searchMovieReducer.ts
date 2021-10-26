@@ -3,9 +3,6 @@ import { Actions, SearchMoviesActionTypes } from '../types';
 
 interface InitialState {
   movies: Movie[];
-  searchCategory: string;
-  sortCategory: string;
-  searchValue: string;
   sortOrder: string;
   isLoading: boolean;
   error: unknown | null;
@@ -13,9 +10,6 @@ interface InitialState {
 
 const initialState: InitialState = {
   movies: [],
-  searchCategory: 'title',
-  sortCategory: 'release_date',
-  searchValue: '',
   sortOrder: 'desc',
   isLoading: false,
   error: null,
@@ -26,24 +20,6 @@ const searchMovieReducer = (
   action: SearchMoviesActionTypes,
 ): InitialState => {
   switch (action.type) {
-    case Actions.SEARCH_MOVIE_VALUE:
-      return {
-        ...state,
-        searchValue: action.payload,
-      };
-
-    case Actions.SET_SEARCH_CATEGORY:
-      return {
-        ...state,
-        searchCategory: action.payload,
-      };
-
-    case Actions.SET_FILTER_CATEGORY:
-      return {
-        ...state,
-        sortCategory: action.payload,
-      };
-
     case Actions.GET_MOVIES_STARTED:
       return {
         ...state,

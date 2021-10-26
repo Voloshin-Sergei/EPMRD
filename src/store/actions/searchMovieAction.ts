@@ -2,33 +2,9 @@ import { Dispatch } from 'redux';
 import { RootState } from 'Store/reducers';
 import { api } from '../../api/api';
 
-import {
-  Actions,
-  SearchMovieValue,
-  SetSearchCategory,
-  SetFilterCategory,
-  GetMoviesStarted,
-  GetMoviesFailure,
-  GetMoviesSuccess,
-} from '../types';
+import { Actions, GetMoviesStarted, GetMoviesFailure, GetMoviesSuccess } from '../types';
 
-export const searchMovieValue = (searchValue: string): SearchMovieValue => ({
-  type: Actions.SEARCH_MOVIE_VALUE,
-  payload: searchValue,
-});
-
-export const setSearchCategory = (searchCategory: string): SetSearchCategory => ({
-  type: Actions.SET_SEARCH_CATEGORY,
-  payload: searchCategory,
-});
-
-export const setFilterCategory = (category: string): SetFilterCategory => ({
-  type: Actions.SET_FILTER_CATEGORY,
-  payload: category,
-});
-
-export const fetchMovies = (sortBy: string, search: string) => {
-  console.log('>>>>>>', search);
+export const fetchMovies = (sortBy: string, searchBy: string, search: string) => {
   return async (dispatch: Dispatch, getState: () => RootState): Promise<void> => {
     try {
       dispatch<GetMoviesStarted>({
@@ -36,7 +12,7 @@ export const fetchMovies = (sortBy: string, search: string) => {
         payload: true,
       });
 
-      const { searchCategory: searchBy, sortOrder } = getState().searchMovieReducer;
+      const { sortOrder: sortOrder } = getState().searchMovieReducer;
 
       const { data } = await api.getMovies({ sortBy, searchBy, search, sortOrder });
       dispatch<GetMoviesSuccess>({

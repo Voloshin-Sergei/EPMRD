@@ -1,14 +1,17 @@
 import React from 'react';
 import { Button } from 'Components/common/Button';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { SearchTag } from 'Components/Header/Header';
-import { RootState } from 'Store/reducers';
-import { setSearchCategory, searchMovieValue, fetchMovies } from 'Store/actions/searchMovieAction';
+import { fetchMovies } from 'Store/actions/searchMovieAction';
 
 import style from './Search.module.scss';
 
 export interface SearchProps {
   searchTags: Array<SearchTag>;
+  onChange: () =>;
+  onClick: () =>;
+  activeCategory: string;
+  handleSubmit: () =>;
 }
 
 export const Search: React.FC<SearchProps> = ({
@@ -18,29 +21,13 @@ export const Search: React.FC<SearchProps> = ({
   activeCategory,
   handleSubmit,
 }) => {
-  const { searchCategory } = useSelector((state: RootState) => state.searchMovieReducer);
-
-  const dispatch = useDispatch();
-
-  // const moviesSearchCategory = (category: string) => {
-  //   console.log(category);
-  // };
-
-  // const setSearchValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
-  //   dispatch(searchMovieValue(event.target.value));
-  // };
-
-  const handleSearchValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    onChange(event.target.value);
-  };
-
-  const handleSearch = () => {
-    dispatch(fetchMovies());
+  const handleSearchValue = (event): void => {
+    onChange(event);
   };
 
   const handleFormSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
-    handleSearch();
+    handleSubmit();
   };
 
   return (
