@@ -7,7 +7,10 @@ describe('MoviesFilter component', () => {
     { label: 'one', type: 'one' },
     { label: 'two', type: 'two' },
   ];
-  const component = render(<MoviesFilter filterTags={tagsList} />);
+
+  const onClick = () => {};
+
+  const component = render(<MoviesFilter filterTags={tagsList} onClick={onClick} />);
 
   it('should render MoviesFilter component', () => {
     expect(component).toMatchSnapshot();

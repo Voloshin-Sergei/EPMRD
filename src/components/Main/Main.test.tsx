@@ -4,7 +4,8 @@ import { Main } from './Main';
 
 describe('Main component', () => {
   it('should render Main component', () => {
-    const component = render(<Main />);
+    const onClick = () => {};
+    const component = render(<Main onClick={onClick} />);
     expect(component).toMatchSnapshot();
   });
 });

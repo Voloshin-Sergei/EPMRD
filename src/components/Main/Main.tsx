@@ -33,7 +33,12 @@ const filterTags: FilterTag[] = [
   { label: 'rating', type: 'vote_average' },
 ];
 
-export const Main: React.FC = () => {
+export interface MainProps {
+  onClick?(data?: string): void;
+  activeFilter: string;
+}
+
+export const Main: React.FC<MainProps> = ({ onClick, activeFilter }) => {
   const dispatch = useDispatch();
   const { isLoading, error, movies } = useSelector((state: RootState) => state.searchMovieReducer);
   const renderMovieList = () => {
@@ -51,7 +56,7 @@ export const Main: React.FC = () => {
 
   return (
     <main className={style.main}>
-      <MoviesFilter filterTags={filterTags} />
+      <MoviesFilter filterTags={filterTags} onClick={onClick} activeFilter={activeFilter} />
       {renderMovieList()}
     </main>
   );

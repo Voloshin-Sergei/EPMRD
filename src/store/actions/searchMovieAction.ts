@@ -27,7 +27,8 @@ export const setFilterCategory = (category: string): SetFilterCategory => ({
   payload: category,
 });
 
-export const fetchMovies = () => {
+export const fetchMovies = (sortBy: string, search: string) => {
+  console.log('>>>>>>', search);
   return async (dispatch: Dispatch, getState: () => RootState): Promise<void> => {
     try {
       dispatch<GetMoviesStarted>({
@@ -35,12 +36,7 @@ export const fetchMovies = () => {
         payload: true,
       });
 
-      const {
-        sortCategory: sortBy,
-        searchCategory: searchBy,
-        searchValue: search,
-        sortOrder,
-      } = getState().searchMovieReducer;
+      const { searchCategory: searchBy, sortOrder } = getState().searchMovieReducer;
 
       const { data } = await api.getMovies({ sortBy, searchBy, search, sortOrder });
       dispatch<GetMoviesSuccess>({

@@ -9,9 +9,15 @@ import style from './MoviesFilter.module.scss';
 
 export interface MoviesFilterProps {
   filterTags: Array<FilterTag>;
+  onClick?(data?: string): void;
+  activeFilter: string;
 }
 
-export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
+export const MoviesFilter: React.FC<MoviesFilterProps> = ({
+  filterTags,
+  onClick,
+  activeFilter,
+}) => {
   const { movies, sortCategory } = useSelector((state: RootState) => state.searchMovieReducer);
 
   const dispatch = useDispatch();
@@ -30,11 +36,11 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
           {filterTags.map((tag: FilterTag) => (
             <li key={tag.label} className={style.item}>
               <Button
-                onClick={moviesSortBy(tag.type)}
+                onClick={onClick(tag.type)}
                 className={style.tag}
                 variant="secondary"
                 dataTestId="filter-tag-btn"
-                activeClassName={tag.type === sortCategory ? style.active : ''}
+                activeClassName={tag.type === activeFilter ? style.active : ''}
               >
                 {tag.label}
               </Button>

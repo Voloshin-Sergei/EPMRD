@@ -11,17 +11,27 @@ export interface SearchProps {
   searchTags: Array<SearchTag>;
 }
 
-export const Search: React.FC<SearchProps> = ({ searchTags }) => {
+export const Search: React.FC<SearchProps> = ({
+  searchTags,
+  onChange,
+  onClick,
+  activeCategory,
+  handleSubmit,
+}) => {
   const { searchCategory } = useSelector((state: RootState) => state.searchMovieReducer);
 
   const dispatch = useDispatch();
 
-  const moviesSearchCategory = (category: string) => () => {
-    dispatch(setSearchCategory(category));
-  };
+  // const moviesSearchCategory = (category: string) => {
+  //   console.log(category);
+  // };
 
-  const setSearchValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    dispatch(searchMovieValue(event.target.value));
+  // const setSearchValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  //   dispatch(searchMovieValue(event.target.value));
+  // };
+
+  const handleSearchValue = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    onChange(event.target.value);
   };
 
   const handleSearch = () => {
@@ -41,7 +51,7 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
           className={style.field}
           type="text"
           placeholder="search movie"
-          onChange={setSearchValue}
+          onChange={handleSearchValue}
         />
         <div className={style.buttons}>
           <span className={style.text}>search by</span>
@@ -49,17 +59,17 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
             {searchTags.map((tag: SearchTag, index: number) => (
               <li key={`${tag.label}_${index}`} className={style.item}>
                 <Button
-                  onClick={moviesSearchCategory(tag.type)}
+                  onClick={onClick(tag.type)}
                   className={style.tag}
                   dataTestId="search-tag-btn"
-                  activeClassName={tag.type === searchCategory ? style.active : ''}
+                  activeClassName={tag.type === activeCategory ? style.active : ''}
                 >
                   {tag.label}
                 </Button>
               </li>
             ))}
           </ul>
-          <Button className={style.search} dataTestId="search-btn" onClick={handleSearch}>
+          <Button className={style.search} dataTestId="search-btn" onClick={handleSubmit}>
             {'search'}
           </Button>
         </div>
