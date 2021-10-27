@@ -1,20 +1,20 @@
 import React from 'react';
 import { Button } from 'Components/common/Button';
+import { Movie } from '../../../App';
 import { FilterTag } from '../Main';
-import { Movie } from 'src/App';
 
 import style from './MoviesFilter.module.scss';
 
 export interface MoviesFilterProps {
   filterTags: Array<FilterTag>;
-  onClick?(data?: string): void;
+  handleFilterClick?(data?: string): () => void;
   activeFilter: string;
   movies: Movie[];
 }
 
 export const MoviesFilter: React.FC<MoviesFilterProps> = ({
   filterTags,
-  onClick,
+  handleFilterClick,
   activeFilter,
   movies,
 }) => {
@@ -27,7 +27,7 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({
           {filterTags.map((tag: FilterTag) => (
             <li key={tag.label} className={style.item}>
               <Button
-                onClick={onClick(tag.type)}
+                onClick={handleFilterClick?.(tag.type)}
                 className={style.tag}
                 variant="secondary"
                 dataTestId="filter-tag-btn"

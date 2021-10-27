@@ -1,28 +1,26 @@
 import React from 'react';
 import { Button } from 'Components/common/Button';
-import { useDispatch } from 'react-redux';
 import { SearchTag } from 'Components/Header/Header';
-import { fetchMovies } from 'Store/actions/searchMovieAction';
 
 import style from './Search.module.scss';
 
 export interface SearchProps {
   searchTags: Array<SearchTag>;
-  onChange: () =>;
-  onClick: () =>;
+  handleChange: (data: string) => void;
+  handleCategoryClick?(data?: string): () => void;
   activeCategory: string;
-  handleSubmit: () =>;
+  handleSubmit: () => void;
 }
 
 export const Search: React.FC<SearchProps> = ({
   searchTags,
-  onChange,
-  onClick,
+  handleChange,
+  handleCategoryClick,
   activeCategory,
   handleSubmit,
 }) => {
-  const handleSearchValue = (event): void => {
-    onChange(event);
+  const handleSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handleChange(event.target.value);
   };
 
   const handleFormSubmit = (event: React.FormEvent): void => {
@@ -46,7 +44,7 @@ export const Search: React.FC<SearchProps> = ({
             {searchTags.map((tag: SearchTag, index: number) => (
               <li key={`${tag.label}_${index}`} className={style.item}>
                 <Button
-                  onClick={onClick(tag.type)}
+                  onClick={handleCategoryClick?.(tag.type)}
                   className={style.tag}
                   dataTestId="search-tag-btn"
                   activeClassName={tag.type === activeCategory ? style.active : ''}

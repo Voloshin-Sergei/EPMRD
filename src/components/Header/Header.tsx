@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchMovies } from 'Store/actions/searchMovieAction';
 import { Search } from 'Components/Search';
 
 import style from './Header.module.scss';
@@ -14,21 +16,36 @@ const searchTags: SearchTag[] = [
 ];
 
 export interface HeaderProps {
-  onChange: () =>;
-  onClick?(data?: string): void;
-  activeCategory: string;
-  handleSubmit: () =>;
+  filter: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onChange, onClick, activeCategory, handleSubmit }) => (
-  <header className={style.header}>
-    <p className={style.title}>Movieroulette</p>
-    <Search
-      searchTags={searchTags}
-      onChange={onChange}
-      onClick={onClick}
-      activeCategory={activeCategory}
-      handleSubmit={handleSubmit}
-    />
-  </header>
-);
+export const Header: React.FC<HeaderProps> = ({ filter }) => {
+  const dispatch = useDispatch();
+
+  const [searchValue, setSearchValue] = useState('');
+  const [category, setCategory] = useState('title');
+
+  const handleSubmit = () => {
+    dispatch(fetchMovies(filter, category, searchValue));
+  };
+
+  const handleChange = (inputSearchValue: string) => {
+    setSearchValue(inputSearchValue);
+  };
+
+  const handleCategoryClick = (searchCategory: string) => () => {
+    setCategory(searchCategory);
+  };
+  return (
+    <header className={style.header}>
+      <p className={style.title}>Movieroulette</p>
+      <Search
+        searchTags={searchTags}
+        handleChange={handleChange}
+        handleCategoryClick={handleCategoryClick}
+        activeCategory={category}
+        handleSubmit={handleSubmit}
+      />
+    </header>
+  );
+};

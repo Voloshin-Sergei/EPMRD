@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'Store/reducers';
 import { Loader } from 'Components/common/Loader';
+import { Movie } from '../../App';
 import { MoviesFilter } from './MoviesFilter';
 import { MoviesList } from './MoviesList';
-import { Movie } from 'src/App';
 
 import style from './Main.module.scss';
 
@@ -19,12 +19,12 @@ const filterTags: FilterTag[] = [
 ];
 
 export interface MainProps {
-  onClick?(data?: string): void;
+  handleFilterClick?(data?: string): () => void;
   activeFilter: string;
   movies: Movie[];
 }
 
-export const Main: React.FC<MainProps> = ({ onClick, activeFilter, movies }) => {
+export const Main: React.FC<MainProps> = ({ handleFilterClick, activeFilter, movies }) => {
   const { isLoading, error } = useSelector((state: RootState) => state.searchMovieReducer);
   const renderMovieList = () => {
     if (error && error instanceof Error) {
@@ -40,7 +40,7 @@ export const Main: React.FC<MainProps> = ({ onClick, activeFilter, movies }) => 
     <main className={style.main}>
       <MoviesFilter
         filterTags={filterTags}
-        onClick={onClick}
+        handleFilterClick={handleFilterClick}
         activeFilter={activeFilter}
         movies={movies}
       />

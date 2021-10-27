@@ -29,40 +29,23 @@ export const App: React.FC = () => {
   const dispatch = useDispatch();
   const { movies } = useSelector((state: RootState) => state.searchMovieReducer);
 
-  const [searchValue, setSearchValue] = useState('');
-  const [category, setCategory] = useState('title');
   const [filter, setFilter] = useState('release_date');
 
-  const handleFilterClick = (filter: string) => () => {
-    setFilter(filter);
-    handleSubmit();
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
-  };
-
-  const handleCategoryClick = (category: string) => () => {
-    setCategory(category);
-  };
-
-  const handleSubmit = () => {
-    dispatch(fetchMovies(filter, category, searchValue));
+  const handleFilterClick = (searchFilter: string) => () => {
+    setFilter(searchFilter);
+    // dispatch(fetchMovies(filter));
   };
 
   useEffect(() => {
-    dispatch(fetchMovies(filter, category, searchValue));
-  }, [fetchMovies, filter]);
+    if (!movies.length) {
+      dispatch(fetchMovies(filter));
+    }
+  }, [fetchMovies, filter, movies]);
 
   return (
     <ErrorBoundary>
-      <Header
-        onChange={handleChange}
-        onClick={handleCategoryClick}
-        activeCategory={category}
-        handleSubmit={handleSubmit}
-      />
-      <Main onClick={handleFilterClick} activeFilter={filter} movies={movies} />
+      <Header filter={filter} />
+      <Main handleFilterClick={handleFilterClick} activeFilter={filter} movies={movies} />
       <Footer />
     </ErrorBoundary>
   );

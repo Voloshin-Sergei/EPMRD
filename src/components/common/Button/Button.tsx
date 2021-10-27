@@ -22,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   activeClassName,
 }) => {
-  const handelClick = useCallback(() => {
+  const handleClick = useCallback(() => {
     if (onClick) {
       onClick();
     }
@@ -33,7 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={` ${style.button} ${className} ${style[variant]} ${activeClassName}`}
       type={type}
       data-test-id={dataTestId}
-      onClick={handelClick}
+      onClick={handleClick}
     >
       {children}
     </button>

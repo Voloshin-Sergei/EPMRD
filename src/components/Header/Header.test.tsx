@@ -4,7 +4,9 @@ import { Header } from './Header';
 
 describe('Header component', () => {
   it('should render Header component', () => {
-    const component = render(<Header />);
+    const filter = 'test_filter';
+
+    const component = render(<Header filter={filter} />);
     expect(component).toMatchSnapshot();
   });
 });

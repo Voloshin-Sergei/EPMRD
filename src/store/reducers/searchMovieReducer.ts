@@ -3,14 +3,12 @@ import { Actions, SearchMoviesActionTypes } from '../types';
 
 interface InitialState {
   movies: Movie[];
-  sortOrder: string;
   isLoading: boolean;
   error: unknown | null;
 }
 
 const initialState: InitialState = {
   movies: [],
-  sortOrder: 'desc',
   isLoading: false,
   error: null,
 };

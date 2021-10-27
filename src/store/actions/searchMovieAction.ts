@@ -1,18 +1,17 @@
 import { Dispatch } from 'redux';
-import { RootState } from 'Store/reducers';
 import { api } from '../../api/api';
 
 import { Actions, GetMoviesStarted, GetMoviesFailure, GetMoviesSuccess } from '../types';
 
-export const fetchMovies = (sortBy: string, searchBy: string, search: string) => {
-  return async (dispatch: Dispatch, getState: () => RootState): Promise<void> => {
+export const fetchMovies = (sortBy: string, searchBy = 'title', search = '') => {
+  return async (dispatch: Dispatch): Promise<void> => {
     try {
       dispatch<GetMoviesStarted>({
         type: Actions.GET_MOVIES_STARTED,
         payload: true,
       });
 
-      const { sortOrder: sortOrder } = getState().searchMovieReducer;
+      const sortOrder = 'desc';
 
       const { data } = await api.getMovies({ sortBy, searchBy, search, sortOrder });
       dispatch<GetMoviesSuccess>({

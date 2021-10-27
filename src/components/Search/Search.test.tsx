@@ -7,7 +7,22 @@ describe('Search component', () => {
     { label: 'one', type: 'one' },
     { label: 'two', type: 'two' },
   ];
-  const component = render(<Search searchTags={tagsList} />);
+
+  const handleChange = () => {};
+
+  const handleCategoryClick = () => () => {};
+
+  const handleSubmit = () => {};
+
+  const component = render(
+    <Search
+      searchTags={tagsList}
+      handleChange={handleChange}
+      handleCategoryClick={handleCategoryClick}
+      activeCategory="test_active"
+      handleSubmit={handleSubmit}
+    />,
+  );
 
   it('should render Search component', () => {
     expect(component).toMatchSnapshot();

@@ -9,7 +9,7 @@ export const api = {
   },
 };
 
-interface MovieParams {
+export interface MovieParams {
   sortBy: string;
   searchBy: string;
   search: string;
