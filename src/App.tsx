@@ -33,7 +33,7 @@ export const App: React.FC = () => {
 
   const handleFilterClick = (searchFilter: string) => () => {
     setFilter(searchFilter);
-    // dispatch(fetchMovies(filter));
+    dispatch(fetchMovies(filter));
   };
 
   useEffect(() => {
