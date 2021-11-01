@@ -1,5 +1,8 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'Components/common/Button';
+import { setFilter, fetchMovies } from 'Store/actions/searchMovieAction';
+import { RootState } from 'Store/reducers';
 import { Movie } from '../../../App';
 import { FilterTag } from '../Main';
 
@@ -18,6 +21,15 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({
   activeFilter,
   movies,
 }) => {
+  const { filter } = useSelector((state: RootState) => state.searchMovieReducer);
+
+  const dispatch = useDispatch();
+
+  const moviesSortBy = (filter: string) => () => {
+    dispatch(setFilter(filter));
+    dispatch(fetchMovies());
+  };
+
   return (
     <div className={style.filter}>
       <p className={style.result}>{movies.length} movies found</p>
@@ -27,11 +39,11 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({
           {filterTags.map((tag: FilterTag) => (
             <li key={tag.label} className={style.item}>
               <Button
-                onClick={handleFilterClick?.(tag.type)}
+                onClick={moviesSortBy?.(tag.type)}
                 className={style.tag}
                 variant="secondary"
                 dataTestId="filter-tag-btn"
-                activeClassName={tag.type === activeFilter ? style.active : ''}
+                activeClassName={tag.type === filter ? style.active : ''}
               >
                 {tag.label}
               </Button>

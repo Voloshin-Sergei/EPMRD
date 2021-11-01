@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderProps> = ({ filter }) => {
   const [category, setCategory] = useState('title');
 
   const handleSubmit = () => {
-    dispatch(fetchMovies(filter, category, searchValue));
+    dispatch(fetchMovies(searchValue));
   };
 
   const handleChange = (inputSearchValue: string) => {

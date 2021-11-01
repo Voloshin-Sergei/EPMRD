@@ -5,12 +5,16 @@ interface InitialState {
   movies: Movie[];
   isLoading: boolean;
   error: unknown | null;
+  category: string;
+  filter: string;
 }
 
 const initialState: InitialState = {
   movies: [],
   isLoading: false,
   error: null,
+  category: 'title',
+  filter: 'release_date',
 };
 
 const searchMovieReducer = (
@@ -35,6 +39,17 @@ const searchMovieReducer = (
         ...state,
         error: action.payload.error,
         isLoading: action.payload.isLoading,
+      };
+    case Actions.SET_CATEGORY:
+      return {
+        ...state,
+        category: action.payload,
+      };
+
+    case Actions.SET_FILTER:
+      return {
+        ...state,
+        filter: action.payload,
       };
     default:
       return state;

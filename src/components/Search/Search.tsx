@@ -1,6 +1,9 @@
 import React from 'react';
 import { Button } from 'Components/common/Button';
+import { useSelector, useDispatch } from 'react-redux';
 import { SearchTag } from 'Components/Header/Header';
+import { RootState } from 'Store/reducers';
+import { setCategory, fetchMovies } from 'Store/actions/searchMovieAction';
 
 import style from './Search.module.scss';
 
@@ -19,6 +22,13 @@ export const Search: React.FC<SearchProps> = ({
   activeCategory,
   handleSubmit,
 }) => {
+  const { category } = useSelector((state: RootState) => state.searchMovieReducer);
+  const dispatch = useDispatch();
+
+  const moviesSearchCategory = (category: string) => () => {
+    dispatch(setCategory(category));
+  };
+
   const handleSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     handleChange(event.target.value);
   };
@@ -44,10 +54,10 @@ export const Search: React.FC<SearchProps> = ({
             {searchTags.map((tag: SearchTag, index: number) => (
               <li key={`${tag.label}_${index}`} className={style.item}>
                 <Button
-                  onClick={handleCategoryClick?.(tag.type)}
+                  onClick={moviesSearchCategory?.(tag.type)}
                   className={style.tag}
                   dataTestId="search-tag-btn"
-                  activeClassName={tag.type === activeCategory ? style.active : ''}
+                  activeClassName={tag.type === category ? style.active : ''}
                 >
                   {tag.label}
                 </Button>
