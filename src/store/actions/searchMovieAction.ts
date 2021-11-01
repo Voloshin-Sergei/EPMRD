@@ -3,7 +3,7 @@ import { api } from '../../api/api';
 
 import { Actions, GetMoviesStarted, GetMoviesFailure, GetMoviesSuccess } from '../types';
 
-export const fetchMovies = (sortBy: string, searchBy = 'title', search = '') => {
+export const fetchMovies = (sortBy = 'release_date', searchBy = 'title', search = '') => {
   return async (dispatch: Dispatch): Promise<void> => {
     try {
       dispatch<GetMoviesStarted>({

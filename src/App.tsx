@@ -33,14 +33,12 @@ export const App: React.FC = () => {
 
   const handleFilterClick = (searchFilter: string) => () => {
     setFilter(searchFilter);
-    dispatch(fetchMovies(filter));
+    dispatch(fetchMovies(searchFilter));
   };
 
   useEffect(() => {
-    if (!movies.length) {
-      dispatch(fetchMovies(filter));
-    }
-  }, [fetchMovies, filter, movies]);
+    dispatch(fetchMovies());
+  }, [fetchMovies]);
 
   return (
     <ErrorBoundary>
