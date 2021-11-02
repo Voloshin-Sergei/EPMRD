@@ -22,25 +22,18 @@ export interface MovieListProps {
 }
 
 export const MoviesList: React.FC<MovieListProps> = ({ movieList }) => {
-  const renderMovieCards = () => {
-    if (!movieList.length) {
-      return <h2 className={style.title}>No films found</h2>;
-    }
-    return (
-      <section className={style.movies}>
-        {movieList.map((movie: Movie) => (
-          <MovieCard
-            key={movie.id}
-            year={movie.release_date}
-            title={movie.title}
-            poster={movie.poster_path}
-            genres={movie.genres}
-            rating={movie.vote_average}
-          />
-        ))}
-      </section>
-    );
-  };
-
-  return <>{renderMovieCards()}</>;
+  return (
+    <section className={style.movies}>
+      {movieList.map((movie: Movie) => (
+        <MovieCard
+          key={movie.id}
+          year={movie.release_date}
+          title={movie.title}
+          poster={movie.poster_path}
+          genres={movie.genres}
+          rating={movie.vote_average}
+        />
+      ))}
+    </section>
+  );
 };

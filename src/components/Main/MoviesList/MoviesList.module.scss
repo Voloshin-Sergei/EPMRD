@@ -26,9 +26,3 @@ $primary-size--xs: 210px;
     grid-template-columns: repeat(auto-fit, $primary-size--xs);
   }
 }
-
-.title {
-  font-weight: $font-weight--medium;
-  font-size: 6rem;
-  text-align: center;
-}

@@ -10,19 +10,7 @@ describe('Search component', () => {
 
   const handleChange = () => {};
 
-  const handleCategoryClick = () => () => {};
-
-  const handleSubmit = () => {};
-
-  const component = render(
-    <Search
-      searchTags={tagsList}
-      handleChange={handleChange}
-      handleCategoryClick={handleCategoryClick}
-      activeCategory="test_active"
-      handleSubmit={handleSubmit}
-    />,
-  );
+  const component = render(<Search searchTags={tagsList} handleChange={handleChange} />);
 
   it('should render Search component', () => {
     expect(component).toMatchSnapshot();

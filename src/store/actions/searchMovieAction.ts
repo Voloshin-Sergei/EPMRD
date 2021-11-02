@@ -1,5 +1,4 @@
 import { Dispatch } from 'redux';
-import { RootState } from 'Store/reducers';
 import { api } from '../../api/api';
 
 import {
@@ -21,8 +20,8 @@ export const setFilter = (filter: string): SetFilter => ({
   payload: filter,
 });
 
-export const fetchMovies = (search = '') => {
-  return async (dispatch: Dispatch, getState: () => RootState): Promise<void> => {
+export const fetchMovies = (sortBy: string, searchBy: string, search = '') => {
+  return async (dispatch: Dispatch): Promise<void> => {
     try {
       dispatch<GetMoviesStarted>({
         type: Actions.GET_MOVIES_STARTED,
@@ -30,7 +29,6 @@ export const fetchMovies = (search = '') => {
       });
 
       const sortOrder = 'desc';
-      const { category: searchBy, filter: sortBy } = getState().searchMovieReducer;
 
       const { data } = await api.getMovies({ sortBy, searchBy, search, sortOrder });
       dispatch<GetMoviesSuccess>({
