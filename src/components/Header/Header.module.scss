@@ -3,18 +3,15 @@
 @import 'Styles/variables/responsive';
 
 .header {
-  padding: 2rem 5rem;
   background:
     linear-gradient($color-primary--shade, $color-primary--shade),
     url('../../assets/header_bg.jpg') no-repeat center / cover;
-
-  @media screen and (max-width: $mobile--sm) {
-    padding: 2rem 2rem;
-  }
 }
 
 .title {
+  margin-top: 2rem;
   margin-bottom: 8rem;
+  margin-left: 5rem;
   color: $color-secondary;
   font-weight: $font-weight--medium;
   font-size: 3.6rem;

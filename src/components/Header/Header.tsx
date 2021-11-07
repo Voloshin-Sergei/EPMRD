@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Search } from 'Components/Search';
-
+import { MoviesFilter } from 'Components/Header/MoviesFilter';
 import style from './Header.module.scss';
 
 export interface SearchTag {
@@ -13,15 +13,27 @@ const searchTags: SearchTag[] = [
   { label: 'genre', type: 'genres' },
 ];
 
-export interface HeaderProps {
-  handleChange: (data: string) => void;
+const filterTags: FilterTag[] = [
+  { label: 'release date', type: 'release_date' },
+  { label: 'rating', type: 'vote_average' },
+];
+export interface FilterTag {
+  label: string;
+  type: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ handleChange }) => {
+export const Header: React.FC = () => {
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleChange = (inputSearchValue: string) => {
+    setSearchValue(inputSearchValue);
+  };
+
   return (
     <header className={style.header}>
       <p className={style.title}>Movieroulette</p>
-      <Search searchTags={searchTags} handleChange={handleChange} />
+      <Search searchTags={searchTags} handleChange={handleChange} searchValue={searchValue} />
+      <MoviesFilter filterTags={filterTags} searchValue={searchValue} />
     </header>
   );
 };

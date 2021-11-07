@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'Components/common/Button';
 import { setFilter, fetchMovies } from 'Store/actions/searchMovieAction';
 import { RootState } from 'Store/reducers';
-import { FilterTag } from '../Main';
+import { FilterTag } from '../../Header/Header';
 
 import style from './MoviesFilter.module.scss';
 

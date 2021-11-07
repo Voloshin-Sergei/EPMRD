@@ -4,9 +4,7 @@ import { Header } from './Header';
 
 describe('Header component', () => {
   it('should render Header component', () => {
-    const handleChange = () => {};
-
-    const component = render(<Header handleChange={handleChange} />);
+    const component = render(<Header />);
     expect(component).toMatchSnapshot();
   });
 });

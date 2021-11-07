@@ -10,7 +10,11 @@ describe('Search component', () => {
 
   const handleChange = () => {};
 
-  const component = render(<Search searchTags={tagsList} handleChange={handleChange} />);
+  const searchValue = 'test_value';
+
+  const component = render(
+    <Search searchTags={tagsList} handleChange={handleChange} searchValue={searchValue} />,
+  );
 
   it('should render Search component', () => {
     expect(component).toMatchSnapshot();

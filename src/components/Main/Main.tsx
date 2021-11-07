@@ -3,15 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies } from 'Store/actions/searchMovieAction';
 import { RootState } from 'Store/reducers';
 import { Loader } from 'Components/common/Loader';
-import { MoviesFilter } from './MoviesFilter';
 import { MoviesList } from './MoviesList';
 
 import style from './Main.module.scss';
-
-export interface FilterTag {
-  label: string;
-  type: string;
-}
 
 export interface Movie {
   id: number;
@@ -28,17 +22,7 @@ export interface Movie {
   genres: string[];
 }
 
-const filterTags: FilterTag[] = [
-  { label: 'release date', type: 'release_date' },
-  { label: 'rating', type: 'vote_average' },
-];
-
-export interface MainProps {
-  handleFilterClick?(data?: string): () => void;
-  searchValue: string;
-}
-
-export const Main: React.FC<MainProps> = ({ searchValue }) => {
+export const Main: React.FC = () => {
   const { isLoading, error, movies, filter, category } = useSelector(
     (state: RootState) => state.searchMovieReducer,
   );
@@ -46,7 +30,7 @@ export const Main: React.FC<MainProps> = ({ searchValue }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMovies(filter, category, searchValue));
+    dispatch(fetchMovies(filter, category));
   }, [fetchMovies]);
 
   const renderMovieList = () => {
@@ -63,10 +47,5 @@ export const Main: React.FC<MainProps> = ({ searchValue }) => {
     return <MoviesList movieList={movies} />;
   };
 
-  return (
-    <main className={style.main}>
-      <MoviesFilter filterTags={filterTags} searchValue={searchValue} />
-      {renderMovieList()}
-    </main>
-  );
+  return <main className={style.main}>{renderMovieList()}</main>;
 };

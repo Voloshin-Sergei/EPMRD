@@ -4,9 +4,7 @@ import { Main } from './Main';
 
 describe('Main component', () => {
   it('should render Main component', () => {
-    const searchValue = 'test_value';
-
-    const component = render(<Main searchValue={searchValue} />);
+    const component = render(<Main />);
     expect(component).toMatchSnapshot();
   });
 });
