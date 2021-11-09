@@ -31,7 +31,7 @@ export const Main: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchMovies(filter, category));
-  }, [fetchMovies]);
+  }, [fetchMovies, filter, category]);
 
   const renderMovieList = () => {
     if (error && error instanceof Error) {
