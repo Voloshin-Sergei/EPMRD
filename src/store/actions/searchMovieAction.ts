@@ -28,9 +28,7 @@ export const fetchMovies = (sortBy: string, searchBy: string, search = '') => {
         payload: true,
       });
 
-      const sortOrder = 'desc';
-
-      const { data } = await api.getMovies({ sortBy, searchBy, search, sortOrder });
+      const { data } = await api.getMovies({ sortBy, searchBy, search });
       dispatch<GetMoviesSuccess>({
         type: Actions.GET_MOVIES_SUCCESS,
         payload: { movies: data, isLoading: false },
