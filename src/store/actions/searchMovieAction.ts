@@ -20,7 +20,7 @@ export const setFilter = (filter: string): SetFilter => ({
   payload: filter,
 });
 
-export const fetchMovies = (sortBy: string, searchBy: string, search = '') => {
+export const fetchMovies = (sortBy = 'release_date', searchBy = 'title', search = '') => {
   return async (dispatch: Dispatch): Promise<void> => {
     try {
       dispatch<GetMoviesStarted>({
