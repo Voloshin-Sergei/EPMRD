@@ -33,18 +33,18 @@
   font-size: 2rem;
   background-color: $color-primary--darken;
   border-radius: 3px;
-}
 
-.vote.red {
-  color: red;
-}
+  &.red {
+    color: red;
+  }
 
-.vote.orange {
-  color: orange;
-}
+  &.orange {
+    color: orange;
+  }
 
-.vote.green {
-  color: green;
+  &.green {
+    color: green;
+  }
 }
 
 .info {
