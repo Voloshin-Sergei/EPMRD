@@ -24,14 +24,14 @@ export interface MovieListProps {
 export const MoviesList: React.FC<MovieListProps> = ({ movieList }) => {
   return (
     <section className={style.movies}>
-      {movieList.map((movie: Movie) => (
+      {movieList.map(({ id, release_date, title, poster_path, genres, vote_average }: Movie) => (
         <MovieCard
-          key={movie.id}
-          year={movie.release_date}
-          title={movie.title}
-          poster={movie.poster_path}
-          genres={movie.genres}
-          rating={movie.vote_average}
+          key={id}
+          year={release_date}
+          title={title}
+          poster={poster_path}
+          genres={genres}
+          rating={vote_average}
         />
       ))}
     </section>
