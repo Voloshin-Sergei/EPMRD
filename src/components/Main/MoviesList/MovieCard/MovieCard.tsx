@@ -9,11 +9,13 @@ export interface MovieCardProps {
   rating: number;
 }
 
+const highRatingMovie = 8;
+const averageRatingMovie = 5;
+
 export const MovieCard: React.FC<MovieCardProps> = ({ year, title, poster, genres, rating }) => {
   const shortYear = year.split('-')[0];
-  const highRatingMovie = 8;
-  const averageRatingMovie = 5;
-  const setColorStyle = (): void => {
+
+  const setColorStyle = (): string => {
     if (rating > highRatingMovie) {
       return style.green;
     }
