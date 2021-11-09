@@ -9,27 +9,27 @@ export enum Actions {
 }
 
 export interface GetMoviesStarted {
-  type: typeof Actions.GET_MOVIES_STARTED;
+  type: Actions.GET_MOVIES_STARTED;
   payload: boolean;
 }
 
 export interface GetMoviesSuccess {
-  type: typeof Actions.GET_MOVIES_SUCCESS;
+  type: Actions.GET_MOVIES_SUCCESS;
   payload: { movies: Movie[]; isLoading: boolean };
 }
 
 export interface GetMoviesFailure {
-  type: typeof Actions.GET_MOVIES_FAILURE;
+  type: Actions.GET_MOVIES_FAILURE;
   payload: { error: unknown; isLoading: boolean };
 }
 
 export interface SetCategory {
-  type: typeof Actions.SET_CATEGORY;
+  type: Actions.SET_CATEGORY;
   payload: string;
 }
 
 export interface SetFilter {
-  type: typeof Actions.SET_FILTER;
+  type: Actions.SET_FILTER;
   payload: string;
 }
 
