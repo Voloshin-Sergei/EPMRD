@@ -8,7 +8,7 @@ import { FilterTag } from '../../Header/Header';
 import style from './MoviesFilter.module.scss';
 
 export interface MoviesFilterProps {
-  filterTags: Array<FilterTag>;
+  filterTags: FilterTag[];
   searchValue: string;
 }
 
