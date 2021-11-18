@@ -1,35 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button component should render Button component 1`] = `
+exports[`Button component render should render Button component 1`] = `
 <button
-  className="button  primary"
+  className=" button  primary undefined"
+  onClick={[Function]}
   type="button"
 >
   test button
 </button>
 `;
 
-exports[`Button component should render Button component with className props 1`] = `
+exports[`Button component render should render Button component with className props 1`] = `
 <button
-  className="button test_class primary"
+  className=" button test_class primary undefined"
+  onClick={[Function]}
   type="button"
 >
   test button
 </button>
 `;
 
-exports[`Button component should render Button component with type props 1`] = `
+exports[`Button component render should render Button component with type props 1`] = `
 <button
-  className="button  primary"
+  className=" button  primary undefined"
+  onClick={[Function]}
   type="submit"
 >
   test button
 </button>
 `;
 
-exports[`Button component should render Button component with variant props 1`] = `
+exports[`Button component render should render Button component with variant props 1`] = `
 <button
-  className="button  secondary"
+  className=" button  secondary undefined"
+  onClick={[Function]}
   type="button"
 >
   test button
