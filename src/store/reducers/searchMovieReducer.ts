@@ -17,7 +17,7 @@ const initialState: InitialState = {
   filter: 'release_date',
 };
 
-const searchMovieReducer = (
+export const searchMovieReducer = (
   state = initialState,
   action: SearchMoviesActionTypes,
 ): InitialState => {
