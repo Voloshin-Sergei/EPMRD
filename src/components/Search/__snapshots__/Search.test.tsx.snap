@@ -30,7 +30,7 @@ Array [
           class="item"
         >
           <button
-            class="button tag primary"
+            class=" button tag primary "
             data-test-id="search-tag-btn"
             type="button"
           >
@@ -41,27 +41,16 @@ Array [
           class="item"
         >
           <button
-            class="button tag primary"
+            class=" button tag primary "
             data-test-id="search-tag-btn"
             type="button"
           >
             two
           </button>
         </li>
-        <li
-          class="item"
-        >
-          <button
-            class="button tag primary"
-            data-test-id="search-tag-btn"
-            type="button"
-          >
-            three
-          </button>
-        </li>
       </ul>
       <button
-        class="button search primary"
+        class=" button search primary undefined"
         data-test-id="search-btn"
         type="button"
       >

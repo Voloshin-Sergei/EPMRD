@@ -1,8 +1,15 @@
 import React from 'react';
 import { render } from 'enzyme';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from 'Store/reducers';
 import { Search } from './Search';
 
 describe('Search component', () => {
+  const store = createStore(rootReducer);
+
+  const Wrapper = ({ children }: any) => <Provider store={store}>{children}</Provider>;
+
   const tagsList = [
     { label: 'one', type: 'one' },
     { label: 'two', type: 'two' },
@@ -13,7 +20,9 @@ describe('Search component', () => {
   const searchValue = 'test_value';
 
   const component = render(
-    <Search searchTags={tagsList} handleChange={handleChange} searchValue={searchValue} />,
+    <Wrapper>
+      <Search searchTags={tagsList} handleChange={handleChange} searchValue={searchValue} />
+    </Wrapper>,
   );
 
   it('should render Search component', () => {
