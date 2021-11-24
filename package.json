@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**",
   "main": "index.js",
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "scripts": {
     "start": "webpack serve --env mode=production",
     "dev": "webpack serve --env mode=development",
@@ -77,6 +80,8 @@
     "husky": "7.0.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.0.6",
+    "jsdom": "18.1.1",
+    "jsdom-global": "3.0.2",
     "lint-staged": "11.1.2",
     "mini-css-extract-plugin": "2.1.0",
     "node-sass": "6.0.1",

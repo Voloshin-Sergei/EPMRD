@@ -1,24 +1,37 @@
+import 'jsdom-global/register';
 import React from 'react';
-import { render } from 'enzyme';
+import { mount, render, shallow } from 'enzyme';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from 'Store/reducers';
+import store from 'Store/store';
+import * as redux from 'react-redux';
+import { fetchMovies } from 'Store/actions/searchMovieAction';
 import { Search } from './Search';
 
+const Wrapper = ({ children }: any) => <Provider store={store}>{children}</Provider>;
+
+const tagsList = [
+  { label: 'one', type: 'one' },
+  { label: 'two', type: 'two' },
+];
+
+const handleChange = () => {};
+
+const searchValue = 'test_value';
+
+const mockDispatch = jest.fn();
+
+jest.mock('react-redux', () => ({
+  useSelector: jest.fn(),
+  useDispatch: () => mockDispatch,
+}));
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
 describe('Search component', () => {
-  const store = createStore(rootReducer);
-
-  const Wrapper = ({ children }: any) => <Provider store={store}>{children}</Provider>;
-
-  const tagsList = [
-    { label: 'one', type: 'one' },
-    { label: 'two', type: 'two' },
-  ];
-
-  const handleChange = () => {};
-
-  const searchValue = 'test_value';
-
   const component = render(
     <Wrapper>
       <Search searchTags={tagsList} handleChange={handleChange} searchValue={searchValue} />
@@ -35,5 +48,22 @@ describe('Search component', () => {
 
   it('should render search tag buttons on given array', () => {
     expect(component.find('[data-test-id="search-tag-btn"]').length).toEqual(tagsList.length);
+  });
+});
+
+describe('Search component buttons', () => {
+  const component = mount(
+    <Wrapper>
+      <Search searchTags={tagsList} handleChange={handleChange} searchValue={searchValue} />
+    </Wrapper>,
+  );
+
+  // component.instance();
+
+  it('should click on search button', () => {
+    const submitBtn = component.find('[data-test-id="search-btn"]');
+    submitBtn.simulate('click');
+    console.log(mockDispatch.mock.calls[0][0]);
+    expect(mockDispatch.mock.calls[0][0]);
   });
 });
