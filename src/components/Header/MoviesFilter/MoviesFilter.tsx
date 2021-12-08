@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'Components/common/Button';
-import { setFilter, fetchMovies } from 'Store/actions/searchMovieAction';
+import { setFilter } from 'Store/actions/searchMovieAction';
 import { RootState } from 'Store/reducers';
 import { FilterTag } from '../../Header/Header';
 
@@ -9,17 +9,15 @@ import style from './MoviesFilter.module.scss';
 
 export interface MoviesFilterProps {
   filterTags: FilterTag[];
-  searchValue: string;
 }
 
-export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags, searchValue }) => {
-  const { category, filter, movies } = useSelector((state: RootState) => state.searchMovieReducer);
+export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
+  const { filter, movies } = useSelector((state: RootState) => state.searchMovieReducer);
 
   const dispatch = useDispatch();
 
   const handleFilterClick = (activeFilter: string) => () => {
     dispatch(setFilter(activeFilter));
-    dispatch(fetchMovies(activeFilter, category, searchValue));
   };
 
   return (

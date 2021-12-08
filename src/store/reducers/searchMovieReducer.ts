@@ -7,6 +7,7 @@ interface InitialState {
   error: unknown | null;
   category: string;
   filter: string;
+  inputValue: string;
 }
 
 const initialState: InitialState = {
@@ -15,6 +16,7 @@ const initialState: InitialState = {
   error: null,
   category: 'title',
   filter: 'release_date',
+  inputValue: '',
 };
 
 export const searchMovieReducer = (
@@ -50,6 +52,12 @@ export const searchMovieReducer = (
       return {
         ...state,
         filter: action.payload,
+      };
+
+    case Actions.SET_INPUT_VALUE:
+      return {
+        ...state,
+        inputValue: action.payload,
       };
     default:
       return state;

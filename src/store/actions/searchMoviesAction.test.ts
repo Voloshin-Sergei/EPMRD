@@ -18,7 +18,7 @@ describe('fetchMovies', () => {
 
   apiMock.getMovies.mockReturnValue(Promise.resolve(result));
 
-  const thunk = fetchMovies();
+  const thunk = fetchMovies('release_date', 'title', '');
   const dispatchMock = jest.fn();
 
   it('should be called', async () => {

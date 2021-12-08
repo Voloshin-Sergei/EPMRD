@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Search } from 'Components/Search';
 import { MoviesFilter } from 'Components/Header/MoviesFilter';
 import style from './Header.module.scss';
@@ -23,17 +23,11 @@ export interface FilterTag {
 }
 
 export const Header: React.FC = () => {
-  const [searchValue, setSearchValue] = useState('');
-
-  const handleChange = (inputSearchValue: string) => {
-    setSearchValue(inputSearchValue);
-  };
-
   return (
     <header className={style.header}>
       <p className={style.title}>Movieroulette</p>
-      <Search searchTags={searchTags} handleChange={handleChange} searchValue={searchValue} />
-      <MoviesFilter filterTags={filterTags} searchValue={searchValue} />
+      <Search searchTags={searchTags} />
+      <MoviesFilter filterTags={filterTags} />
     </header>
   );
 };

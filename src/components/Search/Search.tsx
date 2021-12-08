@@ -1,20 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'Components/common/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchTag } from 'Components/Header/Header';
 import { RootState } from 'Store/reducers';
-import { setCategory, fetchMovies } from 'Store/actions/searchMovieAction';
+import { setCategory, setInputValue } from 'Store/actions/searchMovieAction';
 
 import style from './Search.module.scss';
 
 export interface SearchProps {
   searchTags: Array<SearchTag>;
-  handleChange: (data: string) => void;
-  searchValue: string;
 }
 
-export const Search: React.FC<SearchProps> = ({ searchTags, handleChange, searchValue }) => {
-  const { category, filter } = useSelector((state: RootState) => state.searchMovieReducer);
+export const Search: React.FC<SearchProps> = ({ searchTags }) => {
+  const { category } = useSelector((state: RootState) => state.searchMovieReducer);
+  const [searchValue, setSearchValue] = useState('');
 
   const dispatch = useDispatch();
 
@@ -23,11 +22,11 @@ export const Search: React.FC<SearchProps> = ({ searchTags, handleChange, search
   };
 
   const handleSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-    handleChange(event.target.value);
+    setSearchValue(event.target.value);
   };
 
   const handleSubmit = () => {
-    dispatch(fetchMovies(filter, category, searchValue));
+    dispatch(setInputValue(searchValue));
   };
 
   const handleFormSubmit = (event: React.FormEvent): void => {

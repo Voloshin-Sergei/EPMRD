@@ -19,10 +19,6 @@ const tagsList = [
   { label: 'two', type: 'two' },
 ];
 
-const handleChange = () => {};
-
-const searchValue = 'test_value';
-
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
@@ -40,7 +36,7 @@ const Wrapper = (children: any) => {
 describe('Search component', () => {
   const component = render(
     <Wrapper>
-      <Search searchTags={tagsList} handleChange={handleChange} searchValue={searchValue} />
+      <Search searchTags={tagsList} />
     </Wrapper>,
   );
 
@@ -60,7 +56,7 @@ describe('Search component', () => {
 // describe('Search component buttons', () => {
 //   const component = mount(
 //     <Wrapper>
-//       <Search searchTags={tagsList} handleChange={handleChange} searchValue={searchValue} />
+//       <Search searchTags={tagsList} />
 //     </Wrapper>,
 //   );
 

@@ -8,6 +8,7 @@ describe('Search reducer', () => {
     error: null,
     category: 'title',
     filter: 'release_date',
+    inputValue: '',
   };
 
   const testData = [
@@ -101,5 +102,13 @@ describe('Search reducer', () => {
     });
     expect(newState.isLoading).toBeFalsy();
     expect(newState.error).toThrow(TypeError);
+  });
+
+  it('should change inputValue', () => {
+    const newState = searchMovieReducer(state, {
+      type: Actions.SET_INPUT_VALUE,
+      payload: 'batman',
+    });
+    expect(newState.inputValue).toBe('batman');
   });
 });
