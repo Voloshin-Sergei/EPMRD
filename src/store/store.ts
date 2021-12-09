@@ -13,5 +13,5 @@ const persistedReducer = persistReducer<any, any>(persistConfig, rootReducer);
 
 // eslint-disable-next-line
 export const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-export const store = createStore(persistedReducer, composeEnhancers, applyMiddleware(thunk));
+export const store = createStore(persistedReducer, composeEnhancers(applyMiddleware(thunk)));
 export const persistor = persistStore(store);
