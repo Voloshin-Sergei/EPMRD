@@ -23,13 +23,15 @@ export interface Movie {
 }
 
 export const Main: React.FC = () => {
-  const { isLoading, error, movies } = useSelector((state: RootState) => state.searchMovieReducer);
+  const { isLoading, error, movies, filter, category, inputValue } = useSelector(
+    (state: RootState) => state.searchMovieReducer,
+  );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMovies());
-  }, [fetchMovies]);
+    dispatch(fetchMovies(filter, category, inputValue));
+  }, [fetchMovies, filter, category, inputValue]);
 
   const renderMovieList = () => {
     if (error && error instanceof Error) {

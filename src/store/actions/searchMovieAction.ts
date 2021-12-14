@@ -8,6 +8,7 @@ import {
   GetMoviesSuccess,
   SetCategory,
   SetFilter,
+  SetInputValue,
 } from '../types';
 
 export const setCategory = (category: string): SetCategory => ({
@@ -20,7 +21,12 @@ export const setFilter = (filter: string): SetFilter => ({
   payload: filter,
 });
 
-export const fetchMovies = (sortBy = 'release_date', searchBy = 'title', search = '') => {
+export const setInputValue = (inputValue: string): SetInputValue => ({
+  type: Actions.SET_INPUT_VALUE,
+  payload: inputValue,
+});
+
+export const fetchMovies = (sortBy: string, searchBy: string, search: string) => {
   return async (dispatch: Dispatch): Promise<void> => {
     try {
       dispatch<GetMoviesStarted>({

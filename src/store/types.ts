@@ -6,6 +6,7 @@ export enum Actions {
   GET_MOVIES_FAILURE = 'GET_MOVIES_FAILURE',
   SET_CATEGORY = 'SET_CATEGORY',
   SET_FILTER = 'SET_FILTER',
+  SET_INPUT_VALUE = 'SET_INPUT_VALUE',
 }
 
 export interface GetMoviesStarted {
@@ -33,9 +34,15 @@ export interface SetFilter {
   payload: string;
 }
 
+export interface SetInputValue {
+  type: Actions.SET_INPUT_VALUE;
+  payload: string;
+}
+
 export type SearchMoviesActionTypes =
   | GetMoviesStarted
   | GetMoviesSuccess
   | GetMoviesFailure
   | SetCategory
-  | SetFilter;
+  | SetFilter
+  | SetInputValue;
