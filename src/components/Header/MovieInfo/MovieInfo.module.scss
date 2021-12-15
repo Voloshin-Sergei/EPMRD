@@ -1,0 +1,130 @@
+@import 'Styles/variables/colors';
+@import 'Styles/variables/fonts';
+@import 'Styles/variables/responsive';
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 5rem 1rem 5rem;
+
+  @media screen and (max-width: $mobile) {
+    padding: 2rem 5rem 1rem 5rem;
+  }
+}
+
+.siteName {
+  color: $color-secondary;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+.search {
+  color: $color-secondary;
+  font-size: 1.8rem;
+  background-color: $color-primary;
+
+  &:hover {
+    color: $color-primary;
+    background-color: $color-secondary;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.body {
+  display: flex;
+  gap: 3rem;
+  padding: 2rem 5rem;
+
+  @media screen and (max-width: $mobile--lg) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: $mobile--lg) {
+    padding: 2rem 2rem;
+  }
+}
+
+.cover {
+  min-width: 30rem;
+
+  @media screen and (max-width: $mobile--lg) {
+    max-width: 20rem;
+  }
+}
+
+.coverImg {
+  width: 100%;
+}
+
+.titleInfo {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  color: $color-secondary;
+  font-size: 3.5rem;
+}
+
+.vote {
+  padding: 0.5rem;
+  color: $color-primary;
+  font-size: 2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+
+  &.red {
+    color: $color-rating--low;
+  }
+
+  &.orange {
+    color: $color-rating--average;
+  }
+
+  &.green {
+    color: $color-rating--high;
+  }
+}
+
+.tagline {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: $color-primary;
+  font-size: 2.4rem;
+}
+
+.additionInfo {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.year {
+  color: $color-primary;
+  font-size: 2.4rem;
+}
+
+.runtime {
+  color: $color-primary;
+  font-size: 2.4rem;
+}
+
+.description {
+  color: $color-primary;
+  font-weight: $font-weight--light;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+.genre {
+  padding: 1rem 5rem;
+  font-size: 1.8rem;
+  background-color: darken($color-primary, 10%);
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Search } from 'Components/Search';
 import { MoviesFilter } from 'Components/Header/MoviesFilter';
+import { MovieInfo } from './MovieInfo';
 import style from './Header.module.scss';
 
 export interface SearchTag {
@@ -25,9 +26,10 @@ export interface FilterTag {
 export const Header: React.FC = () => {
   return (
     <header className={style.header}>
-      <p className={style.title}>Movieroulette</p>
+      {/* <p className={style.title}>Movieroulette</p>
       <Search searchTags={searchTags} />
-      <MoviesFilter filterTags={filterTags} />
+      <MoviesFilter filterTags={filterTags} /> */}
+      <MovieInfo />
     </header>
   );
 };
