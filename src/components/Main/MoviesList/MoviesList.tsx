@@ -27,6 +27,7 @@ export const MoviesList: React.FC<MovieListProps> = ({ movieList }) => {
       {movieList.map(({ id, release_date, title, poster_path, genres, vote_average }: Movie) => (
         <MovieCard
           key={id}
+          id={id}
           year={release_date}
           title={title}
           poster={poster_path}

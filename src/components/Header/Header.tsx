@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { Search } from 'Components/Search';
 import { MoviesFilter } from 'Components/Header/MoviesFilter';
 import { MovieInfo } from './MovieInfo';
@@ -26,10 +27,18 @@ export interface FilterTag {
 export const Header: React.FC = () => {
   return (
     <header className={style.header}>
-      {/* <p className={style.title}>Movieroulette</p>
-      <Search searchTags={searchTags} />
-      <MoviesFilter filterTags={filterTags} /> */}
-      <MovieInfo />
+      <Switch>
+        <Route exact path="/">
+          <>
+            <p className={style.title}>Movieroulette</p>
+            <Search searchTags={searchTags} />
+            <MoviesFilter filterTags={filterTags} />
+          </>
+        </Route>
+        <Route path="/movie/:id">
+          <MovieInfo />
+        </Route>
+      </Switch>
     </header>
   );
 };

@@ -74,23 +74,15 @@
 }
 
 .vote {
+  width: 4rem;
+  height: 4rem;
   padding: 0.5rem;
   color: $color-primary;
   font-size: 2rem;
+  text-align: center;
+  vertical-align: middle;
   border: 2px solid white;
   border-radius: 50%;
-
-  &.red {
-    color: $color-rating--low;
-  }
-
-  &.orange {
-    color: $color-rating--average;
-  }
-
-  &.green {
-    color: $color-rating--high;
-  }
 }
 
 .tagline {

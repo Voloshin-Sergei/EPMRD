@@ -7,13 +7,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
   overflow: hidden;
   color: $color-primary--darken;
   font-weight: $font-weight--light;
   background-color: $color-primary;
   border-radius: 5px;
   box-shadow: 0 4px 5px $color-secondary--shade;
-  cursor: pointer;
 
   &:hover {
     transform: translateY(-0.8rem);
@@ -33,18 +33,6 @@
   font-size: 2rem;
   background-color: $color-primary--darken;
   border-radius: 3px;
-
-  &.red {
-    color: $color-rating--low;
-  }
-
-  &.orange {
-    color: $color-rating--average;
-  }
-
-  &.green {
-    color: $color-rating--high;
-  }
 }
 
 .info {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { Header } from 'Components/Header';
 import { Main } from 'Components/Main';
 import { Footer } from 'Components/Footer';
@@ -9,9 +10,11 @@ import './style.scss';
 export const App: React.FC = () => {
   return (
     <ErrorBoundary>
-      <Header />
-      <Main />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Main />
+        <Footer />
+      </BrowserRouter>
     </ErrorBoundary>
   );
 };

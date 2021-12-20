@@ -23,6 +23,7 @@ module.exports = ({ mode }) => {
         Components: path.resolve(__dirname, 'src/components'),
         Styles: path.resolve(__dirname, 'src/scss'),
         Store: path.resolve(__dirname, 'src/store'),
+        Helpers: path.resolve(__dirname, 'src/helpers'),
       },
     },
     module: {

@@ -14,6 +14,11 @@ export const api = {
     });
     return response.data;
   },
+
+  getMovie: async (id: string): Promise<AxiosResponse<Movie>> => {
+    const response = await request.get(`/movies/${id}`);
+    return response.data;
+  },
 };
 
 export interface MovieParams {

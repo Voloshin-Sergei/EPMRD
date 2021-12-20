@@ -1,4 +1,5 @@
 @import 'Styles/variables/responsive';
+@import 'Styles/variables/colors';
 
 * {
   box-sizing: border-box;
@@ -27,4 +28,20 @@ html {
 
 body {
   height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.red {
+  color: $color-rating--low;
+}
+
+.orange {
+  color: $color-rating--average;
+}
+
+.green {
+  color: $color-rating--high;
 }

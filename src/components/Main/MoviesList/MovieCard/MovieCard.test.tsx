@@ -4,6 +4,7 @@ import { MovieCard } from './MovieCard';
 
 describe('MovieCard component', () => {
   const props = {
+    id: 2,
     year: '2021',
     title: 'test title',
     poster: 'test cover',
