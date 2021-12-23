@@ -17,7 +17,7 @@ export const api = {
 
   getMovie: async (id: string): Promise<AxiosResponse<Movie>> => {
     const response = await request.get(`/movies/${id}`);
-    return response.data;
+    return response;
   },
 };
 

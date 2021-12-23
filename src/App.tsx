@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Header } from 'Components/Header';
 import { Main } from 'Components/Main';
 import { Footer } from 'Components/Footer';
@@ -10,11 +10,11 @@ import './style.scss';
 export const App: React.FC = () => {
   return (
     <ErrorBoundary>
-      <BrowserRouter>
+      <HashRouter>
         <Header />
         <Main />
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </ErrorBoundary>
   );
 };

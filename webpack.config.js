@@ -24,6 +24,7 @@ module.exports = ({ mode }) => {
         Styles: path.resolve(__dirname, 'src/scss'),
         Store: path.resolve(__dirname, 'src/store'),
         Helpers: path.resolve(__dirname, 'src/helpers'),
+        API: path.resolve(__dirname, 'src/api'),
       },
     },
     module: {

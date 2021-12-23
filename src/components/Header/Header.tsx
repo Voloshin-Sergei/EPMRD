@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { Search } from 'Components/Search';
 import { MoviesFilter } from 'Components/Header/MoviesFilter';
 import { MovieInfo } from './MovieInfo';
@@ -24,7 +24,17 @@ export interface FilterTag {
   type: string;
 }
 
+function useQuery() {
+  const { search } = useLocation();
+
+  return React.useMemo(() => new URLSearchParams(search), [search]);
+}
+
 export const Header: React.FC = () => {
+  const query = useQuery();
+
+  console.log(query.get('title'));
+
   return (
     <header className={style.header}>
       <Switch>

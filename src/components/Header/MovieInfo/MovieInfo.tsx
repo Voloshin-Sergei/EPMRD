@@ -5,33 +5,31 @@ import { Button } from 'Components/common/Button';
 import { Loader } from 'Components/common/Loader';
 import { shortYear } from 'Helpers/shortYear';
 import { setRateColorStyle } from 'Helpers/setRateColorStyle';
-import { setCategory } from 'Store/actions/searchMovieAction';
-import { api } from '../../../api/api';
+import { fetchMovies } from 'Store/actions/searchMovieAction';
+import { api } from 'API/api';
 
 import style from './MovieInfo.module.scss';
 
-export const MovieInfo = () => {
+export const MovieInfo: React.FC = () => {
   const { id }: { id: string } = useParams();
   const [movie, setMovie] = useState<any>({});
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const getMovie = async () => {
-    const newMovie = await api.getMovie(id);
-    setMovie(newMovie);
-  };
-
   useEffect(() => {
+    const getMovie = async () => {
+      const newMovie = await api.getMovie(id);
+      setMovie(newMovie.data);
+
+      dispatch(fetchMovies('release_date', 'genres', newMovie.data.genres[0]));
+    };
+
     getMovie();
   }, [id]);
 
   const returnToSearch = () => {
     history.push('/');
   };
-
-  if (movie.id) {
-    dispatch(setCategory(movie.genres[0]));
-  }
 
   return (
     <>
@@ -71,13 +69,7 @@ export const MovieInfo = () => {
                   <span className={style.year}>{shortYear(movie.release_date)}</span>
                   <span className={style.runtime}>{movie.runtime} min</span>
                 </div>
-                <p className={style.description}>
-                  Believing they have left behind shadowy figures from their past, newlyweds
-                  Christian and Ana fully embrace an inextricable connection and shared life of
-                  luxury. But just as she steps into her role as Mrs. Grey and he relaxes into an
-                  unfamiliar stability, new threats could jeopardize their happy ending before it
-                  even begins.
-                </p>
+                <p className={style.description}>{movie.overview}</p>
               </div>
             </div>
             <div className={style.genre}>

@@ -1,1 +1,1 @@
-export const shortYear = (year: string) => year.split('-')[0];
+export const shortYear = (year: string): string => year.split('-')[0];
