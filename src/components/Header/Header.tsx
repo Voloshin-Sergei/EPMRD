@@ -3,6 +3,7 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import { Search } from 'Components/Search';
 import { MoviesFilter } from 'Components/Header/MoviesFilter';
 import { MovieInfo } from './MovieInfo';
+import { NotFoundPage } from '../../pages/NotFoundPage';
 import style from './Header.module.scss';
 
 export interface SearchTag {
@@ -48,6 +49,7 @@ export const Header: React.FC = () => {
         <Route path="/movie/:id">
           <MovieInfo />
         </Route>
+        <Route path="*" component={NotFoundPage} />
       </Switch>
     </header>
   );
