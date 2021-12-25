@@ -51,6 +51,7 @@
 
 .cover {
   min-width: 30rem;
+  max-width: 30rem;
 
   @media screen and (max-width: $mobile--lg) {
     max-width: 20rem;

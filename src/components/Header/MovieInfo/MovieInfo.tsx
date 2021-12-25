@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'Components/common/Button';
 import { Loader } from 'Components/common/Loader';
 import { shortYear } from 'Helpers/shortYear';
