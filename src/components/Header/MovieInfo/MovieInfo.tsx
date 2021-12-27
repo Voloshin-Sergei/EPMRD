@@ -1,18 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Button } from 'Components/common/Button';
 import { Loader } from 'Components/common/Loader';
 import { shortYear } from 'Helpers/shortYear';
 import { setRateColorStyle } from 'Helpers/setRateColorStyle';
 import { fetchMovies } from 'Store/actions/searchMovieAction';
 import { api } from 'API/api';
+import { Movie } from 'Components/Main/MoviesList';
+import { onErrorHandler } from 'Helpers/onErrorCover';
 
 import style from './MovieInfo.module.scss';
 
 export const MovieInfo: React.FC = () => {
   const { id }: { id: string } = useParams();
-  const [movie, setMovie] = useState<any>({});
+  const [movie, setMovie] = useState<Movie>({
+    id: 0,
+    title: '',
+    tagline: '',
+    vote_average: 0,
+    vote_count: 0,
+    release_date: '',
+    poster_path: '',
+    overview: '',
+    budget: 0,
+    revenue: 0,
+    runtime: 0,
+    genres: [],
+  });
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -50,11 +65,7 @@ export const MovieInfo: React.FC = () => {
                   className={style.coverImg}
                   src={movie.poster_path}
                   alt={movie.title}
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).onerror = null;
-                    (e.target as HTMLImageElement).src =
-                      'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80';
-                  }}
+                  onError={onErrorHandler}
                 />
               </div>
               <div className={style.info}>

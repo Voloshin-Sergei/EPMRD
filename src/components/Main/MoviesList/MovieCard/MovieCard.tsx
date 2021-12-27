@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { shortYear } from 'Helpers/shortYear';
 import { setRateColorStyle } from 'Helpers/setRateColorStyle';
+import { onErrorHandler } from 'Helpers/onErrorCover';
 import style from './MovieCard.module.scss';
 
 export interface MovieCardProps {
@@ -24,16 +25,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   return (
     <Link to={`/movie/${id}`}>
       <div className={style.movie}>
-        <img
-          className={style.poster}
-          src={poster}
-          alt={title}
-          onError={(e) => {
-            (e.target as HTMLImageElement).onerror = null;
-            (e.target as HTMLImageElement).src =
-              'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80';
-          }}
-        />
+        <img className={style.poster} src={poster} alt={title} onError={onErrorHandler} />
         <span className={`${style.vote} ${setRateColorStyle(rating)}`}>{rating}</span>
         <div className={style.info}>
           <h3 className={style.title}>{title}</h3>
