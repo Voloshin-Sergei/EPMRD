@@ -27,6 +27,7 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
 
   useEffect(() => {
     if (searchParam) {
+      setSearchValue(searchParam);
       dispatch(setInputValue(searchParam));
       dispatch(fetchMovies(filterParam, categoryParam, searchParam));
     }
@@ -42,10 +43,12 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
 
   const handleSubmit = () => {
     dispatch(setInputValue(searchValue));
-    push({
-      pathname,
-      search: `?sortBy=${filter}&searchBy=${category}&search=${searchValue}&sortOrder=desc`,
-    });
+    if (searchValue) {
+      push({
+        pathname,
+        search: `?sortBy=${filter}&searchBy=${category}&search=${searchValue}&sortOrder=desc`,
+      });
+    }
   };
 
   const handleFormSubmit = (event: React.FormEvent): void => {
@@ -61,6 +64,7 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
           className={style.field}
           type="text"
           placeholder="search movie"
+          value={searchValue}
           onChange={handleSearchValue}
         />
         <div className={style.buttons}>
