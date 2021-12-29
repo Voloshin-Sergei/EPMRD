@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Search } from 'Components/Search';
 import { MoviesFilter } from 'Components/Header/MoviesFilter';
-import { MovieInfo } from './MovieInfo';
+import { MovieInfo } from './MovieInfo/MovieInfo';
 import { NotFoundPage } from '../../pages/NotFoundPage';
 import style from './Header.module.scss';
 

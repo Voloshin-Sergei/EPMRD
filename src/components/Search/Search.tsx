@@ -4,7 +4,7 @@ import { Button } from 'Components/common/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchTag } from 'Components/Header/Header';
 import { RootState } from 'Store/reducers';
-import { fetchMovies, setCategory, setInputValue } from 'Store/actions/searchMovieAction';
+import { setCategory, setInputValue } from 'Store/actions/searchMovieAction';
 import { useQuery } from 'Helpers/useQuery';
 
 import style from './Search.module.scss';
@@ -18,20 +18,16 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
   const { push } = useHistory();
   const query = useQuery();
   const searchParam = query.get('search');
-  const categoryParam = query.get('searchBy') || 'title';
-  const filterParam = query.get('sortBy') || 'release_date';
-
   const dispatch = useDispatch();
-  const { category, filter } = useSelector((state: RootState) => state.searchMovieReducer);
+  const { category } = useSelector((state: RootState) => state.searchMovieReducer);
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
     if (searchParam) {
       setSearchValue(searchParam);
       dispatch(setInputValue(searchParam));
-      dispatch(fetchMovies(filterParam, categoryParam, searchParam));
     }
-  }, [searchParam, categoryParam, filterParam]);
+  }, [searchParam]);
 
   const handleCategoryClick = (activeCategory: string) => () => {
     dispatch(setCategory(activeCategory));
@@ -46,7 +42,7 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
     if (searchValue) {
       push({
         pathname,
-        search: `?sortBy=${filter}&searchBy=${category}&search=${searchValue}&sortOrder=desc`,
+        search: `?search=${searchValue}`,
       });
     }
   };
