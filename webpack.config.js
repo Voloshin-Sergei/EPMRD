@@ -15,6 +15,7 @@ module.exports = ({ mode }) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[contenthash].js',
+      publicPath: '/',
       assetModuleFilename: 'assets/[name].[contenthash].[ext]',
     },
     resolve: {
