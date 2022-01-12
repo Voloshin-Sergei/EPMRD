@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import style from './Button.module.scss';
+import { ButtonStyled } from './Button.styled';
 
 export interface ButtonProps {
   className?: string;
@@ -29,13 +29,15 @@ export const Button: React.FC<ButtonProps> = ({
   }, [onClick]);
 
   return (
-    <button
-      className={` ${style.button} ${className} ${style[variant]} ${activeClassName}`}
+    <ButtonStyled
+      variant={variant}
+      onClick={handleClick}
       type={type}
       data-test-id={dataTestId}
-      onClick={handleClick}
+      className={className}
+      activeClassName={activeClassName}
     >
       {children}
-    </button>
+    </ButtonStyled>
   );
 };
