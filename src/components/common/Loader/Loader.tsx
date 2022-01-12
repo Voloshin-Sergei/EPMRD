@@ -1,4 +1,4 @@
 import React from 'react';
-import style from './loader.module.scss';
+import { LoaderStyled } from './Loader.styled';
 
-export const Loader: React.FC = () => <div className={style.loader}></div>;
+export const Loader: React.FC = () => <LoaderStyled />;
