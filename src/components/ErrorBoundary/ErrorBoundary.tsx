@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './ErrorBoundary.module.scss';
+import { Container, TextError } from './ErrorBoundary.styled';
 
 export interface ErrorBoundaryProps {
   children: React.ReactNode;
@@ -26,9 +26,9 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
 
     if (hasError) {
       return (
-        <div className={style.container}>
-          <p className={style.text}>Something wrong :(</p>
-        </div>
+        <Container>
+          <TextError>Something wrong :(</TextError>
+        </Container>
       );
     }
     return children;
