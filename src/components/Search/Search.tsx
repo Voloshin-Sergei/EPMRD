@@ -79,7 +79,7 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
                   onClick={handleCategoryClick?.(tag.type)}
                   dataTestId="search-tag-btn"
                   active={tag.type === category}
-                  typeBtn="searchTagBtn"
+                  typeBtn="sortTagBtn"
                 >
                   {tag.label}
                 </Button>

@@ -3,7 +3,7 @@ import { colors } from '../../../styles/variables/colors.styled';
 
 interface ButtonStyledProps {
   variant: 'primary' | 'secondary';
-  typeBtn: 'searchBtn' | 'searchTagBtn' | undefined;
+  typeBtn: 'searchBtn' | 'sortTagBtn' | 'filterTagBtn' | undefined;
   active: boolean | undefined;
 }
 
@@ -14,16 +14,38 @@ const primaryStyle = css`
   text-transform: uppercase;
 `;
 
-const searchTagBtn = css`
+const sortTagBtn = css`
   background-color: ${colors.colorPrimaryDarkLighten};
 
-  &:hover {
+  :hover {
     background-color: ${colors.colorPrimaryDarken};
   }
 `;
 
-const searchTagBtnActive = css`
+const sortTagBtnActive = css`
   background-color: ${colors.colorSecondary};
+
+  :hover {
+    background-color: ${colors.colorSecondary};
+  }
+`;
+
+const filterTagBtn = css`
+  font-size: 1.6rem;
+  transform: scale(0.9);
+
+  :hover {
+    transform: scale(1);
+  }
+`;
+
+const filterTagBtnActive = css`
+  color: ${colors.colorSecondary};
+  font-size: 1.8rem;
+
+  :hover {
+    transform: scale(0.9);
+  }
 `;
 
 const searchBtn = css`
@@ -31,11 +53,11 @@ const searchBtn = css`
   font-size: 1.8rem;
   background-color: ${colors.colorSecondary};
 
-  &:hover {
+  :hover {
     background-color: ${colors.colorSecondaryLighten};
   }
 
-  &:active {
+  :active {
     transform: scale(0.9);
   }
 `;
@@ -50,6 +72,8 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
 
   ${(props) => (props.variant === 'primary' ? primaryStyle : secondaryStyle)};
   ${(props) => (props.typeBtn === 'searchBtn' ? searchBtn : '')};
-  ${(props) => (props.typeBtn === 'searchTagBtn' ? searchTagBtn : '')};
-  ${(props) => (props.typeBtn === 'searchTagBtn' && props.active ? searchTagBtnActive : '')};
+  ${(props) => (props.typeBtn === 'sortTagBtn' ? sortTagBtn : '')};
+  ${(props) => (props.typeBtn === 'sortTagBtn' && props.active ? sortTagBtnActive : '')};
+  ${(props) => (props.typeBtn === 'filterTagBtn' ? filterTagBtn : '')};
+  ${(props) => (props.typeBtn === 'filterTagBtn' && props.active ? filterTagBtnActive : '')};
 `;

@@ -4,8 +4,14 @@ import { Button } from 'Components/common/Button';
 import { setFilter } from 'Store/actions/searchMovieAction';
 import { RootState } from 'Store/reducers';
 import { FilterTag } from '../../Header/Header';
-
-import style from './MoviesFilter.module.scss';
+import {
+  Filter,
+  Result,
+  ButtonsContainer,
+  ButtonsContainerDesc,
+  List,
+  ListItem,
+} from './MoviesFilter.styled';
 
 export interface MoviesFilterProps {
   filterTags: FilterTag[];
@@ -21,26 +27,26 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
   };
 
   return (
-    <div className={style.filter}>
-      <p className={style.result}>{movies.length} movies found</p>
-      <div className={style.buttons}>
-        <p className={style.text}>Sort by</p>
-        <ul className={style.list}>
+    <Filter>
+      <Result>{movies.length} movies found</Result>
+      <ButtonsContainer>
+        <ButtonsContainerDesc>Sort by</ButtonsContainerDesc>
+        <List>
           {filterTags.map((tag: FilterTag) => (
-            <li key={tag.label} className={style.item}>
+            <ListItem key={tag.label}>
               <Button
                 onClick={handleFilterClick?.(tag.type)}
-                className={style.tag}
+                typeBtn="filterTagBtn"
                 variant="secondary"
                 dataTestId="filter-tag-btn"
-                // activeClassName={tag.type === filter ? style.active : ''}
+                active={tag.type === filter}
               >
                 {tag.label}
               </Button>
-            </li>
+            </ListItem>
           ))}
-        </ul>
-      </div>
-    </div>
+        </List>
+      </ButtonsContainer>
+    </Filter>
   );
 };
