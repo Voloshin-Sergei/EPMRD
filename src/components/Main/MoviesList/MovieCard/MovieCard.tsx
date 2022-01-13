@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { shortYear } from 'Helpers/shortYear';
 import { setRateColorStyle } from 'Helpers/setRateColorStyle';
 import { onErrorHandler } from 'Helpers/onErrorCover';
-import style from './MovieCard.module.scss';
+import { Movie, Poster, Vote, Info, Title, Year, Genres, Genre } from './MovieCard.styled';
 
 export interface MovieCardProps {
   id: number;
@@ -24,21 +24,19 @@ export const MovieCard: React.FC<MovieCardProps> = ({
 }) => {
   return (
     <Link to={`/movie/${id}`}>
-      <div className={style.movie}>
-        <img className={style.poster} src={poster} alt={title} onError={onErrorHandler} />
-        <span className={`${style.vote} ${setRateColorStyle(rating)}`}>{rating}</span>
-        <div className={style.info}>
-          <h3 className={style.title}>{title}</h3>
-          <span className={style.year}>{shortYear(year)}</span>
-        </div>
-        <ul className={style.genres}>
+      <Movie>
+        <Poster src={poster} alt={title} onError={onErrorHandler} />
+        <Vote rate={setRateColorStyle(rating)}>{rating}</Vote>
+        <Info>
+          <Title>{title}</Title>
+          <Year>{shortYear(year)}</Year>
+        </Info>
+        <Genres>
           {genres.map((genre: string, index) => (
-            <li key={`${genre}_${index}`} className={style.genre}>
-              {genre}
-            </li>
+            <Genre key={`${genre}_${index}`}>{genre}</Genre>
           ))}
-        </ul>
-      </div>
+        </Genres>
+      </Movie>
     </Link>
   );
 };
