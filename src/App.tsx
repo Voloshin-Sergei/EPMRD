@@ -6,8 +6,6 @@ import { Footer } from 'Components/Footer';
 import { ErrorBoundary } from 'Components/ErrorBoundary';
 import { GlobalStyle } from './styles/global.styled';
 
-import './style.scss';
-
 export const App: React.FC = () => {
   return (
     <ErrorBoundary>

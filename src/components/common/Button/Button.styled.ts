@@ -3,7 +3,7 @@ import { colors } from '../../../styles/variables/colors.styled';
 
 interface ButtonStyledProps {
   variant: 'primary' | 'secondary';
-  typeBtn: 'searchBtn' | 'sortTagBtn' | 'filterTagBtn' | undefined;
+  typeBtn: 'searchBtn' | 'sortTagBtn' | 'filterTagBtn' | 'movieInfoBtn' | undefined;
   active: boolean | undefined;
 }
 
@@ -62,6 +62,21 @@ const searchBtn = css`
   }
 `;
 
+const movieInfoBtn = css`
+  color: ${colors.colorSecondary};
+  font-size: 1.8rem;
+  background-color: ${colors.colorPrimary};
+
+  :hover {
+    color: ${colors.colorPrimary};
+    background-color: ${colors.colorSecondary};
+  }
+
+  :active {
+    transform: scale(0.9);
+  }
+`;
+
 const secondaryStyle = css`
   background-color: transparent;
 `;
@@ -73,6 +88,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   ${(props) => (props.variant === 'primary' ? primaryStyle : secondaryStyle)};
   ${(props) => (props.typeBtn === 'searchBtn' ? searchBtn : '')};
   ${(props) => (props.typeBtn === 'sortTagBtn' ? sortTagBtn : '')};
+  ${(props) => (props.typeBtn === 'movieInfoBtn' ? movieInfoBtn : '')};
   ${(props) => (props.typeBtn === 'sortTagBtn' && props.active ? sortTagBtnActive : '')};
   ${(props) => (props.typeBtn === 'filterTagBtn' ? filterTagBtn : '')};
   ${(props) => (props.typeBtn === 'filterTagBtn' && props.active ? filterTagBtnActive : '')};

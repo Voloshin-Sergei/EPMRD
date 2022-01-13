@@ -9,8 +9,22 @@ import { fetchMovies } from 'Store/actions/searchMovieAction';
 import { api } from 'API/api';
 import { Movie } from 'Components/Main/MoviesList';
 import { onErrorHandler } from 'Helpers/onErrorCover';
-
-import style from './MovieInfo.module.scss';
+import {
+  Header,
+  SiteName,
+  Body,
+  Cover,
+  CoverImg,
+  TitleInfo,
+  Title,
+  Vote,
+  Tagline,
+  AdditionInfo,
+  Year,
+  Runtime,
+  Description,
+  Genre,
+} from './MovieInfo.styled';
 
 export const MovieInfo: React.FC = () => {
   const { id }: { id: string } = useParams();
@@ -52,41 +66,32 @@ export const MovieInfo: React.FC = () => {
         <Loader />
       ) : (
         <>
-          <div className={style.card}>
-            <div className={style.header}>
-              <span className={style.siteName}>Movieroulette</span>
-              <Button className={style.search} onClick={returnToSearch}>
-                search
-              </Button>
+          <Header>
+            <SiteName>Movieroulette</SiteName>
+            <Button onClick={returnToSearch} typeBtn="movieInfoBtn">
+              search
+            </Button>
+          </Header>
+          <Body>
+            <Cover>
+              <CoverImg src={movie.poster_path} alt={movie.title} onError={onErrorHandler} />
+            </Cover>
+            <div>
+              <TitleInfo>
+                <Title>{movie.title}</Title>
+                <Vote rate={setRateColorStyle(movie.vote_average)}>{movie.vote_average}</Vote>
+              </TitleInfo>
+              <Tagline>{movie.tagline}</Tagline>
+              <AdditionInfo>
+                <Year>{shortYear(movie.release_date)}</Year>
+                <Runtime>{movie.runtime} min</Runtime>
+              </AdditionInfo>
+              <Description>{movie.overview}</Description>
             </div>
-            <div className={style.body}>
-              <div className={style.cover}>
-                <img
-                  className={style.coverImg}
-                  src={movie.poster_path}
-                  alt={movie.title}
-                  onError={onErrorHandler}
-                />
-              </div>
-              <div className={style.info}>
-                <div className={style.titleInfo}>
-                  <h1 className={style.title}>{movie.title}</h1>
-                  <span className={`${style.vote} ${setRateColorStyle(movie.vote_average)}`}>
-                    {movie.vote_average}
-                  </span>
-                </div>
-                <span className={style.tagline}>{movie.tagline}</span>
-                <div className={style.additionInfo}>
-                  <span className={style.year}>{shortYear(movie.release_date)}</span>
-                  <span className={style.runtime}>{movie.runtime} min</span>
-                </div>
-                <p className={style.description}>{movie.overview}</p>
-              </div>
-            </div>
-            <div className={style.genre}>
-              <b>Films by</b> {movie.genres[0]} genre
-            </div>
-          </div>
+          </Body>
+          <Genre>
+            <b>Films by</b> {movie.genres[0]} genre
+          </Genre>
         </>
       )}
     </>

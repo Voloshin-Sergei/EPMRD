@@ -7,7 +7,7 @@ export const Filter = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 5rem;
-  background-color: ${colors.colorPrimaryDarken};
+  background-color: ${colors.colorPrimaryDarkLight};
 
   @media screen and (max-width: ${breakpoints.mobileSm}) {
     flex-direction: column;

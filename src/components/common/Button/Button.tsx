@@ -11,7 +11,7 @@ export interface ButtonProps {
   typeCategory?: string;
   activeCategory?: string;
   active?: boolean;
-  typeBtn?: 'searchBtn' | 'sortTagBtn' | 'filterTagBtn';
+  typeBtn?: 'searchBtn' | 'sortTagBtn' | 'filterTagBtn' | 'movieInfoBtn';
 }
 
 export const Button: React.FC<ButtonProps> = ({
