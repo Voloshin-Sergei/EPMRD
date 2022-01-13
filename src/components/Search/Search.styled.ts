@@ -5,7 +5,7 @@ import { breakpoints } from '../../styles/variables/responsive.styled';
 export const Title = styled.p`
   margin-bottom: 1rem;
   margin-left: 5rem;
-  color: $color-primary;
+  color: ${colors.colorPrimary};
   font-size: 2.4rem;
   text-transform: uppercase;
 `;
