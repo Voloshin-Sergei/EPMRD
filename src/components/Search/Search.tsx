@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
+
 import { Button } from 'Components/common/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchTag } from 'Components/Header/Header';
 import { RootState } from 'Store/reducers';
 import { setCategory, setInputValue } from 'Store/actions/searchMovieAction';
 import { useQuery } from 'Helpers/useQuery';
-
-import style from './Search.module.scss';
+import {
+  Title,
+  Form,
+  Input,
+  ButtonsContainer,
+  ButtonsContainerDesc,
+  List,
+  ListItem,
+} from './Search.styled';
 
 export interface SearchProps {
   searchTags: Array<SearchTag>;
@@ -54,36 +62,35 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
 
   return (
     <>
-      <p className={style.title}>find your movie</p>
-      <form className={style.form} onSubmit={handleFormSubmit}>
-        <input
-          className={style.field}
+      <Title>find your movie</Title>
+      <Form onSubmit={handleFormSubmit}>
+        <Input
           type="text"
           placeholder="search movie"
           value={searchValue}
           onChange={handleSearchValue}
         />
-        <div className={style.buttons}>
-          <span className={style.text}>search by</span>
-          <ul className={style.list}>
+        <ButtonsContainer>
+          <ButtonsContainerDesc>search by</ButtonsContainerDesc>
+          <List>
             {searchTags.map((tag: SearchTag, index: number) => (
-              <li key={`${tag.label}_${index}`} className={style.item}>
+              <ListItem key={`${tag.label}_${index}`}>
                 <Button
                   onClick={handleCategoryClick?.(tag.type)}
-                  className={style.tag}
                   dataTestId="search-tag-btn"
-                  activeClassName={tag.type === category ? style.active : ''}
+                  active={tag.type === category}
+                  typeBtn="searchTagBtn"
                 >
                   {tag.label}
                 </Button>
-              </li>
+              </ListItem>
             ))}
-          </ul>
-          <Button className={style.search} dataTestId="search-btn" onClick={handleSubmit}>
+          </List>
+          <Button dataTestId="search-btn" onClick={handleSubmit} typeBtn="searchBtn">
             search
           </Button>
-        </div>
-      </form>
+        </ButtonsContainer>
+      </Form>
     </>
   );
 };

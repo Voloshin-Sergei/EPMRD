@@ -33,7 +33,7 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
                 className={style.tag}
                 variant="secondary"
                 dataTestId="filter-tag-btn"
-                activeClassName={tag.type === filter ? style.active : ''}
+                // activeClassName={tag.type === filter ? style.active : ''}
               >
                 {tag.label}
               </Button>

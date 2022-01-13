@@ -10,7 +10,8 @@ export interface ButtonProps {
   onClick?(data?: string): void;
   typeCategory?: string;
   activeCategory?: string;
-  activeClassName?: string;
+  active?: boolean;
+  typeBtn?: 'searchBtn' | 'searchTagBtn';
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -20,7 +21,8 @@ export const Button: React.FC<ButtonProps> = ({
   type = 'button',
   dataTestId,
   onClick,
-  activeClassName,
+  active,
+  typeBtn,
 }) => {
   const handleClick = useCallback(() => {
     if (onClick) {
@@ -35,7 +37,8 @@ export const Button: React.FC<ButtonProps> = ({
       type={type}
       data-test-id={dataTestId}
       className={className}
-      activeClassName={activeClassName}
+      active={active}
+      typeBtn={typeBtn}
     >
       {children}
     </ButtonStyled>
