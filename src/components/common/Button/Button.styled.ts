@@ -3,8 +3,8 @@ import { colors } from '../../../styles/variables/colors.styled';
 
 interface ButtonStyledProps {
   variant: 'primary' | 'secondary';
-  typeBtn: 'searchBtn' | 'sortTagBtn' | 'filterTagBtn' | 'movieInfoBtn' | undefined;
-  active: boolean | undefined;
+  typeBtn?: 'searchBtn' | 'sortTagBtn' | 'filterTagBtn' | 'movieInfoBtn';
+  active?: boolean;
 }
 
 const primaryStyle = css`
