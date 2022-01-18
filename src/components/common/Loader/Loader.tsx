@@ -1,4 +1,4 @@
 import React from 'react';
-import { LoaderStyled } from './Loader.styled';
+import { StyledLoader } from './Loader.styled';
 
-export const Loader: React.FC = () => <LoaderStyled />;
+export const Loader: React.FC = () => <StyledLoader />;

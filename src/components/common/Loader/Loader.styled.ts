@@ -12,7 +12,7 @@ const spinner = keyframes`
 
 `;
 
-export const LoaderStyled = styled.div`
+export const StyledLoader = styled.div`
 width: 8rem;
   height: 8rem;
   margin: auto;
