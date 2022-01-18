@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { colors } from '../../../styles/variables/colors.styled';
 
-interface ButtonStyledProps {
+interface StyledButtonProps {
   variant: 'primary' | 'secondary';
   typeBtn?: 'searchBtn' | 'sortTagBtn' | 'filterTagBtn' | 'movieInfoBtn';
   active?: boolean;
@@ -81,15 +81,31 @@ const secondaryStyle = css`
   background-color: transparent;
 `;
 
-export const ButtonStyled = styled.button<ButtonStyledProps>`
+const getButtonStyles = (type?: string, active?: boolean) => {
+  switch (type) {
+    case 'sortTagBtn':
+      if (active) return sortTagBtnActive;
+      return sortTagBtn;
+
+    case 'movieInfoBtn':
+      return movieInfoBtn;
+
+    case 'filterTagBtn':
+      if (active) return filterTagBtnActive;
+      return filterTagBtn;
+
+    case 'searchBtn':
+      return searchBtn;
+
+    default:
+      return '';
+  }
+};
+
+export const StyledButton = styled.button<StyledButtonProps>`
   border: none;
   cursor: pointer;
 
   ${(props) => (props.variant === 'primary' ? primaryStyle : secondaryStyle)};
-  ${(props) => (props.typeBtn === 'searchBtn' ? searchBtn : '')};
-  ${(props) => (props.typeBtn === 'sortTagBtn' ? sortTagBtn : '')};
-  ${(props) => (props.typeBtn === 'movieInfoBtn' ? movieInfoBtn : '')};
-  ${(props) => (props.typeBtn === 'sortTagBtn' && props.active ? sortTagBtnActive : '')};
-  ${(props) => (props.typeBtn === 'filterTagBtn' ? filterTagBtn : '')};
-  ${(props) => (props.typeBtn === 'filterTagBtn' && props.active ? filterTagBtnActive : '')};
+  ${(props) => getButtonStyles(props.typeBtn, props.active)};
 `;

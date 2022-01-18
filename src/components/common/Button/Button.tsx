@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { ButtonStyled } from './Button.styled';
+import { StyledButton } from './Button.styled';
 
 export interface ButtonProps {
   className?: string;
@@ -31,7 +31,7 @@ export const Button: React.FC<ButtonProps> = ({
   }, [onClick]);
 
   return (
-    <ButtonStyled
+    <StyledButton
       variant={variant}
       onClick={handleClick}
       type={type}
@@ -41,6 +41,6 @@ export const Button: React.FC<ButtonProps> = ({
       typeBtn={typeBtn}
     >
       {children}
-    </ButtonStyled>
+    </StyledButton>
   );
 };
