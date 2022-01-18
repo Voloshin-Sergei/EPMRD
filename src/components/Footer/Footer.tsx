@@ -1,8 +1,8 @@
 import React from 'react';
-import { FooterStyled, Title } from './Footer.styled';
+import { StyledFooter, StyledTitle } from './Footer.styled';
 
 export const Footer: React.FC = () => (
-  <FooterStyled>
-    <Title>Movieroulette</Title>
-  </FooterStyled>
+  <StyledFooter>
+    <StyledTitle>Movieroulette</StyledTitle>
+  </StyledFooter>
 );
