@@ -10,20 +10,20 @@ import { api } from 'API/api';
 import { Movie } from 'Components/Main/MoviesList';
 import { onErrorHandler } from 'Helpers/onErrorCover';
 import {
-  Header,
-  SiteName,
-  Body,
-  Cover,
-  CoverImg,
-  TitleInfo,
-  Title,
-  Vote,
-  Tagline,
-  AdditionInfo,
-  Year,
-  Runtime,
-  Description,
-  Genre,
+  StyledHeader,
+  StyledSiteName,
+  StyledBody,
+  StyledMovieCover,
+  StyledMovieCoverImg,
+  StyledMovieInfo,
+  StyledTitle,
+  StyledMovieVote,
+  StyledMovieTagline,
+  StyledAdditionMovieInfo,
+  StyledMovieYear,
+  StyledMovieRuntime,
+  StyledMovieDescription,
+  StyledMovieGenre,
 } from './MovieInfo.styled';
 
 export const MovieInfo: React.FC = () => {
@@ -66,32 +66,38 @@ export const MovieInfo: React.FC = () => {
         <Loader />
       ) : (
         <>
-          <Header>
-            <SiteName>Movieroulette</SiteName>
+          <StyledHeader>
+            <StyledSiteName>Movieroulette</StyledSiteName>
             <Button onClick={returnToSearch} typeBtn="movieInfoBtn">
               search
             </Button>
-          </Header>
-          <Body>
-            <Cover>
-              <CoverImg src={movie.poster_path} alt={movie.title} onError={onErrorHandler} />
-            </Cover>
+          </StyledHeader>
+          <StyledBody>
+            <StyledMovieCover>
+              <StyledMovieCoverImg
+                src={movie.poster_path}
+                alt={movie.title}
+                onError={onErrorHandler}
+              />
+            </StyledMovieCover>
             <div>
-              <TitleInfo>
-                <Title>{movie.title}</Title>
-                <Vote rate={setRateColorStyle(movie.vote_average)}>{movie.vote_average}</Vote>
-              </TitleInfo>
-              <Tagline>{movie.tagline}</Tagline>
-              <AdditionInfo>
-                <Year>{shortYear(movie.release_date)}</Year>
-                <Runtime>{movie.runtime} min</Runtime>
-              </AdditionInfo>
-              <Description>{movie.overview}</Description>
+              <StyledMovieInfo>
+                <StyledTitle>{movie.title}</StyledTitle>
+                <StyledMovieVote rate={setRateColorStyle(movie.vote_average)}>
+                  {movie.vote_average}
+                </StyledMovieVote>
+              </StyledMovieInfo>
+              <StyledMovieTagline>{movie.tagline}</StyledMovieTagline>
+              <StyledAdditionMovieInfo>
+                <StyledMovieYear>{shortYear(movie.release_date)}</StyledMovieYear>
+                <StyledMovieRuntime>{movie.runtime} min</StyledMovieRuntime>
+              </StyledAdditionMovieInfo>
+              <StyledMovieDescription>{movie.overview}</StyledMovieDescription>
             </div>
-          </Body>
-          <Genre>
+          </StyledBody>
+          <StyledMovieGenre>
             <b>Films by</b> {movie.genres[0]} genre
-          </Genre>
+          </StyledMovieGenre>
         </>
       )}
     </>
