@@ -5,12 +5,12 @@ import { setFilter } from 'Store/actions/searchMovieAction';
 import { RootState } from 'Store/reducers';
 import { FilterTag } from '../../Header/Header';
 import {
-  Filter,
-  Result,
-  ButtonsContainer,
-  ButtonsContainerDesc,
-  List,
-  ListItem,
+  StyledFilter,
+  StyledMoviesCount,
+  StyledButtonsContainer,
+  StyledButtonsContainerDesc,
+  StyledList,
+  StyledListItem,
 } from './MoviesFilter.styled';
 
 export interface MoviesFilterProps {
@@ -27,13 +27,13 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
   };
 
   return (
-    <Filter>
-      <Result>{movies.length} movies found</Result>
-      <ButtonsContainer>
-        <ButtonsContainerDesc>Sort by</ButtonsContainerDesc>
-        <List>
+    <StyledFilter>
+      <StyledMoviesCount>{movies.length} movies found</StyledMoviesCount>
+      <StyledButtonsContainer>
+        <StyledButtonsContainerDesc>Sort by</StyledButtonsContainerDesc>
+        <StyledList>
           {filterTags.map((tag: FilterTag) => (
-            <ListItem key={tag.label}>
+            <StyledListItem key={tag.label}>
               <Button
                 onClick={handleFilterClick?.(tag.type)}
                 typeBtn="filterTagBtn"
@@ -43,10 +43,10 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
               >
                 {tag.label}
               </Button>
-            </ListItem>
+            </StyledListItem>
           ))}
-        </List>
-      </ButtonsContainer>
-    </Filter>
+        </StyledList>
+      </StyledButtonsContainer>
+    </StyledFilter>
   );
 };
