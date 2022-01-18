@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from '../../styles/variables/colors.styled';
 import { breakpoints } from '../../styles/variables/responsive.styled';
 
-export const Title = styled.p`
+export const StyledTitle = styled.p`
   margin-bottom: 1rem;
   margin-left: 5rem;
   color: ${colors.colorPrimary};
@@ -10,7 +10,7 @@ export const Title = styled.p`
   text-transform: uppercase;
 `;
 
-export const Form = styled.form`
+export const StyledForm = styled.form`
   padding: 1rem 5rem;
 
   @media screen and (max-width: ${breakpoints.mobileSm}) {
@@ -18,7 +18,7 @@ export const Form = styled.form`
   }
 `;
 
-export const Input = styled.input`
+export const StyledInput = styled.input`
   width: 100%;
   margin-bottom: 1rem;
   padding: 1rem;
@@ -32,24 +32,24 @@ export const Input = styled.input`
   
 `;
 
-export const ButtonsContainer = styled.div`
+export const StyledButtonsContainer = styled.div`
   display: flex;
   align-items: center;
 `;
 
-export const ButtonsContainerDesc = styled.span`
+export const StyledButtonsContainerDesc = styled.span`
   margin-right: 1rem;
   color: ${colors.colorPrimary};
   font-size: 1.2rem;
   text-transform: uppercase;
 `;
 
-export const List = styled.ul`
+export const StyledList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   list-style: none;
 `;
 
-export const ListItem = styled.li`
+export const StyledListItem = styled.li`
   margin-right: 1rem;
 `;

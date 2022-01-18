@@ -8,13 +8,13 @@ import { RootState } from 'Store/reducers';
 import { setCategory, setInputValue } from 'Store/actions/searchMovieAction';
 import { useQuery } from 'Helpers/useQuery';
 import {
-  Title,
-  Form,
-  Input,
-  ButtonsContainer,
-  ButtonsContainerDesc,
-  List,
-  ListItem,
+  StyledTitle,
+  StyledForm,
+  StyledInput,
+  StyledButtonsContainer,
+  StyledButtonsContainerDesc,
+  StyledList,
+  StyledListItem,
 } from './Search.styled';
 
 export interface SearchProps {
@@ -62,19 +62,19 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
 
   return (
     <>
-      <Title>find your movie</Title>
-      <Form onSubmit={handleFormSubmit}>
-        <Input
+      <StyledTitle>find your movie</StyledTitle>
+      <StyledForm onSubmit={handleFormSubmit}>
+        <StyledInput
           type="text"
           placeholder="search movie"
           value={searchValue}
           onChange={handleSearchValue}
         />
-        <ButtonsContainer>
-          <ButtonsContainerDesc>search by</ButtonsContainerDesc>
-          <List>
+        <StyledButtonsContainer>
+          <StyledButtonsContainerDesc>search by</StyledButtonsContainerDesc>
+          <StyledList>
             {searchTags.map((tag: SearchTag, index: number) => (
-              <ListItem key={`${tag.label}_${index}`}>
+              <StyledListItem key={`${tag.label}_${index}`}>
                 <Button
                   onClick={handleCategoryClick?.(tag.type)}
                   dataTestId="search-tag-btn"
@@ -83,14 +83,14 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
                 >
                   {tag.label}
                 </Button>
-              </ListItem>
+              </StyledListItem>
             ))}
-          </List>
+          </StyledList>
           <Button dataTestId="search-btn" onClick={handleSubmit} typeBtn="searchBtn">
             search
           </Button>
-        </ButtonsContainer>
-      </Form>
+        </StyledButtonsContainer>
+      </StyledForm>
     </>
   );
 };
