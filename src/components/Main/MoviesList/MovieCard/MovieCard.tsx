@@ -3,7 +3,16 @@ import { Link } from 'react-router-dom';
 import { shortYear } from 'Helpers/shortYear';
 import { setRateColorStyle } from 'Helpers/setRateColorStyle';
 import { onErrorHandler } from 'Helpers/onErrorCover';
-import { Movie, Poster, Vote, Info, Title, Year, Genres, Genre } from './MovieCard.styled';
+import {
+  StyledMovie,
+  StyledMoviePoster,
+  StyledMovieVote,
+  StyledMovieInfo,
+  StyledTitle,
+  StyledMovieYear,
+  StyledMovieGenres,
+  StyledMovieGenre,
+} from './MovieCard.styled';
 
 export interface MovieCardProps {
   id: number;
@@ -24,19 +33,19 @@ export const MovieCard: React.FC<MovieCardProps> = ({
 }) => {
   return (
     <Link to={`/movie/${id}`}>
-      <Movie>
-        <Poster src={poster} alt={title} onError={onErrorHandler} />
-        <Vote rate={setRateColorStyle(rating)}>{rating}</Vote>
-        <Info>
-          <Title>{title}</Title>
-          <Year>{shortYear(year)}</Year>
-        </Info>
-        <Genres>
+      <StyledMovie>
+        <StyledMoviePoster src={poster} alt={title} onError={onErrorHandler} />
+        <StyledMovieVote rate={setRateColorStyle(rating)}>{rating}</StyledMovieVote>
+        <StyledMovieInfo>
+          <StyledTitle>{title}</StyledTitle>
+          <StyledMovieYear>{shortYear(year)}</StyledMovieYear>
+        </StyledMovieInfo>
+        <StyledMovieGenres>
           {genres.map((genre: string, index) => (
-            <Genre key={`${genre}_${index}`}>{genre}</Genre>
+            <StyledMovieGenre key={`${genre}_${index}`}>{genre}</StyledMovieGenre>
           ))}
-        </Genres>
-      </Movie>
+        </StyledMovieGenres>
+      </StyledMovie>
     </Link>
   );
 };

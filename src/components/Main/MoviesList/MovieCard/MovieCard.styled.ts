@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { colors } from '../../../../styles/variables/colors.styled';
 import { fonts } from '../../../../styles/variables/fonts.styled';
 
-interface VoteProps {
+interface StyledMovieVoteProps {
   rate: string;
 }
 
-export const Movie = styled.div`
+export const StyledMovie = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -24,11 +24,11 @@ export const Movie = styled.div`
   }
 `;
 
-export const Poster = styled.img`
+export const StyledMoviePoster = styled.img`
   width: 100%;
 `;
 
-export const Vote = styled.span<VoteProps>`
+export const StyledMovieVote = styled.span<StyledMovieVoteProps>`
   position: absolute;
   top: 1.5rem;
   left: 1.5rem;
@@ -40,35 +40,35 @@ export const Vote = styled.span<VoteProps>`
   color: ${(props) => props.rate};
 `;
 
-export const Info = styled.div`
+export const StyledMovieInfo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
 `;
 
-export const Year = styled.span`
+export const StyledMovieYear = styled.span`
   padding: 0.3rem;
   font-size: 1.5rem;
   border: 1px solid ${colors.colorPrimaryDarken};
   border-radius: 3px;
 `;
 
-export const Title = styled.h3`
+export const StyledTitle = styled.h3`
   margin-right: 2rem;
   color: ${colors.colorPrimaryDarkLighten};
   font-weight: ${fonts.fontWeightLight};
   font-size: 2.4rem;
 `;
 
-export const Genres = styled.ul`
+export const StyledMovieGenres = styled.ul`
   display: flex;
   flex-wrap: wrap;
   padding: 0.5rem 1rem;
   list-style: none;
 `;
 
-export const Genre = styled.li`
+export const StyledMovieGenre = styled.li`
   margin-right: 1rem;
   font-size: 1.4rem;
 `;
