@@ -4,7 +4,7 @@ import { fetchMovies } from 'Store/actions/searchMovieAction';
 import { RootState } from 'Store/reducers';
 import { Loader } from 'Components/common/Loader';
 import { MoviesList } from './MoviesList';
-import { MainStyled, ErrorStyled, Title } from './Main.styled';
+import { StyledMain, StyledError, StyledTitle } from './Main.styled';
 
 export interface Movie {
   id: number;
@@ -34,17 +34,17 @@ export const Main: React.FC = () => {
 
   const renderMovieList = () => {
     if (error && error instanceof Error) {
-      return <ErrorStyled>{error.message}</ErrorStyled>;
+      return <StyledError>{error.message}</StyledError>;
     }
     if (isLoading) {
       return <Loader />;
     }
 
     if (!movies.length) {
-      return <Title>No films found</Title>;
+      return <StyledTitle>No films found</StyledTitle>;
     }
     return <MoviesList movieList={movies} />;
   };
 
-  return <MainStyled>{renderMovieList()}</MainStyled>;
+  return <StyledMain>{renderMovieList()}</StyledMain>;
 };
