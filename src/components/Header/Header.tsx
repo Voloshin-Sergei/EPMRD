@@ -4,7 +4,7 @@ import { Search } from 'Components/Search';
 import { MoviesFilter } from 'Components/Header/MoviesFilter';
 import { MovieInfo } from './MovieInfo/MovieInfo';
 import { NotFoundPage } from '../../pages/NotFoundPage';
-import { HeaderStyled, Title } from './Header.styled';
+import { StyledHeader, StyledTitle } from './Header.styled';
 
 export interface SearchTag {
   label: string;
@@ -27,11 +27,11 @@ export interface FilterTag {
 
 export const Header: React.FC = () => {
   return (
-    <HeaderStyled>
+    <StyledHeader>
       <Switch>
         <Route exact path="/">
           <>
-            <Title>Movieroulette</Title>
+            <StyledTitle>Movieroulette</StyledTitle>
             <Search searchTags={searchTags} />
             <MoviesFilter filterTags={filterTags} />
           </>
@@ -41,6 +41,6 @@ export const Header: React.FC = () => {
         </Route>
         <Route component={NotFoundPage} />
       </Switch>
-    </HeaderStyled>
+    </StyledHeader>
   );
 };
