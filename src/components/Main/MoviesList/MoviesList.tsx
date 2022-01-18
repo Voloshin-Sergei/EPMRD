@@ -1,6 +1,6 @@
 import React from 'react';
 import { MovieCard } from './MovieCard';
-import { Movies } from './MovieList.styled';
+import { StyledMovies } from './MovieList.styled';
 
 export interface Movie {
   id: number;
@@ -23,7 +23,7 @@ export interface MovieListProps {
 
 export const MoviesList: React.FC<MovieListProps> = ({ movieList }) => {
   return (
-    <Movies>
+    <StyledMovies>
       {movieList.map(({ id, release_date, title, poster_path, genres, vote_average }: Movie) => (
         <MovieCard
           key={id}
@@ -35,6 +35,6 @@ export const MoviesList: React.FC<MovieListProps> = ({ movieList }) => {
           rating={vote_average}
         />
       ))}
-    </Movies>
+    </StyledMovies>
   );
 };

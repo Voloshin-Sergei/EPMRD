@@ -7,7 +7,7 @@ const primarySizeMd = '300px';
 const primarySizeSm = '280px';
 const primarySizeXs = '210px';
 
-export const Movies = styled.section`
+export const StyledMovies = styled.section`
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, ${primarySize});
