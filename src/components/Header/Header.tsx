@@ -28,19 +28,9 @@ export interface FilterTag {
 export const Header: React.FC = () => {
   return (
     <StyledHeader>
-      <Switch>
-        <Route exact path="/">
-          <>
-            <StyledTitle>Movieroulette</StyledTitle>
-            <Search searchTags={searchTags} />
-            <MoviesFilter filterTags={filterTags} />
-          </>
-        </Route>
-        <Route path="/movie/:id">
-          <MovieInfo />
-        </Route>
-        <Route component={NotFoundPage} />
-      </Switch>
+      <StyledTitle>Movieroulette</StyledTitle>
+      <Search searchTags={searchTags} />
+      <MoviesFilter filterTags={filterTags} />
     </StyledHeader>
   );
 };

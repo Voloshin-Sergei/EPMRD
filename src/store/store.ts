@@ -13,7 +13,9 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // eslint-disable-next-line
-export const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export const composeEnhancers =
+  (typeof window !== 'undefined' && (window as any)).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||
+  compose;
 export const store: Store<RootState, Action<SearchMoviesActionTypes>> = createStore(
   persistedReducer,
   composeEnhancers(applyMiddleware(thunk)),

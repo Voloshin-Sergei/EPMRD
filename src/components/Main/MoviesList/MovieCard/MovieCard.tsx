@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { shortYear } from 'Helpers/shortYear';
 import { setRateColorStyle } from 'Helpers/setRateColorStyle';
 import { onErrorHandler } from 'Helpers/onErrorCover';
@@ -32,9 +32,9 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   rating,
 }) => {
   return (
-    <Link to={`/movie/${id}`}>
+    <Link href={`/movie/${id}`}>
       <StyledMovie>
-        <StyledMoviePoster src={poster} alt={title} onError={onErrorHandler} />
+        <StyledMoviePoster src={poster} alt={title} />
         <StyledMovieVote rate={setRateColorStyle(rating)}>{rating}</StyledMovieVote>
         <StyledMovieInfo>
           <StyledTitle>{title}</StyledTitle>

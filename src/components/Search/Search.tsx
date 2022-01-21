@@ -22,20 +22,20 @@ export interface SearchProps {
 }
 
 export const Search: React.FC<SearchProps> = ({ searchTags }) => {
-  const { pathname } = useLocation();
-  const { push } = useHistory();
-  const query = useQuery();
-  const searchParam = query.get('search');
+  // const { pathname } = useLocation();
+  // const { push } = useHistory();
+  // const query = useQuery();
+  // const searchParam = query.get('search');
   const dispatch = useDispatch();
   const { category } = useSelector((state: RootState) => state.searchMovieReducer);
   const [searchValue, setSearchValue] = useState('');
 
-  useEffect(() => {
-    if (searchParam) {
-      setSearchValue(searchParam);
-      dispatch(setInputValue(searchParam));
-    }
-  }, [searchParam]);
+  // useEffect(() => {
+  //   if (searchParam) {
+  //     setSearchValue(searchParam);
+  //     dispatch(setInputValue(searchParam));
+  //   }
+  // }, [searchParam]);
 
   const handleCategoryClick = (activeCategory: string) => () => {
     dispatch(setCategory(activeCategory));
@@ -47,12 +47,12 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
 
   const handleSubmit = () => {
     dispatch(setInputValue(searchValue));
-    if (searchValue) {
-      push({
-        pathname,
-        search: `?search=${searchValue}`,
-      });
-    }
+    // if (searchValue) {
+    //   push({
+    //     pathname,
+    //     search: `?search=${searchValue}`,
+    //   });
+    // }
   };
 
   const handleFormSubmit = (event: React.FormEvent): void => {
