@@ -4,7 +4,7 @@ import { Main } from 'Components/Main';
 import { Footer } from 'Components/Footer';
 import { ErrorBoundary } from 'Components/ErrorBoundary';
 
-export const Index = () => {
+const Index = () => {
   return (
     <ErrorBoundary>
       <Header />
@@ -13,3 +13,4 @@ export const Index = () => {
     </ErrorBoundary>
   );
 };
+export default Index;

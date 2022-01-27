@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import { Search } from 'Components/Search';
 import { MoviesFilter } from 'Components/Header/MoviesFilter';
 import { MovieInfo } from './MovieInfo/MovieInfo';
-import { NotFoundPage } from '../../pages/NotFoundPage';
 import { StyledHeader, StyledTitle } from './Header.styled';
 
 export interface SearchTag {

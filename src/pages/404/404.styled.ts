@@ -1,38 +1,38 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { colors } from '../../styles/variables';
+import { colors } from '../../styles/variables/colors.styled';
 import { fonts } from '../../styles/variables/fonts.styled';
 
-export const Container = styled.div`
+export const StyledContainer = styled.div`
   padding: 5rem;
   text-align: center;
 `;
 
-export const Title = styled.h1`
+export const StyledTitle = styled.h1`
   color: ${colors.colorSecondary};
   font-weight: ${fonts.fontWeightMedium};
   font-size: 10rem;
 `;
-export const Error = styled.span`
-  color: ${colors.colorPrimary};
+export const StyledError = styled.span`
+  color: ${colors.colorPrimaryDark};
   font-size: 5rem;
   text-transform: uppercase;
 `;
 
-export const Describe = styled.p`
+export const StyledDescribe = styled.p`
   margin-bottom: 2rem;
-  color: ${colors.colorPrimary};
+  color: ${colors.colorPrimaryDark};
   font-size: 3rem;
 `;
 
-export const HomepageLink = styled(Link)`
+export const StyledLink = styled.a`
   display: inline-block;
   padding: 1.2rem;
   color: ${colors.colorSecondary};
   font-size: 2rem;
   background-color: ${colors.colorPrimaryDarken};
   border-radius: 5px;
+  cursor: pointer;
   :hover {
-    background-color: ${colors.colorPrimary};
+    background-color: ${colors.colorPrimaryDarkLight};
   }
 `;

@@ -6,7 +6,7 @@ import bgImg from '../../assets/header_bg.jpg';
 
 export const StyledHeader = styled.header`
   background: linear-gradient(${colors.colorPrimaryShade}, ${colors.colorPrimaryShade}),
-    url(${bgImg}) no-repeat center / cover;
+    url('/assets/header_bg.jpg') no-repeat center / cover;
 `;
 export const StyledTitle = styled.p`
   margin: 2rem 0 8rem 5rem;
