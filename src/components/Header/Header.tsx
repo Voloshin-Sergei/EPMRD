@@ -1,9 +1,7 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
 import { Search } from 'Components/Search';
 import { MoviesFilter } from 'Components/Header/MoviesFilter';
-import { MovieInfo } from './MovieInfo/MovieInfo';
-import { StyledHeader, StyledTitle } from './Header.styled';
+import { StyledContent, StyledHeader, StyledTitle } from './Header.styled';
 
 export interface SearchTag {
   label: string;
@@ -27,8 +25,10 @@ export interface FilterTag {
 export const Header: React.FC = () => {
   return (
     <StyledHeader>
-      <StyledTitle>Movieroulette</StyledTitle>
-      <Search searchTags={searchTags} />
+      <StyledContent>
+        <StyledTitle>Movieroulette</StyledTitle>
+        <Search searchTags={searchTags} />
+      </StyledContent>
       <MoviesFilter filterTags={filterTags} />
     </StyledHeader>
   );

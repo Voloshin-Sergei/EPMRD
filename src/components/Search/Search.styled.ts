@@ -2,20 +2,15 @@ import styled from 'styled-components';
 import { colors } from '../../styles/variables/colors.styled';
 import { breakpoints } from '../../styles/variables/responsive.styled';
 
-export const StyledTitle = styled.p`
+export const StyledTitle = styled.span`
   margin-bottom: 1rem;
-  margin-left: 5rem;
   color: ${colors.colorPrimary};
   font-size: 2.4rem;
   text-transform: uppercase;
 `;
 
 export const StyledForm = styled.form`
-  padding: 1rem 5rem;
-
-  @media screen and (max-width: ${breakpoints.mobileSm}) {
-    padding: 1rem 2rem;
-  }
+  padding: 1rem 0;
 `;
 
 export const StyledInput = styled.input`
