@@ -34,7 +34,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   return (
     <Link href={`/movie/${id}`}>
       <StyledMovie>
-        <StyledMoviePoster src={poster} alt={title} />
+        <StyledMoviePoster src={poster} alt={title} onError={onErrorHandler} />
         <StyledMovieVote rate={setRateColorStyle(rating)}>{rating}</StyledMovieVote>
         <StyledMovieInfo>
           <StyledTitle>{title}</StyledTitle>
