@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
 import { SearchTag } from 'src/pages';
 import { Button } from 'Components/common/Button';
 import { MoviesFilter } from 'Components/Header/MoviesFilter';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'Store/reducers';
 import { setCategory, setInputValue } from 'Store/actions/searchMovieAction';
-import { useQuery } from 'Helpers/useQuery';
 import { useRouter } from 'next/router';
 import {
   StyledContent,
@@ -35,7 +33,6 @@ export interface SearchProps {
 
 export const Search: React.FC<SearchProps> = ({ searchTags }) => {
   const { push, pathname, query } = useRouter();
-  console.log(useRouter());
 
   const searchParam = query.search as string;
   const dispatch = useDispatch();
