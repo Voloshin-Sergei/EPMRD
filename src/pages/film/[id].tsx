@@ -1,11 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+import { GetServerSideProps } from 'next';
 import { MovieInfo } from 'Components/Header/MovieInfo';
 import { Movie } from 'Components/Main/MoviesList';
 import { Layout } from 'Components/layout';
 
-export const getServerSideProps = async (context: any) => {
-  const { id } = context.params;
+interface IndexProps {
+  data: Movie;
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { id } = context.params!;
   const response = await fetch(`https://reactjs-cdp.herokuapp.com/movies/${id}`);
   const data = await response.json();
 
@@ -20,7 +24,7 @@ export const getServerSideProps = async (context: any) => {
   };
 };
 
-const Index = ({ data }: { data: Movie }) => {
+const Index: React.FC<IndexProps> = ({ data }) => {
   return (
     <Layout>
       <MovieInfo movie={data} />

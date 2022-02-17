@@ -10,7 +10,7 @@ interface StyledMovieVoteProps {
 export const StyledContent = styled.div`
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 12rem 2rem 12rem;
+  padding: 2rem 12rem;
 
   @media screen and (max-width: ${breakpoints.mobile}) {
     padding: 2rem;

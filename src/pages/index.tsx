@@ -12,7 +12,7 @@ const searchTags: SearchTag[] = [
   { label: 'genre', type: 'genres' },
 ];
 
-const Index = () => {
+const Index: React.FC = () => {
   return (
     <Layout>
       <Search searchTags={searchTags} />

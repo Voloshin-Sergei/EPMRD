@@ -27,7 +27,11 @@ import {
   StyledMovieGenre,
 } from './MovieInfo.styled';
 
-export const MovieInfo = ({ movie }: { movie: Movie }) => {
+interface MovieInfoProps {
+  movie: Movie;
+}
+
+export const MovieInfo: React.FC<MovieInfoProps> = ({ movie }) => {
   const { push } = useRouter();
   const id = movie.id || '';
 
