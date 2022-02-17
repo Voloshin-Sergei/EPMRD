@@ -7,7 +7,22 @@ interface StyledMovieVoteProps {
   rate: string;
 }
 
-export const StyledHeader = styled.div`
+export const StyledHeader = styled.header`
+  background: linear-gradient(${colors.colorPrimaryShade}, ${colors.colorPrimaryShade}),
+    url('/assets/header_bg.jpg') no-repeat center / cover;
+`;
+
+export const StyledContent = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 5rem 2rem 5rem;
+
+  @media screen and (max-width: ${breakpoints.mobile}) {
+    padding: 2rem;
+  }
+`;
+
+export const StyledHead = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
