@@ -1,24 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Header } from 'Components/Header';
-import { Main } from 'Components/Main';
-import { Footer } from 'Components/Footer';
-import { ErrorBoundary } from 'Components/ErrorBoundary';
+import { Layout } from 'Components/layout';
+import { Search } from 'Components/Search';
 
-const PageStyled = styled.div`
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-`;
+export interface SearchTag {
+  label: string;
+  type: string;
+}
+
+const searchTags: SearchTag[] = [
+  { label: 'title', type: 'title' },
+  { label: 'genre', type: 'genres' },
+];
+
 const Index = () => {
   return (
-    <ErrorBoundary>
-      <PageStyled>
-        <Header />
-        <Main />
-        <Footer />
-      </PageStyled>
-    </ErrorBoundary>
+    <Layout>
+      <Search searchTags={searchTags} />
+    </Layout>
   );
 };
 export default Index;

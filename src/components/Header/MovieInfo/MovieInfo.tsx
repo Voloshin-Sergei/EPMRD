@@ -9,9 +9,8 @@ import { fetchMovies } from 'Store/actions/searchMovieAction';
 import { Movie } from 'Components/Main/MoviesList';
 import { onErrorHandler } from 'Helpers/onErrorCover';
 import {
-  StyledHeader,
   StyledContent,
-  StyledHead,
+  StyledHeader,
   StyledSiteName,
   StyledBody,
   StyledMovieCover,
@@ -24,6 +23,7 @@ import {
   StyledMovieYear,
   StyledMovieRuntime,
   StyledMovieDescription,
+  StyledGenreContent,
   StyledMovieGenre,
 } from './MovieInfo.styled';
 
@@ -46,14 +46,14 @@ export const MovieInfo = ({ movie }: { movie: Movie }) => {
       {!movie.id ? (
         <Loader />
       ) : (
-        <StyledHeader>
+        <>
           <StyledContent>
-            <StyledHead>
+            <StyledHeader>
               <StyledSiteName>Movieroulette</StyledSiteName>
               <Button onClick={returnToSearch} typeBtn="movieInfoBtn">
                 search
               </Button>
-            </StyledHead>
+            </StyledHeader>
             <StyledBody>
               <StyledMovieCover>
                 <StyledMovieCoverImg
@@ -78,10 +78,12 @@ export const MovieInfo = ({ movie }: { movie: Movie }) => {
               </div>
             </StyledBody>
           </StyledContent>
-          <StyledMovieGenre>
-            <b>Films by</b> {movie.genres[0]} genre
-          </StyledMovieGenre>
-        </StyledHeader>
+          <StyledGenreContent>
+            <StyledMovieGenre>
+              <b>Films by</b> {movie.genres[0]} genre
+            </StyledMovieGenre>
+          </StyledGenreContent>
+        </>
       )}
     </>
   );

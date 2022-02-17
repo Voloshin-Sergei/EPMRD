@@ -1,16 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MovieInfo } from 'Components/Header/MovieInfo';
-import { Main } from 'Components/Main';
-import { Footer } from 'Components/Footer';
-import { ErrorBoundary } from 'Components/ErrorBoundary';
 import { Movie } from 'Components/Main/MoviesList';
-
-const PageStyled = styled.div`
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-`;
+import { Layout } from 'Components/layout';
 
 export const getServerSideProps = async (context: any) => {
   const { id } = context.params;
@@ -30,13 +22,9 @@ export const getServerSideProps = async (context: any) => {
 
 const Index = ({ data }: { data: Movie }) => {
   return (
-    <ErrorBoundary>
-      <PageStyled>
-        <MovieInfo movie={data} />
-        <Main />
-        <Footer />
-      </PageStyled>
-    </ErrorBoundary>
+    <Layout>
+      <MovieInfo movie={data} />
+    </Layout>
   );
 };
 
