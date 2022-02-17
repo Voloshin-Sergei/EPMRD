@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'Store/reducers';
 import { setCategory, setInputValue } from 'Store/actions/searchMovieAction';
 import { useQuery } from 'Helpers/useQuery';
+import { useRouter } from 'next/router';
 import {
   StyledContent,
   StyledTitle,
@@ -33,20 +34,20 @@ export interface SearchProps {
 }
 
 export const Search: React.FC<SearchProps> = ({ searchTags }) => {
-  // const { pathname } = useLocation();
-  // const { push } = useHistory();
-  // const query = useQuery();
-  // const searchParam = query.get('search');
+  const { push, pathname, query } = useRouter();
+  console.log(useRouter());
+
+  const searchParam = query.search as string;
   const dispatch = useDispatch();
   const { category } = useSelector((state: RootState) => state.searchMovieReducer);
   const [searchValue, setSearchValue] = useState('');
 
-  // useEffect(() => {
-  //   if (searchParam) {
-  //     setSearchValue(searchParam);
-  //     dispatch(setInputValue(searchParam));
-  //   }
-  // }, [searchParam]);
+  useEffect(() => {
+    if (searchParam) {
+      setSearchValue(searchParam);
+      dispatch(setInputValue(searchParam));
+    }
+  }, [searchParam]);
 
   const handleCategoryClick = (activeCategory: string) => () => {
     dispatch(setCategory(activeCategory));
@@ -58,12 +59,12 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
 
   const handleSubmit = () => {
     dispatch(setInputValue(searchValue));
-    // if (searchValue) {
-    //   push({
-    //     pathname,
-    //     search: `?search=${searchValue}`,
-    //   });
-    // }
+    if (searchValue) {
+      push({
+        pathname,
+        search: `?search=${searchValue}`,
+      });
+    }
   };
 
   const handleFormSubmit = (event: React.FormEvent): void => {
