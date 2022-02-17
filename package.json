@@ -7,10 +7,11 @@
     "testEnvironment": "node"
   },
   "scripts": {
+    "next:dev": "next",
+    "next:build": "next build",
+    "next:start": "next start",
     "start": "webpack serve --env mode=production",
     "dev": "webpack serve --env mode=development",
-    "dev:next": "next",
-    "build:next": "next build & next start",
     "eslint": "eslint src --ext .js,.jsx,.ts,tsx",
     "stylelint": "stylelint src/**/*.scss",
     "linters": "npm run eslint & npm run stylelint",
@@ -96,8 +97,6 @@
     "prettier": "2.4.0",
     "react-test-renderer": "17.0.2",
     "redux-mock-store": "1.5.4",
-    "sass": "1.35.1",
-    "sass-loader": "12.1.0",
     "start-server-and-test": "1.13.1",
     "style-loader": "3.0.0",
     "styled-components": "5.3.3",
