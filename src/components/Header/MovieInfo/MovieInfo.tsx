@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
+import Head from 'next/head';
 import { Button } from 'Components/common/Button';
 import { Loader } from 'Components/common/Loader';
 import { shortYear } from 'Helpers/shortYear';
@@ -51,6 +52,9 @@ export const MovieInfo: React.FC<MovieInfoProps> = ({ movie }) => {
         <Loader />
       ) : (
         <>
+          <Head>
+            <title>{movie.title}</title>
+          </Head>
           <StyledContent>
             <StyledHeader>
               <StyledSiteName>Movieroulette</StyledSiteName>

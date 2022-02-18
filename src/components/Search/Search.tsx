@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'Store/reducers';
 import { setCategory, setInputValue } from 'Store/actions/searchMovieAction';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import {
   StyledContent,
   StyledTitle,
@@ -71,6 +72,9 @@ export const Search: React.FC<SearchProps> = ({ searchTags }) => {
 
   return (
     <>
+      <Head>
+        <title>Movieroulette</title>
+      </Head>
       <StyledContent>
         <StyledTitle>Movieroulette</StyledTitle>
         <StyledTagLine>find your movie</StyledTagLine>

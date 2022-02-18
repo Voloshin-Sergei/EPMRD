@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Head from 'next/head';
 import {
   StyledContainer,
   StyledError,
@@ -14,6 +15,9 @@ const NotFoundPage: React.FC = () => {
 
   return (
     <StyledContainer>
+      <Head>
+        <title>Error 404</title>
+      </Head>
       <StyledError>error</StyledError>
       <StyledTitle>404</StyledTitle>
       <StyledDescribe>{`Sorry, ${route.asPath.slice(1)} page can't be found`}</StyledDescribe>
