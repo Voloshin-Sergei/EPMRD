@@ -32,7 +32,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   rating,
 }) => {
   return (
-    <Link href={`/film/${id}`}>
+    <Link href={`/movie/${id}`}>
       <a>
         <StyledMovie>
           <StyledMoviePoster src={poster} alt={title} onError={onErrorHandler} />
