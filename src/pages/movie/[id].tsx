@@ -4,7 +4,7 @@ import { MovieInfo } from 'Components/Header/MovieInfo';
 import { Movie } from 'Components/Main/MoviesList';
 import { Layout } from 'Components/layout';
 
-interface IndexProps {
+interface DynamicPageProps {
   data: Movie;
 }
 
@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-const Index: React.FC<IndexProps> = ({ data }) => {
+const DynamicPage: React.FC<DynamicPageProps> = ({ data }) => {
   return (
     <Layout>
       <MovieInfo movie={data} />
@@ -32,4 +32,4 @@ const Index: React.FC<IndexProps> = ({ data }) => {
   );
 };
 
-export default Index;
+export default DynamicPage;
