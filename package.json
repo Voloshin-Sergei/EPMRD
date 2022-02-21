@@ -7,11 +7,9 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "next:dev": "next",
-    "next:build": "next build",
-    "next:start": "next start",
-    "start": "webpack serve --env mode=production",
-    "dev": "webpack serve --env mode=development",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
     "eslint": "eslint src --ext .js,.jsx,.ts,tsx",
     "stylelint": "stylelint src/**/*.scss",
     "linters": "npm run eslint & npm run stylelint",
