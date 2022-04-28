@@ -7,8 +7,9 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "start": "webpack serve --env mode=production",
-    "dev": "webpack serve --env mode=development",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
     "eslint": "eslint src --ext .js,.jsx,.ts,tsx",
     "stylelint": "stylelint src/**/*.scss",
     "linters": "npm run eslint & npm run stylelint",
@@ -26,6 +27,7 @@
   "homepage": "https://bitbucket.org/Voloshin-Sergei/epmrd#readme",
   "dependencies": {
     "axios": "0.21.4",
+    "next": "12.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-redux": "7.2.4",
@@ -93,8 +95,6 @@
     "prettier": "2.4.0",
     "react-test-renderer": "17.0.2",
     "redux-mock-store": "1.5.4",
-    "sass": "1.35.1",
-    "sass-loader": "12.1.0",
     "start-server-and-test": "1.13.1",
     "style-loader": "3.0.0",
     "styled-components": "5.3.3",

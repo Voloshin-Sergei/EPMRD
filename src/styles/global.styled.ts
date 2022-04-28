@@ -11,25 +11,13 @@ export const GlobalStyle = createGlobalStyle`
   transition: all 0.1s ease-in-out;
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  max-width: 1400px;
-  min-height: 100%;
-  margin: 0 auto;
-}
 
 html {
-  height: 100%;
   font-size: 10px;
 
   @media screen and (max-width: ${breakpoints.mobileSm}) {
     font-size: 9px;
   }
-}
-
-body {
-  height: 100%;
 }
 
 a {

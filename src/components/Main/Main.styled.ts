@@ -3,7 +3,9 @@ import { colors } from '../../styles/variables/colors.styled';
 import { fonts } from '../../styles/variables/fonts.styled';
 
 export const StyledMain = styled.main`
-  flex: 1 1 auto;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
 `;
 export const StyledError = styled.h2`
   color: ${colors.colorSecondary};

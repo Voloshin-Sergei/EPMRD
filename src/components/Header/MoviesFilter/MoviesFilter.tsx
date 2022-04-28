@@ -11,6 +11,7 @@ import {
   StyledButtonsContainerDesc,
   StyledList,
   StyledListItem,
+  StyledContent,
 } from './MoviesFilter.styled';
 
 export interface MoviesFilterProps {
@@ -28,25 +29,27 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
 
   return (
     <StyledFilter>
-      <StyledMoviesCount>{movies.length} movies found</StyledMoviesCount>
-      <StyledButtonsContainer>
-        <StyledButtonsContainerDesc>Sort by</StyledButtonsContainerDesc>
-        <StyledList>
-          {filterTags.map((tag: FilterTag) => (
-            <StyledListItem key={tag.label}>
-              <Button
-                onClick={handleFilterClick?.(tag.type)}
-                typeBtn="filterTagBtn"
-                variant="secondary"
-                dataTestId="filter-tag-btn"
-                active={tag.type === filter}
-              >
-                {tag.label}
-              </Button>
-            </StyledListItem>
-          ))}
-        </StyledList>
-      </StyledButtonsContainer>
+      <StyledContent>
+        <StyledMoviesCount>{movies.length} movies found</StyledMoviesCount>
+        <StyledButtonsContainer>
+          <StyledButtonsContainerDesc>Sort by</StyledButtonsContainerDesc>
+          <StyledList>
+            {filterTags.map((tag: FilterTag) => (
+              <StyledListItem key={tag.label}>
+                <Button
+                  onClick={handleFilterClick?.(tag.type)}
+                  typeBtn="filterTagBtn"
+                  variant="secondary"
+                  dataTestId="filter-tag-btn"
+                  active={tag.type === filter}
+                >
+                  {tag.label}
+                </Button>
+              </StyledListItem>
+            ))}
+          </StyledList>
+        </StyledButtonsContainer>
+      </StyledContent>
     </StyledFilter>
   );
 };

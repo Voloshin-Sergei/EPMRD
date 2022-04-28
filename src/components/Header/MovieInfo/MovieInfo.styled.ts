@@ -7,6 +7,16 @@ interface StyledMovieVoteProps {
   rate: string;
 }
 
+export const StyledContent = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 12rem;
+
+  @media screen and (max-width: ${breakpoints.mobile}) {
+    padding: 2rem;
+  }
+`;
+
 export const StyledHeader = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -102,8 +112,13 @@ export const StyledMovieDescription = styled.p`
   line-height: 2.5rem;
 `;
 
+export const StyledGenreContent = styled.div`
+  background-color: ${colors.colorPrimaryDarkLight};
+`;
+
 export const StyledMovieGenre = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 1rem 5rem;
   font-size: 1.8rem;
-  background-color: ${colors.colorPrimaryDarkLight};
 `;
