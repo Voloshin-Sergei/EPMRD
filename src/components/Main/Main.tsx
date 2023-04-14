@@ -49,11 +49,11 @@ export interface Movie {
 }
 
 export const Main: React.FC = () => {
-  const { isLoading, error, filter, category, inputValue } = useSelector(
+  const { isLoading, error, movies, filter, category, inputValue } = useSelector(
     (state: RootState) => state.searchMovieReducer,
   );
 
-  const { movies } = useSelector((state: RootState) => state.searchMovieReducer.movies);
+  const moviesList = movies.movies;
 
   const dispatch = useDispatch();
 
@@ -69,10 +69,10 @@ export const Main: React.FC = () => {
       return <Loader />;
     }
 
-    if (!movies.length) {
+    if (movies.movie_count === 0) {
       return <StyledTitle>No films found</StyledTitle>;
     }
-    return <MoviesList movieList={movies} />;
+    return <MoviesList movieList={moviesList} />;
   };
 
   return <StyledMain>{renderMovieList()}</StyledMain>;

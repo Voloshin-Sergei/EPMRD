@@ -35,7 +35,7 @@ export const StyledMovieVote = styled.span<StyledMovieVoteProps>`
   padding: 0.25rem 0.5rem;
   font-weight: ${fonts.fontWeightMedium};
   font-size: 2rem;
-  background-color: ${colors.colorPrimaryDarken};
+  background-color: ${colors.colorPrimaryDarkLights};
   border-radius: 3px;
   color: ${(props) => props.rate};
 `;

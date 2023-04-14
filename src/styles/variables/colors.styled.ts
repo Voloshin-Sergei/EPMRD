@@ -3,6 +3,7 @@ export const colors = {
   colorPrimaryDark: '#000000',
   colorPrimaryDarkLighten: '#4d4d4d',
   colorPrimaryDarkLight: '#e6e6e6',
+  colorPrimaryDarkLights: '#edeef7',
   colorPrimaryDarken: '#adaeb9',
   colorSecondary: '#d12f26',
   colorSecondaryLighten: '#da3f36',
