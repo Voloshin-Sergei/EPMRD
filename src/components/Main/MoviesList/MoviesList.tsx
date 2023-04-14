@@ -6,10 +6,10 @@ export interface Movie {
   id: number;
   title: string;
   tagline: string;
-  vote_average: number;
+  rating: number;
   vote_count: number;
-  release_date: string;
-  poster_path: string;
+  year: number;
+  large_cover_image: string;
   overview: string;
   budget: number;
   revenue: number;
@@ -22,17 +22,18 @@ export interface MovieListProps {
 }
 
 export const MoviesList: React.FC<MovieListProps> = ({ movieList }) => {
+  console.log(movieList);
   return (
     <StyledMovies>
-      {movieList.map(({ id, release_date, title, poster_path, genres, vote_average }: Movie) => (
+      {movieList.map(({ id, year, title, large_cover_image, genres, rating }: Movie) => (
         <MovieCard
           key={id}
           id={id}
-          year={release_date}
+          year={year}
           title={title}
-          poster={poster_path}
+          poster={large_cover_image}
           genres={genres}
-          rating={vote_average}
+          rating={rating}
         />
       ))}
     </StyledMovies>

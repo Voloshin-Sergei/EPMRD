@@ -16,7 +16,7 @@ import {
 
 export interface MovieCardProps {
   id: number;
-  year: string;
+  year: number;
   title: string;
   poster: string;
   genres: string[];
@@ -39,7 +39,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
           <StyledMovieVote rate={setRateColorStyle(rating)}>{rating}</StyledMovieVote>
           <StyledMovieInfo>
             <StyledTitle>{title}</StyledTitle>
-            <StyledMovieYear>{shortYear(year)}</StyledMovieYear>
+            <StyledMovieYear>{year}</StyledMovieYear>
           </StyledMovieInfo>
           <StyledMovieGenres>
             {genres.map((genre: string, index) => (

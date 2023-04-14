@@ -4,8 +4,9 @@ import { request } from '../config/axios.config';
 
 export const api = {
   getMovies: async (params: MovieParams): Promise<AxiosResponse<Movie[]>> => {
-    const response = await request.get('/movies', {
+    const response = await request.get('/list_movies.json', {
       params: {
+        limit: 9,
         sortBy: params.sortBy,
         searchBy: params.searchBy,
         search: params.search,

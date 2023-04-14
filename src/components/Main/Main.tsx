@@ -26,6 +26,8 @@ export const Main: React.FC = () => {
     (state: RootState) => state.searchMovieReducer,
   );
 
+  const moviesList = movies.movies;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,10 +42,10 @@ export const Main: React.FC = () => {
       return <Loader />;
     }
 
-    if (!movies.length) {
+    if (!moviesList.length) {
       return <StyledTitle>No films found</StyledTitle>;
     }
-    return <MoviesList movieList={movies} />;
+    return <MoviesList movieList={moviesList} />;
   };
 
   return <StyledMain>{renderMovieList()}</StyledMain>;
