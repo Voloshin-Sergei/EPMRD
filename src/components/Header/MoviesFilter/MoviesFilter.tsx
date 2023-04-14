@@ -30,7 +30,7 @@ export const MoviesFilter: React.FC<MoviesFilterProps> = ({ filterTags }) => {
   return (
     <StyledFilter>
       <StyledContent>
-        <StyledMoviesCount>{movies.length} movies found</StyledMoviesCount>
+        <StyledMoviesCount>{movies.movie_count} movies found</StyledMoviesCount>
         <StyledButtonsContainer>
           <StyledButtonsContainerDesc>Sort by</StyledButtonsContainerDesc>
           <StyledList>

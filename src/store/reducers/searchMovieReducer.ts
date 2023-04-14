@@ -1,8 +1,13 @@
-import { Movie } from 'Components/Main/MoviesList';
+import { Movie } from 'Components/Main/Main';
 import { Actions, SearchMoviesActionTypes } from '../types';
 
 interface InitialState {
-  movies: Movie[];
+  movies: {
+    movie_count: number;
+    limit: number;
+    page_number: number;
+    movies: Movie[];
+  };
   isLoading: boolean;
   error: unknown | null;
   category: string;
@@ -11,7 +16,12 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  movies: [],
+  movies: {
+    movie_count: 0,
+    limit: 9,
+    page_number: 1,
+    movies: [],
+  },
   isLoading: false,
   error: null,
   category: 'title',

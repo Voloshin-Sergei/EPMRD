@@ -1,4 +1,4 @@
-import { Movie } from 'Components/Main/MoviesList';
+import { Movie } from 'Components/Main/Main';
 
 export enum Actions {
   GET_MOVIES_STARTED = 'GET_MOVIES_STARTED',
@@ -16,7 +16,15 @@ export interface GetMoviesStarted {
 
 export interface GetMoviesSuccess {
   type: Actions.GET_MOVIES_SUCCESS;
-  payload: { movies: Movie[]; isLoading: boolean };
+  payload: {
+    movies: {
+      movie_count: number;
+      limit: number;
+      page_number: number;
+      movies: Movie[];
+    };
+    isLoading: boolean;
+  };
 }
 
 export interface GetMoviesFailure {

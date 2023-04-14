@@ -6,27 +6,54 @@ import { Loader } from 'Components/common/Loader';
 import { MoviesList } from './MoviesList';
 import { StyledMain, StyledError, StyledTitle } from './Main.styled';
 
+interface Torrent {
+  url: string;
+  hash: string;
+  quality: string;
+  type: string;
+  seeds: number;
+  peers: number;
+  size: string;
+  size_bytes: number;
+  date_uploaded: string;
+  date_uploaded_unix: number;
+}
+
 export interface Movie {
   id: number;
+  url: string;
+  imdb_code: string;
   title: string;
-  tagline: string;
-  vote_average: number;
-  vote_count: number;
-  release_date: string;
-  poster_path: string;
-  overview: string;
-  budget: number;
-  revenue: number;
+  title_english: string;
+  title_long: string;
+  slug: string;
+  year: number;
+  rating: number;
   runtime: number;
   genres: string[];
+  summary: string;
+  description_full: string;
+  synopsis: string;
+  yt_trailer_code: string;
+  language: string;
+  mpa_rating: string;
+  background_image: string;
+  background_image_original: string;
+  small_cover_image: string;
+  medium_cover_image: string;
+  large_cover_image: string;
+  state: string;
+  torrents: Torrent[];
+  date_uploaded: string;
+  date_uploaded_unix: number;
 }
 
 export const Main: React.FC = () => {
-  const { isLoading, error, movies, filter, category, inputValue } = useSelector(
+  const { isLoading, error, filter, category, inputValue } = useSelector(
     (state: RootState) => state.searchMovieReducer,
   );
 
-  const moviesList = movies.movies;
+  const { movies } = useSelector((state: RootState) => state.searchMovieReducer.movies);
 
   const dispatch = useDispatch();
 
@@ -42,10 +69,10 @@ export const Main: React.FC = () => {
       return <Loader />;
     }
 
-    if (!moviesList.length) {
+    if (!movies.length) {
       return <StyledTitle>No films found</StyledTitle>;
     }
-    return <MoviesList movieList={moviesList} />;
+    return <MoviesList movieList={movies} />;
   };
 
   return <StyledMain>{renderMovieList()}</StyledMain>;
